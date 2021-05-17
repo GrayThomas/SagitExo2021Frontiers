@@ -1,0 +1,74 @@
+On Compliant Strength Amplification Control for Exoskeletons using Human-Interface Force/Torque Feedback
+
+Contributions: 
+1	The 1-parameter human strength amplification filter, and the associated theory.
+2	The weighted 1-norm static controller
+
+Short:
+
+	Amplifying the strength of a human operator during unpredictable human-directed movements is a relevant capability for several proposed exoskeleton applications, including mobility augmentation, manual material handling, tool operation, and capability platform. 
+
+	We consider the controls problem of achieving this capability using feedback from force/torque sensors at the human--machine interface.
+
+	The stability of the machine when in contact with the human is the most important constraint.
+
+	We propose a controller that combines task-level compliance shaping---a Bode plot based approach to practical impedance control---with prioritized and constrained task control using a multi-contact floating base robot model.
+
+	The compliance shaping allows us to design amplification behaviors that are stable in conjunction with recently developed human impedance models.
+
+	And the task control allows us to generalize to the multi-DOF case with various foot contact configurations and human-led contact switching.
+
+	Unlike controllers and augmentation systems designed for repetitive tasks (e.g. walking), this is a task-agnostic approach with no phase measurement or need for a task classifier system.
+
+	We use an active lower-body exoskeleton designed as a prototype capability platform to demonstrate that the controller can reduce human effort (interface forces) for both known and unknown payloads.
+
+Outline:
+	On Compliant Strength Amplification Control for Exoskeletons using Human-Interface Force/Torque Feedback
+Intro:
+	Many kinds of exoskeletons -> we study the feedback controllers for the non-repetitive task type
+	Payload amplification is to... -> Admittance control has flaws
+	Strength amplification is to ... -> Human models are important to prove stability
+	Endurance amplification -> Hard to extend the phase-based techniques to aperiodic behaviors
+	This paper...
+	Series Elastic Robots -> Series Elastic Exoskeletons
+	Relationship to compliance shaping
+== Fig. Sagit on the stairs
+	Relationship to multi-contact
+	Relationship to other publications
+Theory of Strength Amplification:
+== Tab. Nomenclature
+	Introduce idea of ideal amplificaiton
+	Shaping the operator's felt dynamics
+	Ideal amplification law results in...
+1-Norm Prioritized Minimization Problem for Control
+== Fig. 1-norm
+	This is just an increase in complication
+	Kp gets to be a transfer function
+	Multi-contact is a complication
+	Goal of the multi-contact system
+	EOM
+  Static Equilibrium Sagittarius Model
+== Fig. Interface sensors/OPtimization
+  	We can ignore the dynamics somewhat
+  	Everything is locked in the equilibrium
+  	What happens to the ground inequality
+  	Virtual base
+  	Matrix inversion to solve
+  	Result allows us to penalize f_d
+  Actuator-Mapped Reaction Force Space
+    We do linear algebra to express things as functions of torques
+    Reformulated dynamics
+    Saving space with dynamically consistent pseudoinverses
+    reaction forces due to torques (and actually J is invertible)
+  Statement of the Optimization Problem
+    Here it is, in terms of tau + here's why we use 1 norm
+    Contact constraints and inequalitites, "trusting the human"
+  Designing the Amplification Task to be Stable
+== Fig. Bode plot of design
+
+
+== Fig. Force comparison (4x3 graphs) + video screen shots
+== Fig. Step transitions 
+
+
+

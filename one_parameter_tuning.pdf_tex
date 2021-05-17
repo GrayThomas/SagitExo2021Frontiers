@@ -1,0 +1,86 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'one_parameter_tuning.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{468bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.38461538)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{one_parameter_tuning.png}}%
+    \put(0.70029918,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{-1}$}}}%
+    \put(0.83715685,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{0}$}}}%
+    \put(0.97401457,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{1}$}}}%
+    \put(0.39007949,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{-1}$}}}%
+    \put(0.52693716,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{0}$}}}%
+    \put(0.66379488,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{1}$}}}%
+    \put(0.07849054,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{-1}$}}}%
+    \put(0.21534822,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{0}$}}}%
+    \put(0.3522059,0.00752725){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10^{1}$}}}%
+    \put(0.057993,0.16985321){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$180^{\circ}$}}}%
+    \put(0.057993,0.13632436){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$90^{\circ}$}}}%
+    \put(0.057993,0.10279572){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$0^{\circ}$}}}%
+    \put(0.057993,0.06926666){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$-90^{\circ}$}}}%
+    \put(0.057993,0.03573822){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$-180^{\circ}$}}}%
+    \put(0.057993,0.33739638){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$10^{-1}$}}}%
+    \put(0.057993,0.30738513){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$10^{-2}$}}}%
+    \put(0.057993,0.27737378){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$10^{-3}$}}}%
+    \put(0.057993,0.24736243){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$10^{-4}$}}}%
+    \put(0.057993,0.21735108){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$10^{-5}$}}}%
+    \put(0.91799139,0.34472623){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Human}}}%
+    \put(0.91799139,0.32464932){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Robot}}}%
+    \put(0.91799139,0.3045724){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{System}}}%
+    \put(0.0806184,0.31567751){\color[rgb]{0.12156863,0.46666667,0.70588235}\rotatebox{-21.63752164}{\makebox(0,0)[lb]{\smash{Tuning}}}}%
+    \put(0.39100468,0.31567785){\color[rgb]{0.12156863,0.46666667,0.70588235}\rotatebox{-21.63752164}{\makebox(0,0)[lb]{\smash{Tuning}}}}%
+    \put(0.70143812,0.31567822){\color[rgb]{0.12156863,0.46666667,0.70588235}\rotatebox{-21.63752164}{\makebox(0,0)[lb]{\smash{Tuning}}}}%
+    \put(0.08073029,0.36335353){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Good}}}%
+    \put(0.39116633,0.36335353){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Oscillatory}}}%
+    \put(0.70141226,0.36335353){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Unstable}}}%
+    \put(0.08134415,0.12757576){\color[rgb]{0.12156863,0.46666667,0.70588235}\rotatebox{0.17901808}{\makebox(0,0)[lb]{\smash{Tuning}}}}%
+    \put(0.39281722,0.12757582){\color[rgb]{0.12156863,0.46666667,0.70588235}\rotatebox{0.17901808}{\makebox(0,0)[lb]{\smash{Tuning}}}}%
+    \put(0.70516769,0.12757581){\color[rgb]{0.12156863,0.46666667,0.70588235}\rotatebox{0.17901808}{\makebox(0,0)[lb]{\smash{Tuning}}}}%
+    \put(0.96506421,0.05388736){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$180^{\circ}$}}}%
+  \end{picture}%
+\endgroup%

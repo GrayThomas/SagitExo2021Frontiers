@@ -1,0 +1,95 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'transitions_small.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{513.8589592bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.36430229)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{transitions_small.pdf}}%
+    \put(0.02350034,0.328012){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}A.)\end{tabular}}}}%
+    \put(0.27156183,0.328012){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}B.)\end{tabular}}}}%
+    \put(0.52146629,0.328012){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}C.)\end{tabular}}}}%
+    \put(0.77063356,0.328012){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}D.)\end{tabular}}}}%
+    \put(0.04247555,0.30116681){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.1\end{tabular}}}}%
+    \put(0.15584879,0.30070877){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.0\end{tabular}}}}%
+    \put(0.15610943,0.33101497){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.3\end{tabular}}}}%
+    \put(0.22171855,0.33212074){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.4\end{tabular}}}}%
+    \put(0.22599107,0.19795375){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.5\end{tabular}}}}%
+    \put(0.22599107,0.16183186){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.6\end{tabular}}}}%
+    \put(0.22599107,0.12570999){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.7\end{tabular}}}}%
+    \put(0.22599107,0.08958809){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.8\end{tabular}}}}%
+    \put(0.04147773,0.2156461){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.9\end{tabular}}}}%
+    \put(0.04147773,0.18689602){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.a\end{tabular}}}}%
+    \put(0.04147773,0.15777735){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.b\end{tabular}}}}%
+    \put(0.04147773,0.12718433){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.c\end{tabular}}}}%
+    \put(0.04147773,0.09843425){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.d\end{tabular}}}}%
+    \put(0.02599693,0.05457197){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.e\end{tabular}}}}%
+    \put(0.12625359,0.15740875){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}a.2\end{tabular}}}}%
+    \put(0.28896186,0.30110543){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.0\end{tabular}}}}%
+    \put(0.37573334,0.17343892){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.4\end{tabular}}}}%
+    \put(0.35066918,0.08423999){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.3\end{tabular}}}}%
+    \put(0.29169468,0.08497717){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.1\end{tabular}}}}%
+    \put(0.28800878,0.01493567){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.2\end{tabular}}}}%
+    \put(0.39490008,0.01493567){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.5\end{tabular}}}}%
+    \put(0.45387456,0.01493567){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.6\end{tabular}}}}%
+    \put(0.467881,0.11372723){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}b.1\end{tabular}}}}%
+    \put(0.55284735,0.3020307){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}c.0\end{tabular}}}}%
+    \put(0.55024103,0.12675889){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}c.3\end{tabular}}}}%
+    \put(0.64615395,0.01520506){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}c.4\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{transitions_small.pdf}}%
+    \put(0.67903974,0.33114706){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}c.2\end{tabular}}}}%
+    \put(0.67977692,0.302397){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}c.1\end{tabular}}}}%
+    \put(0.79662015,0.14353443){\color[rgb]{0.27058824,0.55294118,0.50980392}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}d.0\end{tabular}}}}%
+    \put(0.82592312,0.13255847){\color[rgb]{0.04313725,0.20784314,0.18823529}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}d.1\end{tabular}}}}%
+    \put(0.80514001,0.01493567){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}d.2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{transitions_small.pdf}}%
+  \end{picture}%
+\endgroup%

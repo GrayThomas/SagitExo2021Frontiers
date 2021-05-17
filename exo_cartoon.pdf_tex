@@ -1,0 +1,78 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'exo_cartoon.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{234bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.84615385)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{exo_cartoon.pdf}}%
+    \put(0.25202411,0.11936298){\color[rgb]{0.2627451,0.41176471,0.35686275}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}c.0\end{tabular}}}}%
+    \put(0.07554183,0.01407536){\color[rgb]{0.2627451,0.41176471,0.35686275}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}c.1\end{tabular}}}}%
+    \put(0.39283701,0.08081798){\color[rgb]{0.2627451,0.41176471,0.35686275}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}c.2\end{tabular}}}}%
+    \put(0.01221676,0.25366703){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}c. operator\end{tabular}}}}%
+    \put(0.01221676,0.43619073){\color[rgb]{0.94901961,0.6627451,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}b.3\end{tabular}}}}%
+    \put(0.01221676,0.4728932){\color[rgb]{0.94901961,0.6627451,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}b.1\end{tabular}}}}%
+    \put(0.01221676,0.50959546){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}b. exoskeleton\end{tabular}}}}%
+    \put(0.39629426,0.50959546){\color[rgb]{0.94901961,0.6627451,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}b.0\end{tabular}}}}%
+    \put(0.39627551,0.4728932){\color[rgb]{0.94901961,0.6627451,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}b.2\end{tabular}}}}%
+    \put(0.39595625,0.43619073){\color[rgb]{0.94901961,0.6627451,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}b.4\end{tabular}}}}%
+    \put(0.01221676,0.80934213){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}a. real sensors\end{tabular}}}}%
+    \put(0.51213909,0.80934213){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}d. virtual sensors\end{tabular}}}}%
+    \put(0.55880287,0.76457425){\color[rgb]{0.41568627,0.41568627,0.41568627}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}d.3 massless operator\end{tabular}}}}%
+    \put(0.78949895,0.5779202){\color[rgb]{0,0.37254902,0.5254902}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}d.0\end{tabular}}}}%
+    \put(0.59326884,0.51491877){\color[rgb]{0,0.37254902,0.5254902}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}d.1\end{tabular}}}}%
+    \put(0.92813957,0.49635323){\color[rgb]{0,0.37254902,0.5254902}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}d.2\end{tabular}}}}%
+    \put(0.51213909,0.37816226){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}e. optimization penalizes\\2 virtual sensors\end{tabular}}}}%
+    \put(0.7388875,0.29770707){\color[rgb]{0.86666667,0.16470588,0.16862745}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}e.0-penalized\end{tabular}}}}%
+    \put(0.50334466,0.01110853){\color[rgb]{0,0.37254902,0.5254902}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}e.1-unpenalized\end{tabular}}}}%
+    \put(0.72075657,0.05520575){\color[rgb]{0.86666667,0.16470588,0.16862745}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}e.2-penalized\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,13 @@
+An Amplification Shaping Framework for Exoskeletal Human Strength Augmentation
+
+Augmenting the physical strength of a human operator during unpredictable human-directed (volitional) movements is a relevant capability for several proposed exoskeleton applications, including mobility augmentation, manual material handling, tool operation, and mounting useful payloads. Unlike controllers and augmentation systems designed for repetitive tasks (e.g. walking), we approach physical strength augmentation by a task-agnostic method of force amplification — using force/torque sensors at the human–machine interface to estimate the human task force, and then amplifying it with the robot. Coupled stability of the machine with the human motivates our introduction of an amplification shaping framework for the design of safe controllers. To avoid system identification of the operator wearing the exoskeleton, we refine the amplification strategy down to a one-parameter tunable compensator. This amplification controller is integrated into a complete framework for controlling exoskeletons that includes human-led foot transitions, inequality constraints, and a computationally efficient prioritization. A powered lower-body exoskeleton is used to demonstrate behavior of the control framework in a lab environment.
+
+Cover Message:
+	
+Dear Editor-in-Chief,
+We have responded to all reviewer comments, including 112 from reviewer
+7, who we can only commend for such dedication. We are eager to see
+their responses to this latest version of the paper.
+
+Cheers,
+-Gray

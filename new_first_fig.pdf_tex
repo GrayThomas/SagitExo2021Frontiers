@@ -1,0 +1,78 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'new_first_fig.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{234bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.76923077)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{new_first_fig.pdf}}%
+    \put(0.73101189,0.60375865){\color[rgb]{0.8,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}%
+    \put(0.42913884,0.37463226){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E.)\end{tabular}}}}%
+    \put(0.68434024,0.46196466){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Amplification of the Human\end{tabular}}}}%
+    \put(0.65357049,0.53603587){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Environment\end{tabular}}}}%
+    \put(0.42913884,0.15539627){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F.)\end{tabular}}}}%
+    \put(0.38721107,0.72299273){\color[rgb]{0.8,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A.) Human\end{tabular}}}}%
+    \put(0.38721107,0.65400396){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}C.) Environment\end{tabular}}}}%
+    \put(0.38721107,0.68849825){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}B.) Exoskeleton\end{tabular}}}}%
+    \put(0.80688634,0.5695943){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Exo\end{tabular}}}}%
+    \put(0.85003377,0.34264444){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Exo\end{tabular}}}}%
+    \put(0.80574299,0.12808942){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Exo\end{tabular}}}}%
+    \put(0.75467424,0.36768808){\color[rgb]{0.8,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human-Side Force\end{tabular}}}}%
+    \put(0.68434019,0.24520261){\color[rgb]{0.8,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Human-Side Compliance (Large)\end{tabular}}}}%
+    \put(0.68434019,0.03407458){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Environment-Side Compliance (Small)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{new_first_fig.pdf}}%
+    \put(0.42913884,0.59386881){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D.)\end{tabular}}}}%
+    \put(0.73975913,0.14889239){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Env.-Side Force\end{tabular}}}}%
+    \put(0.76397638,0.5105109){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Accelertation\end{tabular}}}}%
+    \put(0.75467424,0.30912132){\color[rgb]{0.8,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Resulting Accelertation\end{tabular}}}}%
+    \put(0.73975913,0.08478958){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Resulting Acceleration\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

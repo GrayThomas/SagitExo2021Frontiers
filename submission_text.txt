@@ -1,0 +1,41 @@
+An Amplification Shaping Framework for Exoskeletal Human Strength Augmentation
+
+Augmenting the physical strength of a human operator during unpredictable human-directed (volitional) movements is a relevant capability for several proposed exoskeleton applications, including mobility augmentation, manual material handling, tool operation, and mounting useful payloads. Unlike controllers and augmentation systems designed for repetitive tasks (e.g. walking), we approach physical strength augmentation by a task-agnostic method of force amplification — using force/torque sensors at the human—machine interface to estimate the human task force, and then amplifying it with the robot. Coupled stability of the machine with the human motivates our introduction of an amplification shaping framework for the design of safe controllers. To avoid system identification of the operator wearing the exoskeleton, we refine the amplification strategy down to a one-parameter tunable compensator. This amplification controller is integrated into a complete framework for controlling exoskeletons which includes human-led foot transitions, inequality constraints, and a computationally efficient prioritization. A powered lower-body exoskeleton is used to demonstrate behavior of the control framework in a lab environment.
+
+Prosthetics and Exoskeletons
+Human Performance Augmentation
+Compliance and Impedance Control
+Strength Amplification Exoskeletons
+
+ 	Physical Human-Robot Interaction
+ 	Physically Assistive Devices
+	Human-Centered Robotics
+
+
+Dr. Gray Cortright Thomas
+Postdoctoral Research Fellow,
+Neurobionics and Locomotor Control Systems Laboratories
+Electrical and Computer Engineering
+University of Michigan
+
+
+3 December 2019
+
+Dear Dr. Lynch,
+
+We wish to submit an original research article entitled "An Amplification Shaping Framework for Exoskeletal Human Strength Augmentation" for consideration by the IEEE Transactions on Robotics (T-RO).
+We confirm that this work is original and has not been published elsewhere, nor is it currently under consideration for publication elsewhere.
+
+In this paper, we show that amplification shaping can be extended to multi-joint systems — and in demonstrating this we present a complete framework for implementing this type of human strength augmentation control in multi-contact exoskeletons. This is significant because it allows multi-contact exoskeletons to reduce the burden of unknown loads on the user without making the user's interaction with the environment a feed-forward process. We believe that this manuscript is appropriate for publication by T-RO because it falls within its broad area of Robotics, its interdisciplinary featured approach of control systems, and its special emphasis on systems for unstructured environments which cannot be directly sensed or controlled. Here, the human operator, the ground on which the system stands, and the unknown component of the load can be considered such unknown environments.
+
+In accordance with IEEE policy and our ethical obligations as researchers, we are reporting that several authors (L.S., N.P., N.N., J.J., O.C.) have a current or former financial and buisiness interest in the company Apptronik Systems, Inc — a company that may be affected by the research reported in the manuscript. We are also reporting that we have (all excepting G.C.T.) received funding in collaboration with Apptronik Systems, Inc. from a Defence Departement Organization for the design and control of the Sagittarius Exoskeleton system. A NASA space technology research fellowship supported G.C.T. in this research. 
+
+Please address all correspondence concerning this manuscript to G.C.T. at gcthomas@umich.edu
+
+Thank you for your consideration of this manuscript.
+
+Sincerely,
+
+Gray C. Thomas
+Luis Sentis
+et. al.

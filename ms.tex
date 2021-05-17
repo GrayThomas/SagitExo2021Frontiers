@@ -1,0 +1,220 @@
+% sage_latex_guidelines.tex V1.20, 14 January 2017
+
+%\documentclass[Afour,sageh,times]{sagej} %IJRR
+%\documentclass[journal,final,twoside]{IEEEtran} 
+\documentclass{ieeeaccess}
+
+\usepackage{amsmath}
+\usepackage{amscd}  
+\usepackage{bm,upgreek}
+\usepackage{amsfonts}
+\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{nccmath}
+\usepackage{epsfig}
+\usepackage{moreverb,url}
+\usepackage{graphicx}
+%\usepackage[font=footnotesize]{caption}
+%\usepackage[font=footnotesize]{subcaption}
+\usepackage{capt-of}
+\usepackage{booktabs}
+\usepackage{xcolor}
+%\usepackage{citesort}
+%\usepackage{accents}
+\usepackage{import}
+\usepackage{placeins}
+\usepackage{mathtools}
+%\usepackage{subcaption}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{resizegather}
+
+\usepackage{transparent}
+\pdfminorversion=4
+
+% Track additions
+%\newcommand*{\ta}[1]{\textcolor[HTML]{107f10}{#1}}
+\newcommand*{\ta}[1]{#1}
+\newcommand*{\tb}[1]{#1}
+\newcommand*{\tc}[1]{#1}
+\newcommand*{\td}[1]{#1}
+\newcommand*{\te}[1]{#1}
+\newcommand*{\tf}[1]{#1}
+
+% Track removal
+\newcommand*{\ra}[1]{}
+\newcommand*{\rb}[1]{}
+\newcommand*{\rc}[1]{}
+\newcommand*{\rd}[1]{}
+\newcommand*{\re}[1]{}
+\newcommand*{\rf}[1]{}
+
+\renewcommand{\floatpagefraction}{.95}
+\renewcommand{\topfraction}{.95}
+\renewcommand{\bottomfraction}{.95}
+\renewcommand{\textfraction}{.95}
+\renewcommand{\dbltopfraction}{.95}
+\renewcommand{\floatpagefraction }{.95}
+\newcommand*{\TODO}{\textcolor[HTML]{FF0000}{\bf TODO:}}
+
+
+%\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
+%\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,draft,citecolor=red,urlcolor=red]{hyperref}
+
+% \AtBeginDocument{%
+%	\providecommand*\ext@lstlisting{lol}%
+%	\renewcommand{\fnum@lstlisting}{\lstlistingname\nobreakspace\thelstlisting}
+%}
+
+\input{defines.tex}
+
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%\def\volumeyear{2021}
+\setcounter{secnumdepth}{3} % numbers sections
+
+
+%\IEEEpubid{0000--0000/\$00.00~\copyright~2019 IEEE}
+\begin{document}
+	\history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
+	\doi{10.1109/ACCESS.2017.DOI}
+
+%\runninghead{Thomas et al.}
+
+\title{Compliance Ratio Control for Exoskeletons:\\Human Strength Amplification}
+
+\title{An Amplification Shaping Framework for Exoskeletal Human Strength Augmentation}
+
+%\author{Gray Cortright Thomas\affilnum{1}, Orion {Campbell IV}\affilnum{2}, Nick Nichols\affilnum{2}, Nicholas Brissoneau\affilnum{3}, Binghan He\affilnum{3}, Joshua James\affilnum{2}, Nicholas Paine\affilnum{2}, and Luis Sentis\affilnum{3}}
+%
+%\affiliation{\affilnum{1}University of Michigan, MI\\
+%\affilnum{2}Apptronik Systems, Inc., TX\\
+%\affilnum{3}University of Texas at Austin, TX}
+%
+%\corrauth{Gray Cortright Thomas, University of Michigan
+%500 S State St,
+%Ann Arbor, MI,
+%48109, USA.}
+%
+%\email{gray.c.thomas@gmail.com}
+
+\author{\uppercase{Gray C. Thomas}\authorrefmark{1}, \IEEEmembership{Member, IEEE},
+	\uppercase{Orion {Campbell IV}}\authorrefmark{2}, \IEEEmembership{Student Member, IEEE},
+	\uppercase{Nick B. Nichols},
+	\uppercase{Nicholas Brissoneau}\authorrefmark{3}, \IEEEmembership{Student Member, IEEE},
+	\uppercase{Binghan~He}\authorrefmark{4}, \IEEEmembership{Student Member, IEEE},
+	\uppercase{Joshua A. James}\authorrefmark{2},
+	\uppercase{Nicholas A. Paine}\authorrefmark{2}, \IEEEmembership{Member, IEEE},
+	and \uppercase{Luis~Sentis}\authorrefmark{5},~\IEEEmembership{Member,~IEEE} }
+\address[1]{Department of Electrical Engineering and Computer Science, University of Michigan, Ann Arbor, MI 48109 USA (e-mail: gcthomas@ieee.org)}
+\address[2]{Apptronik, Inc., Austin, TX 78758 USA}
+\address[3]{LinkDyn Robotics Inc., Austin, TX 78759 USA}
+\address[4]{Walker Department of Mechanical Engineering, The University of Texas at Austin, Austin, TX 78712 USA (e-mail: binghan@utexas.edu)}
+\address[5]{Aerospace Engineering and Engineering Mechanics, The University of Texas at Austin, Austin, TX 78712 USA (e-mail: lsentis@austin.utexas.edu)}
+\tfootnote{This work was supported by a NASA Space Technology Research Fellowship grant \#NNX15AQ33H, two federal STTR programs, Office of Naval Research grant \#N000141512507, and National Science Foundation grant \#1724360.
+}
+
+% <-this % stops a space
+%	\thanks{G. Thomas, B. He, N. Brissoneau were with the Department
+%		of Mechanical Engineering, University of Texas at Austin, Austin,
+%		TX, 78712 USA (G. Thomas's e-mail: gcthomas@umich.edu).}% <-this % stops a space
+%	\thanks{L. Sentis was with the Department of Aerospace Engineering, University of Texas at Austin, Austin, TX, 78712 USA (e-mail: lsentis@austin.utexas.edu).}% <-this % stops a space
+%	\thanks{O. Campbell, N. Nichols, J. James, and N. Paine were with Appronik Systems, Inc., Austin, TX, 78758 USA.}
+%	\thanks{Manuscript not yet submitted September 6, 2019; nor revised.}
+%	\thanks{Color versions of one or more of the figures in this paper are available online at https://ieeeexplore.ieee.org.}
+%	\thanks{Digital Object Identifier XX.XXXX/SRO.2019.XXXXXXX}}
+
+
+% The paper headers
+\markboth{IEEE Submissions on Robotics, Vol. 00, No. 0, September~2019}{Thomas \MakeLowercase{\textit{et al.}}: Comp. Ratio Strength Amp. Control for Exos. using Force Feedback}
+
+
+
+\begin{abstract}
+Augmenting the physical strength of a human operator during unpredictable human-directed (volitional) movements is a relevant capability for several proposed exoskeleton applications, including mobility augmentation, manual material handling, and tool operation. 
+Unlike controllers and augmentation systems designed for repetitive tasks (e.g. walking), we approach physical strength augmentation by a task-agnostic method of force amplification---using force/torque sensors at the human--machine interface to estimate the human task force, and then amplifying it with the robot.	
+Coupled stability of the machine with the human motivates our introduction of an amplification shaping framework for the design of bandwidth-limited controllers.
+To avoid system identification of the operator wearing the exoskeleton, we refine the amplification strategy down to a one-parameter tunable compensator.
+This amplification controller is integrated into a complete framework for controlling exoskeletons \ta{that} includes human-led foot transitions, inequality constraints, and a computationally efficient prioritization.
+A powered lower-body exoskeleton is used to demonstrate behavior of the control framework in a lab environment.
+\end{abstract}
+
+\titlepgskip=-15pt
+
+\maketitle
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%	Exoskeleton, Compliance Shaping, Human Augmentation.
+%\end{IEEEkeywords}
+
+%\keywords{Exoskeleton, Compliance Shaping, Human Augmentation}
+
+
+\input{p5_exo}
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+	For this research in human strength amplification, Apptronik Systems Inc. provided, at no cost, access to their exoskeleton hardware called Sagit-P5. They also provided mechanical maintenance and improvements to the low level interfaces to facilitate the testing. The authors would like to thank Donghyun Kim for providing insights on contact transitions. This system was designed and built by a team including Jonas Fox, Brad Resh, Uday Savaria, Ryan Harkins, Ryan MacWilliams, Joel Cox, and Paul Fleury. The authors would also like to acknowledge Bill Helmsing and Jeff Cardenas for allocating time for our research on the Sagit-P5 exoskeleton.
+	
+	This work was \ta{supported} in part by NASA grant NNX15AQ33H ``Controlling Robots with a Spring in Their Step,'' for which Gray Thomas is the fellow and Luis Sentis is the advisor.
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{bib}
+%\vspace{3in}
+%\pagebreak
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{gray_exo.png}}]{Gray Cortright Thomas} (S'11--M'19) received the B.S. in engineering:robotics from Olin College of Engineering in 2012, and the Ph.D. in mechanical engineering from the University of Texas at Austin in 2019. 
+	
+Since 2019, he has been a Postdoctoral Research Fellow at the University of Michigan, Ann Arbor, MI. His research focuses on the scientific intersection of estimation, control, and wearable robotics.
+
+Dr. Thomas was the recipient of a NASA Space Technology Research Fellowship, an Olin Full Tuition Scholarship, and a Cockrell School of Engineering Temple Foundation Fellowship. His collaborative work has received best paper awards in the International Journal of Humanoid Robotics (2016) and the IEEE International Conference on Robotics and Automation (2017).
+
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{orion.jpg}}]{Orion Campbell IV}  received the B.S. (with high honors) and M.S. degrees in mechanical engineering from the University of Texas at Austin in 2013 and 2018.	
+
+He joined Apptronik Systems, Austin,
+TX, USA, in 2018 and is now the director of software and controls.
+As a Graduate Research Assistant in the Human Centered Robotics Lab, his research focused on whole-body control and trajectory planning for humanoid robots, and he worked on several projects designing and implementing real-time networked control systems for multi-DOF robotic systems. He was the recipient of the Virginia \& Ernest Cockrell, Jr., Fellowship in Engineering.
+	
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{nick_nichols_exo.png}}]{Nick B. Nichols} was a project manager at Apptronik at the time of this work. He is now self-employed in the finance industry.
+	
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{josh_james.png}}]{Joshua A. James} received the M.S. in electrical engineering from the University of Texas at Austin in 2016.	
+	
+He joined Apptronik Systems, Austin, TX, USA, in 2018 and is now a controls engineering specialist.
+As a Graduate Research Assistant in the Human Centered Robotics Lab, his research focused on a modular robotics architecture.
+	
+\end{IEEEbiography}
+
+
+\begin{IEEEbiography}
+	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{binghan.jpg}}]{Binghan He} (S'18--M'20) received the B.S. degree in mechanical engineering from Purdue University, West Lafayette, IN, USA, in 2014 and the M.E. degree in mechanical engineering from Cornell University, Ithaca, NY, USA, in 2015. He is currently a Ph.D. candidate in the Department of Mechanical Engineering at the University of Texas at Austin, Austin, TX, USA. His current research at the University of Texas at Austin includes control synthesis, human-robot interaction, and exoskeletons. He received the Kaiser Aluminum \& Chemical Company Scholarship, in 2012 and 2014, the Purdue Industrial Roundtable Scholarship, in 2013, and the Kenneth Scudder Scholarship, in 2013.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{nico400400.jpg}}]{Nicolas Brissonneau} received an Engineering degree in mechanical engineering from Ecole Normale Superieure d'Arts et Metiers in 2016, an M.S. degree in Robotics from Sorbonne University in 2017 and an M.S degree in mechanical engineering from the University of Texas, Austin, in 2020.
+	
+	Since then he has been working on mobile manipulators as a robotics engineer at LinkDyn Robotics in Austin, TX, USA.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{nick_paine.png}}]{Nicholas A. Paine} is the co-founder and CEO of Apptronik. He received his B.S., M.S. and Ph.D. degrees in Electrical and Computer Engineering from The University of Texas at Austin.  His graduate work focused on the development of the UT Series Elastic Actuator, a compact high performance actuator for robotics.  He was a member of the NASA-JSC DARPA Robotics Challenge team where he helped design SEAs and developed actuator-level controllers for the Valkyrie robot.  He worked for one year as a post-doctoral researcher at UT Austin, investigating forced-convective cooling of electric motors and embedded system design.  Since Apptronik's founding in 2016, he has worked to direct and coordinate both technical and business strategy and execution.  He has helped to lead numerous system design efforts ranging from dynamic balancing humanoids, to force-augmentative exoskeletons and novel robotic manipulators.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{luis_sentis.png}}]{Luis Sentis} (S'04--M'07) received the B.Sc. in telecommunications and electronics engineering from the Polytechnic University of Catalonia in 1996 and the M.S. and Ph.D. in electrical engineering from Stanford University in 2000 and 2007 respectively. 
+	
+	He is an Associate Professor in the Department of Aerospace Engineering and Engineering Mechanics at The University of Texas at Austin and General Dynamics Endowed Faculty Fellow. Before Stanford, he worked in Silicon Valley as a Control Systems Engineer. In Austin, he leads the Human Centered Robotics Laboratory, a laboratory focusing on control and experimentation with walking robots and exoskeletons, design of high performance robotic systems, and algorithms for active sensing in human environments. He was the UT Austin's Lead for DARPA's Robotics Challenge with NASA Johnson Space Center where he helped to design and test the Valkyrie humanoid robot. He is also a founder and advisor for Apptronik Systems.
+\end{IEEEbiography}
+
+\EOD
+\end{document}

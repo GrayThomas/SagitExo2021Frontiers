@@ -1,0 +1,752 @@
+1 /Highlight
+
+2 /Text
+Introducion of 1.5 page is by all means too long, and it is not easy to follow. some paragraphs are also too long, and the way the work of others is presented is sometimes confusing.
+
+I like the idea that the main contribution of the paper is already given in the first paragraph, after short intro. but this, followed by 1.5 page to go through the literature makes it confusing what is actually the contribution of this paper. 
+
+I suggest to clearly outline the contribution, and then give a short overview of the state of the art in terms of the main aspects of your contribution. there is no need to elaborate on so many different works in such a detail.
+3 /Popup
+Introducion of 1.5 page is by all means too long, and it is not easy to follow. some paragraphs are also too long, and the way the work of others is presented is sometimes confusing.
+
+I like the idea that the main contribution of the paper is already given in the first paragraph, after short intro. but this, followed by 1.5 page to go through the literature makes it confusing what is actually the contribution of this paper. 
+
+I suggest to clearly outline the contribution, and then give a short overview of the state of the art in terms of the main aspects of your contribution. there is no need to elaborate on so many different works in such a detail.
+4 /Text
+a clearer distinction should be made here between `capability platform' and `manual material handling'
+5 /Popup
+a clearer distinction should be made here between `capability platform' and `manual material handling'
+6 /Highlight
+
+7 /Text
+what does it mean ``human-si-the-loop''. please elaborate more
+8 /Popup
+what does it mean ``human-si-the-loop''. please elaborate more
+9 /Highlight
+
+10 /Text
+this comes unexpected. what is exactly meant by this?
+
+do you want to say that amplification is ``human-is-the-loop''? if so, this needs to be made clear
+
+further, does ``human-is-the-loop'' mean that robot is fully external to the human, which is a system merely attained by a robot?
+11 /Popup
+this comes unexpected. what is exactly meant by this?
+
+do you want to say that amplification is ``human-is-the-loop''? if so, this needs to be made clear
+
+further, does ``human-is-the-loop'' mean that robot is fully external to the human, which is a system merely attained by a robot?
+12 /Highlight
+
+13 /Text
+this is now mentioned as an example of the ``human-is-the-loop'', but it is not clear to me how BLEEX is different from the ``capability platform''
+14 /Popup
+this is now mentioned as an example of the ``human-is-the-loop'', but it is not clear to me how BLEEX is different from the ``capability platform''
+15 /Highlight
+
+16 /Text
+you mean the operator?
+17 /Popup
+you mean the operator?
+18 /Highlight
+
+19 /Text
+is the ``extender'' just another name for a ``force amplification robot''? if so, make it clear 
+20 /Popup
+is the ``extender'' just another name for a ``force amplification robot''? if so, make it clear 
+21 /Highlight
+
+22 /Text
+``this'' referes to the previously mentioned research or the author's contribution?
+23 /Popup
+``this'' referes to the previously mentioned research or the author's contribution?
+24 /Highlight
+
+25 /Text
+``extender'' now refers to the work in [23] or also work presented here?
+
+further, which ``amplification claim''? by now, two are already identified: ratio of the two cylinder areas and ratio of two admittances
+26 /Popup
+``extender'' now refers to the work in [23] or also work presented here?
+
+further, which ``amplification claim''? by now, two are already identified: ratio of the two cylinder areas and ratio of two admittances
+27 /Highlight
+%%%%
+28 /Text
+this needs to be rephrased, as now it is comparing compliance of the exoskeleton port with a controller, which makes no sense.
+
+my understanding is that the authors want to say that the environment side of the exoskeleton can be made more compliant using force-based controller compared to a simple position controller. however, the sentence is certainly not saying this
+29 /Popup
+this needs to be rephrased, as now it is comparing compliance of the exoskeleton port with a controller, which makes no sense.
+
+my understanding is that the authors want to say that the environment side of the exoskeleton can be made more compliant using force-based controller compared to a simple position controller. however, the sentence is certainly not saying this
+30 /Highlight
+
+31 /Text
+authors earlier discussed about ``high level compliant behavior'' and then here say - seemingly refering to that compalince - that ``low level force. . . to achieve backdrivability''
+
+as mentioned in another comment: compliance is not to be identified with backdrivability
+32 /Popup
+authors earlier discussed about ``high level compliant behavior'' and then here say - seemingly refering to that compalince - that ``low level force. . . to achieve backdrivability''
+
+as mentioned in another comment: compliance is not to be identified with backdrivability
+33 /Text
+this whole paragraph, it seems to me, interchangeably uses ``compliance'' and ``backdrivability'' (incorrect!) and leaves the reader confused which backdrivability here it refers to.
+
+34 /Popup
+this whole paragraph, it seems to me, interchangeably uses ``compliance'' and ``backdrivability'' (incorrect!) and leaves the reader confused which backdrivability here it refers to.
+
+35 /Highlight
+
+36 /Text
+this is the contribution of the paper, but it is buried in the long text, and weakly expressed by using ``(this paper)'' - this needs to be very clear and stand-out
+37 /Popup
+this is the contribution of the paper, but it is buried in the long text, and weakly expressed by using ``(this paper)'' - this needs to be very clear and stand-out
+38 /Highlight
+
+39 /Highlight
+
+40 /Text
+I suppose ``this'' in the two sentences refers to ``compliant behavior''? if so, make it clear
+41 /Popup
+I suppose ``this'' in the two sentences refers to ``compliant behavior''? if so, make it clear
+42 /Highlight
+
+43 /Text
+it is unclear what this means
+44 /Popup
+it is unclear what this means
+45 /Text
+a good part of the left column deals with force, position and admittance control, but in a confusing way, to the point that I have lost track of what is the point you are trying to make here
+46 /Popup
+a good part of the left column deals with force, position and admittance control, but in a confusing way, to the point that I have lost track of what is the point you are trying to make here
+47 /Text
+I suggest moving Table later in the text, it is not usual to have the table first thing after section title. the same holds for other tables
+48 /Popup
+I suggest moving Table later in the text, it is not usual to have the table first thing after section title. the same holds for other tables
+49 /Highlight
+
+50 /Text
+which task?
+51 /Popup
+which task?
+52 /Highlight
+
+53 /Text
+what are the implications of this assumption for
+generality of the controller?
+54 /Popup
+what are the implications of this assumption for
+generality of the controller?
+55 /Text
+how realistic is this assumption for the real-case scenario?
+56 /Popup
+how realistic is this assumption for the real-case scenario?
+57 /Highlight
+
+58 /Text
+given that this paper does not have a typical intro-materials and methods-result-conclusion structure, I highly suggest adding a paragraph here ``The remaining of the paper is organisied as follows. . . '' to give a guidance to the reader on how to put everything into perspective
+
+it would also be good to ``connect'' different sections, as right now, they do not necessarily come as expected
+59 /Popup
+given that this paper does not have a typical intro-materials and methods-result-conclusion structure, I highly suggest adding a paragraph here ``The remaining of the paper is organisied as follows. . . '' to give a guidance to the reader on how to put everything into perspective
+
+it would also be good to ``connect'' different sections, as right now, they do not necessarily come as expected
+60 /Highlight
+
+61 /Text
+explain what exactly is  considered by ``human side'' and ``environment side'' compliance. a physical interface? control interface? both?
+62 /Popup
+explain what exactly is  considered by ``human side'' and ``environment side'' compliance. a physical interface? control interface? both?
+63 /Highlight
+
+64 /Text
+human compliance higher than what?
+65 /Popup
+human compliance higher than what?
+66 /Highlight
+
+67 /Text
+force per position = spring stiffness, not spring
+68 /Popup
+force per position = spring stiffness, not spring
+69 /Highlight
+
+70 /Text
+please explain in which sense ``the human behaves similarly to a spring''
+71 /Popup
+please explain in which sense ``the human behaves similarly to a spring''
+72 /Highlight
+
+73 /Text
+shouldn't this be?
+Ang C_H - phi + 180
+
+in that case, if phase lag at the crossover freq is e.g. -120, comparing simply to -180 would be 60 deg margin:
+-120 + 180 = 60
+
+comparing to phi - 180, with e.g. phi = -20 would be 
+-120 + 20 + 180 = 80 deg
+74 /Popup
+shouldn't this be?
+Ang C_H - phi + 180
+
+in that case, if phase lag at the crossover freq is e.g. -120, comparing simply to -180 would be 60 deg margin:
+-120 + 180 = 60
+
+comparing to phi - 180, with e.g. phi = -20 would be 
+-120 + 20 + 180 = 80 deg
+75 /Highlight
+
+76 /Text
+is this to say that the compliance you are modifying is only stable with the assumption of a rigid human-robot connection? this connection is never rigid - it is actually another compliance in itself. how does that affect your calculations and your approach?
+77 /Popup
+is this to say that the compliance you are modifying is only stable with the assumption of a rigid human-robot connection? this connection is never rigid - it is actually another compliance in itself. how does that affect your calculations and your approach?
+78 /Text
+this whole left colum is to crowded. add more white space between different sub-figures and, if there is a name to the figure (as is the case with the sub-figure G), write that name in line with the sub-figure indicator (G), not above it
+79 /Popup
+this whole left colum is to crowded. add more white space between different sub-figures and, if there is a name to the figure (as is the case with the sub-figure G), write that name in line with the sub-figure indicator (G), not above it
+80 /Text
+an arrow next to `tuning' means an increase in lambda? and different plots for Robot in the 2nd and 3rd column refer to the earlier lambda values? if so, explain this in the caption
+81 /Popup
+an arrow next to `tuning' means an increase in lambda? and different plots for Robot in the 2nd and 3rd column refer to the earlier lambda values? if so, explain this in the caption
+82 /Highlight
+
+83 /Text
+operator-side = human-side
+
+to avoid confusion, consider using the same phrase throughout the paper
+84 /Popup
+operator-side = human-side
+
+to avoid confusion, consider using the same phrase throughout the paper
+85 /Highlight
+
+86 /Text
+``spring'' refers to human as a spring in parallel to interface compliance? this is not clear
+87 /Popup
+``spring'' refers to human as a spring in parallel to interface compliance? this is not clear
+88 /Highlight
+
+89 /Text
+is this ``human-side compliance''? please be consistent in the terms you are using throughout the paper, otherwise it's confusing︀
+90 /Popup
+is this ``human-side compliance''? please be consistent in the terms you are using throughout the paper, otherwise it's confusing︀
+91 /Highlight
+
+92 /Text
+similarly, is this the ``human phase margin'' discussed earlier? if so, be consistent with the expression you are using. if not, please explain what this is
+93 /Popup
+similarly, is this the ``human phase margin'' discussed earlier? if so, be consistent with the expression you are using. if not, please explain what this is
+94 /Highlight
+
+95 /Text
+a `hat' is usually used to denote estimate - consider different notation to avoid confusion
+96 /Popup
+a `hat' is usually used to denote estimate - consider different notation to avoid confusion
+97 /Highlight
+
+98 /Text
+how do you model these imperfections?
+99 /Popup
+how do you model these imperfections?
+100 /Highlight
+
+101 /Text
+add definition of this parameter to Table II
+
+also, is this what is called in Fig. 3 the ``amplification bandwidth'' parameter? if so, make sure to mention that here in the text
+102 /Popup
+add definition of this parameter to Table II
+
+also, is this what is called in Fig. 3 the ``amplification bandwidth'' parameter? if so, make sure to mention that here in the text
+103 /Highlight
+
+104 /Text
+what is the difference between phi (human lag) mentioned earlier and in Table II, and phi_H?
+
+please clarify, which should then also explain the difference in human phase lag (phi in -90 to 0, phi_H >0) and the reference phi - 180 as compared to -180 - phi_H 
+105 /Popup
+what is the difference between phi (human lag) mentioned earlier and in Table II, and phi_H?
+
+please clarify, which should then also explain the difference in human phase lag (phi in -90 to 0, phi_H >0) and the reference phi - 180 as compared to -180 - phi_H 
+106 /Highlight
+
+107 /Text
+my understanding is that you are not taking into account (physical) interface compliance, which will certainly have an affect on not only the total human-robot compliance, but also on the system's stability, responsivness, and effectiveness. can you comment on this, if not before, in the Discussion?
+108 /Popup
+my understanding is that you are not taking into account (physical) interface compliance, which will certainly have an affect on not only the total human-robot compliance, but also on the system's stability, responsivness, and effectiveness. can you comment on this, if not before, in the Discussion?
+109 /Highlight
+
+110 /Text
+does this mean 1 experiment per DoF per task? is it possible to have this parameter adaptable? 
+111 /Popup
+does this mean 1 experiment per DoF per task? is it possible to have this parameter adaptable? 
+112 /Highlight
+
+
+
+113 /Text
+is this referring to walking, or more generally, human-initiated changing of balance from one leg to the other? please re-phrase and/or clarify
+114 /Popup
+is this referring to walking, or more generally, human-initiated changing of balance from one leg to the other? please re-phrase and/or clarify
+115 /Highlight
+
+116 /Text
+multi-contact refers to multiple points of attachment to a human wearer? clarify and/or re-phrase as it is not clear what is meant with this
+117 /Popup
+multi-contact refers to multiple points of attachment to a human wearer? clarify and/or re-phrase as it is not clear what is meant with this
+118 /Highlight
+
+119 /Text
+what do you mean by ``they do not fall out of the strategy. . . naturally''? you mean that these transitions do not ``follow directly from'' the amplif strategy and need to be separately defined? if so, please be clear on this
+120 /Popup
+what do you mean by ``they do not fall out of the strategy. . . naturally''? you mean that these transitions do not ``follow directly from'' the amplif strategy and need to be separately defined? if so, please be clear on this
+121 /Highlight
+
+122 /Text
+is there a mistake here? a typo?
+123 /Popup
+is there a mistake here? a typo?
+124 /Highlight
+
+125 /Highlight
+
+126 /Text
+clarify what exactly are ``net reaction forces between two feet''
+127 /Popup
+clarify what exactly are ``net reaction forces between two feet''
+128 /Highlight
+
+129 /Text
+contacts between the robot and the ground or the robot and human? be specific
+130 /Popup
+contacts between the robot and the ground or the robot and human? be specific
+131 /Highlight
+
+132 /Text
+multi-contact with what/who?
+133 /Popup
+multi-contact with what/who?
+134 /Highlight
+
+135 /Text
+this part is confusing, consider re-phrasing and clarifying, and be consistent with the phrases used
+136 /Popup
+this part is confusing, consider re-phrasing and clarifying, and be consistent with the phrases used
+137 /Highlight
+
+138 /Text
+unclear what is meant by the ``model's environmental force reflection problem''
+139 /Popup
+unclear what is meant by the ``model's environmental force reflection problem''
+140 /Text
+I suggest you give a name to each of the two tasks and refer to them in italics - this will make it clear for the reader when you refer to any one task
+
+also, be consistent with the names, i.e. avoid using different names for the same thing (e.g. ``hip sensor force task'' and ``hip zeroing task'')
+141 /Popup
+I suggest you give a name to each of the two tasks and refer to them in italics - this will make it clear for the reader when you refer to any one task
+
+also, be consistent with the names, i.e. avoid using different names for the same thing (e.g. ``hip sensor force task'' and ``hip zeroing task'')
+142 /Highlight
+
+143 /Text
+this is very important point but this is the first time it is mentioned. move this information to Introduction
+
+as a matter of fact, this entire paragraph is crucial - a simultaneous execution of two tasks is how this exoskeleton is operating, and this should be highlighted in the introduction
+144 /Popup
+this is very important point but this is the first time it is mentioned. move this information to Introduction
+
+as a matter of fact, this entire paragraph is crucial - a simultaneous execution of two tasks is how this exoskeleton is operating, and this should be highlighted in the introduction
+145 /Highlight
+
+146 /Text
+very important information, make sure it is highlighted better in your work
+147 /Popup
+very important information, make sure it is highlighted better in your work
+148 /Highlight
+
+
+\subsubsection*{On Sec.~\ref{sec:opt}, Weighted 1-Norm Shared Body Control}
+
+
+149 /Text
+this too is a piece of information that should find its place in the introduction
+150 /Popup
+this too is a piece of information that should find its place in the introduction
+
+
+151 /Highlight
+152 /Text
+please rewrite this sentence for it is too long, but also incorrect: you say ``. . . constraints can conflict:. . .  [constraints] cannot be simultaneously satisfied. . . ''
+153 /Popup
+please rewrite this sentence for it is too long, but also incorrect: you say ``. . . constraints can conflict:. . .  [constraints] cannot be simultaneously satisfied. . . ''
+154 /Highlight
+
+155 /Highlight
+
+156 /Text
+I suggest using a different phrase. this is very unusual phrase in this context
+157 /Popup
+I suggest using a different phrase. this is very unusual phrase in this context
+158 /Highlight
+
+159 /Highlight
+
+160 /Text
+omit ``the task failure'' from the end of the sentence as it is incorrectly put there
+161 /Popup
+omit ``the task failure'' from the end of the sentence as it is incorrectly put there
+162 /Highlight
+
+163 /Text
+``both'' is followed by ``and'', not ``or''
+164 /Popup
+``both'' is followed by ``and'', not ``or''
+165 /Text
+the authors mentioned earlier 2 tasks - hip zeroing task and difference task. now they are talking about more than two tasks - possibly identifiable as sub-tasks? 
+
+in any case, the authors are suggested to clearly identify and specify all the tasks they refer to by ``tasks'' as it is otherwise confusing
+166 /Popup
+the authors mentioned earlier 2 tasks - hip zeroing task and difference task. now they are talking about more than two tasks - possibly identifiable as sub-tasks? 
+
+in any case, the authors are suggested to clearly identify and specify all the tasks they refer to by ``tasks'' as it is otherwise confusing
+
+//End page 9, begin page 10
+
+167 /Highlight
+168 /Text
+as mentioned in an earlier comment, these tasks - or sub-tasks should be clearly identified
+169 /Popup
+as mentioned in an earlier comment, these tasks - or sub-tasks should be clearly identified
+
+170 /Highlight [mispelled scalaraized]
+
+171 /Highlight
+172 /Text
+this paragraphs is not clear as a whole. it seems there is a confused use of task, sub-task, problem, sub-problem, i.e. it is not necessarily clear to which task, sub-task etc the authors are referring to
+
+also, some parts do not make sense, e.g. in the 1st sentence ``. . . tasks operating with the solution prior problems acting as constraints''
+173 /Popup
+this paragraphs is not clear as a whole. it seems there is a confused use of task, sub-task, problem, sub-problem, i.e. it is not necessarily clear to which task, sub-task etc the authors are referring to
+
+also, some parts do not make sense, e.g. in the 1st sentence ``. . . tasks operating with the solution prior problems acting as constraints''
+
+174 /Highlight
+175 /Text
+this sentence is not clear
+
+also, does
+prioritise = penalise or?
+please clarify
+176 /Popup
+this sentence is not clear
+
+also, does
+prioritise = penalise or?
+please clarify
+
+177 /Highlight
+178 /Text
+please clarify how is this going to be achieved
+179 /Popup
+please clarify how is this going to be achieved
+
+180 /Highlight
+181 /Text
+this sentence is not clear: ``For this reason. . . ''
+182 /Popup
+this sentence is not clear: ``For this reason. . . ''
+
+
+// End page 10, begin page 11
+
+
+183 /Highlight
+184 /Text
+please reference the exact equations you are referring to
+185 /Popup
+please reference the exact equations you are referring to
+
+186 /Highlight
+
+187 /Highlight
+188 /Text
+it is not a good practice using the same phrase to start a sentence in two consecutive sentences:
+
+In addition. . . 
+189 /Popup
+it is not a good practice using the same phrase to start a sentence in two consecutive sentences:
+
+In addition. . . 
+190 /Highlight
+
+191 /Text
+``for example'' is confusing in this sense. please specify all human-exo connections that exist in your case to avoid confusion.
+
+are these the only 2 connections? if so, there is no need for ``for example'', but specify then that these are the only connections
+192 /Popup
+``for example'' is confusing in this sense. please specify all human-exo connections that exist in your case to avoid confusion.
+
+are these the only 2 connections? if so, there is no need for ``for example'', but specify then that these are the only connections
+193 /Highlight
+
+194 /Text
+you mean ``than the ones that are constrained''? please be clear in your presentation
+195 /Popup
+you mean ``than the ones that are constrained''? please be clear in your presentation
+196 /Highlight
+
+197 /Text
+this sentence is way too long and confusing.
+
+please split into at least 2, or even 3 sentences
+198 /Popup
+this sentence is way too long and confusing.
+
+please split into at least 2, or even 3 sentences
+199 /Highlight
+
+200 /Text
+which and how many are they?
+201 /Popup
+which and how many are they?
+202 /Text
+this whole paragraph from the eq. 40e definition to ``We call this program. . . '' needs to be re-written. when you start with ``These functions are based on'' the reader expects a `list' of things, but simply adding an equation after comma, as is the case with the eq 41, does not make a correct list. also, it is not clear where does ``f_r'' come from just under the eq 41, nor how does the ``recalling the matrix G. . . '' sentence fit into the start of this part from the ``These functions. . . ''.
+
+further, for clarity, please reference specific equations you are referring to, not e.g. ``from the definition of the amplification task in Sec III'' to avoid confusion
+203 /Popup
+this whole paragraph from the eq. 40e definition to ``We call this program. . . '' needs to be re-written. when you start with ``These functions are based on'' the reader expects a `list' of things, but simply adding an equation after comma, as is the case with the eq 41, does not make a correct list. also, it is not clear where does ``f_r'' come from just under the eq 41, nor how does the ``recalling the matrix G. . . '' sentence fit into the start of this part from the ``These functions. . . ''.
+
+further, for clarity, please reference specific equations you are referring to, not e.g. ``from the definition of the amplification task in Sec III'' to avoid confusion
+204 /Highlight
+
+// End page 11 begin page 12
+
+205 /Highlight
+
+206 /Text
+it beats the purpose having a figure on page 1 and its description on page 12. please put a figure here, maybe a more detailed one, so that the reader can easily follow the text and refer to the figure
+207 /Popup
+it beats the purpose having a figure on page 1 and its description on page 12. please put a figure here, maybe a more detailed one, so that the reader can easily follow the text and refer to the figure
+208 /Highlight
+
+209 /Text
+this word-composition is hard to understand, so please re-phrase
+210 /Popup
+this word-composition is hard to understand, so please re-phrase
+211 /Highlight
+
+212 /Text
+what exactly is meant by the ``backpack-exoskeleton force/torque sensor''?
+213 /Popup
+what exactly is meant by the ``backpack-exoskeleton force/torque sensor''?
+214 /Highlight
+
+215 /Text
+it is confusing when two instances of ``which'' are used so close to each other, so please consider re-phrasing
+
+also, the second part of the sentence ``which essentially identifies. . . '' is not clear. to avoid using what exactly? 
+
+or you mean ``identifies two grounding which are not to be used''?
+216 /Popup
+it is confusing when two instances of ``which'' are used so close to each other, so please consider re-phrasing
+
+also, the second part of the sentence ``which essentially identifies. . . '' is not clear. to avoid using what exactly? 
+
+or you mean ``identifies two grounding which are not to be used''?
+
+
+
+
+
+
+// End page 12 begin Page 13
+
+
+217 /Text
+the way sub-figures are placed makes the whole figure a bit confusing.
+
+I would suggest to make a clear distinction (white space) between the rows and columns (i.e. a table-like division) and that sub-figures are well aligned (e.g. sub-figure B's top is higher that sub-figure D's bottom which is confusing).
+
+also, each of the sub-figure is assigned a letter (a-e) and a name, but these are not put togeter. in other words, you should write e.g. 
+
+b. Exoskeleton (and the picture bellow)
+
+and not
+
+Exoskeleton
+b.
+218 /Popup
+the way sub-figures are placed makes the whole figure a bit confusing.
+
+I would suggest to make a clear distinction (white space) between the rows and columns (i.e. a table-like division) and that sub-figures are well aligned (e.g. sub-figure B's top is higher that sub-figure D's bottom which is confusing).
+
+also, each of the sub-figure is assigned a letter (a-e) and a name, but these are not put togeter. in other words, you should write e.g. 
+
+b. Exoskeleton (and the picture bellow)
+
+and not
+
+Exoskeleton
+b.
+219 /Highlight
+
+220 /Text
+with a figure of this kind, where there are multiple sub-figures with coloured scheme, it is very useful to have a caption providing the text sufficient and necesary to understand the figure. hence, the authors are suggested to bring some of the text from their paragraph describing this figure into the caption of this figure
+221 /Popup
+with a figure of this kind, where there are multiple sub-figures with coloured scheme, it is very useful to have a caption providing the text sufficient and necesary to understand the figure. hence, the authors are suggested to bring some of the text from their paragraph describing this figure into the caption of this figure
+222 /Highlight
+
+223 /Text
+which parameters?
+224 /Popup
+which parameters?
+225 /Highlight
+
+226 /Text
+reference the exact equation
+227 /Popup
+reference the exact equation
+228 /Highlight
+
+229 /Text
+SBC - shared body control? please provide the meaning
+230 /Popup
+SBC - shared body control? please provide the meaning
+231 /Text
+add axis labels (x,y,z) to avoid any confusion
+
+[this was only added later explaining Fig 9 but should be here as well]
+232 /Popup
+add axis labels (x,y,z) to avoid any confusion
+
+[this was only added later explaining Fig 9 but should be here as well]
+233 /Highlight
+
+// End page 13 begin page 14
+
+
+
+
+234 /Highlight
+
+235 /Text
+similar to earlier comments on the figure - a figure with so many sub-plots, trajectories and colours needs to be accompanied by a relevant caption. the reader needs to be able to understand the figure from looking at it and reading caption, instead of looking for a paragraph in the text that explains the figure. if there are too many details, then at least basics need to be provided in caption
+236 /Popup
+similar to earlier comments on the figure - a figure with so many sub-plots, trajectories and colours needs to be accompanied by a relevant caption. the reader needs to be able to understand the figure from looking at it and reading caption, instead of looking for a paragraph in the text that explains the figure. if there are too many details, then at least basics need to be provided in caption
+237 /Text
+the expected Fz force is the thing of VI-D.3 experiment, but the arrow is crossing both D.2 and D.3 experiment Fz graphs. if the arrow has nothing to do with D.2 it needs to be removed from the 2nd column. if, on the other hand, it does related somehow D.2 and D.3, this needs to be explained in the caption of the figure (if I am not mistaken on what the authors want to show, would not simply a vertical arrow from the measured to the expected Fz in D.3 suffice? it would certainly make the plot clearer)
+238 /Popup
+the expected Fz force is the thing of VI-D.3 experiment, but the arrow is crossing both D.2 and D.3 experiment Fz graphs. if the arrow has nothing to do with D.2 it needs to be removed from the 2nd column. if, on the other hand, it does related somehow D.2 and D.3, this needs to be explained in the caption of the figure (if I am not mistaken on what the authors want to show, would not simply a vertical arrow from the measured to the expected Fz in D.3 suffice? it would certainly make the plot clearer)
+239 /Text
+signs of joint angles and torques/forces need to be clearly defined. e.g. is ankle flexion positive or negative?
+
+also, I suggest you move this legend off the graphs as this will allow a decrease in y-axis of the torque graph and thus better quality (easier-to-read) graphs
+240 /Popup
+signs of joint angles and torques/forces need to be clearly defined. e.g. is ankle flexion positive or negative?
+
+also, I suggest you move this legend off the graphs as this will allow a decrease in y-axis of the torque graph and thus better quality (easier-to-read) graphs
+241 /Text
+how are these torques and angles measured?
+242 /Popup
+how are these torques and angles measured?
+243 /Text
+I suggest you change [rad] into [deg]. angles in [rad] are not straightforward to understand
+244 /Popup
+I suggest you change [rad] into [deg]. angles in [rad] are not straightforward to understand
+245 /Text
+are all these angles relevant for the point you are trying to make? as it is now, it is very hard to read these graphs.
+
+maybe only focus on the most important joint angles and torque? or just the ones that are changing the most? there is no point in showing all these trajectories if most of them remain unchanged. just mention somehwere in the text or figure caption that all other trajectories not shown do not change.
+246 /Popup
+are all these angles relevant for the point you are trying to make? as it is now, it is very hard to read these graphs.
+
+maybe only focus on the most important joint angles and torque? or just the ones that are changing the most? there is no point in showing all these trajectories if most of them remain unchanged. just mention somehwere in the text or figure caption that all other trajectories not shown do not change.
+247 /Text
+what is the cause of the sudden change in the hip and knee joints' FE angles?
+
+is this the half-squat show in the video? if so, please do mention that here and provide any further explanations needed
+248 /Popup
+what is the cause of the sudden change in the hip and knee joints' FE angles?
+
+is this the half-squat show in the video? if so, please do mention that here and provide any further explanations needed
+249 /Highlight
+
+250 /Text
+how much torque is then left for the exo to amplify human strength? is it possible to quantify this?
+251 /Popup
+how much torque is then left for the exo to amplify human strength? is it possible to quantify this?
+252 /Highlight
+
+253 /Text
+I find it hard to understand that the weight of the exoskeleton was felt by the user (captured by the sensor), while adding extra weight to the exoskeleton was not captured by the sensor, although you claim was felt by the user. can you discuss more on this? 
+
+further, did the user confirm that the weight was actually felt in Z axis?
+254 /Popup
+I find it hard to understand that the weight of the exoskeleton was felt by the user (captured by the sensor), while adding extra weight to the exoskeleton was not captured by the sensor, although you claim was felt by the user. can you discuss more on this? 
+
+further, did the user confirm that the weight was actually felt in Z axis?
+255 /Highlight
+
+256 /Text
+the torque in the seconds 10-30 does not seem to be ``a rough continuation''. similar, albeit to a lesser degree, is true in the seconds 20-30. can the authors comment on this? is this a consequence of different joint angles (body position), or errors in calculations, or both?
+257 /Popup
+the torque in the seconds 10-30 does not seem to be ``a rough continuation''. similar, albeit to a lesser degree, is true in the seconds 20-30. can the authors comment on this? is this a consequence of different joint angles (body position), or errors in calculations, or both?
+258 /Highlight
+
+259 /Text
+provide reference(s)
+260 /Popup
+provide reference(s)
+
+// End page 14 begin page 15
+
+
+261 /Highlight
+
+262 /Highlight
+
+263 /Highlight
+
+264 /Text
+which behaviors? stair climbing and one-foot standing? please clarify
+265 /Popup
+which behaviors? stair climbing and one-foot standing? please clarify
+266 /Highlight
+
+267 /Text
+what is meant by ``good human-led transitions''? what kind of transitions are ``good''?
+268 /Popup
+what is meant by ``good human-led transitions''? what kind of transitions are ``good''?
+269 /Highlight
+
+270 /Text
+reference the relevant equation(s)
+
+also re-phrase, as ``weightings Q1 and Q2 matrix'' does not sound well
+271 /Popup
+reference the relevant equation(s)
+
+also re-phrase, as ``weightings Q1 and Q2 matrix'' does not sound well
+
+% End page 15, begin page 16
+
+272 /Text
+I find this figure very hard to read.
+
+for one, the background should probably be white so as to make the colours stand out.
+
+further, it is hard to read all the torques and forces even with when zoomed on a pc; this would be impossible to understand in the printed version.
+
+one option would be to remove all forces/torques/frames that do not add a lot to the point the authors are trying to make
+273 /Popup
+I find this figure very hard to read.
+
+for one, the background should probably be white so as to make the colours stand out.
+
+further, it is hard to read all the torques and forces even with when zoomed on a pc; this would be impossible to understand in the printed version.
+
+one option would be to remove all forces/torques/frames that do not add a lot to the point the authors are trying to make
+
+% I have reached the end.

@@ -1,0 +1,38 @@
+Hard to easy axis. hard first.
+
+Fundamental content paragraphs for section V left unwritten (this is the 1-norm WBC section)
+The intro to the compliance shaping tools needs work. Human phase margin concept deserves a better introduction
+Appendix A is empty. I did the math not too long ago and I can definitely make a clear point for moving away from the old strategy.
+Some paragraphs have been moved around and are not yet integrated into the sections they landed in.
+Add more applications thoughts to the discussion
+need a paragraph and table about the priority choices and what we ran with
+no paragraph for the 1-norm figure yet
+Tie the tuning paragraph to the figure more closely
+Safety features should get a paragraph
+Incomplete nomenclature table for section V
+Fix the weird printing of the one parameter tuning plot (you may not see this on the computer, but it happens on the lab printer)
+Needs more intro citations on transition strategies and inequality constraints (Kajita?)
+Add mention to teleoperation scattering theory
+Experimental graph figure needs a redraw with statistics and better line visibility
+Rviz still needs a legend (example of how this might look included)
+Emphasize the importance of the human damping in stabilizing the system
+Units in the compliance plots?
+
+new homework:
+Figure 1 top left
+Emphasize/celebrate equation 5 (law of ideal amplification)
+stop reusing lambda dn Labmda
+Add etq to equation 9
+Complete table 3 and 4
+Dot for multiplication in eq 26
+Explain fig 4
+Add a new subsection to V so that there is not a singleton subsection
+remove parenthesis before equation 39
+reduce size of figure 6 a bit (not too much)
+Remake figure 7 to look better
+Complete discussion
+Binghan writes appendix A
+Add detailed caption for figure 8
+
+even newer ideas:
+split II into the ideal amplification task with no mention of the robot, as a simple 1-D thing. Then explain how tasks are like massless 1-dimensional robots which are connected to the main robot by a lagrangian constraint, where the lagrange multiplier is the ``task force''.

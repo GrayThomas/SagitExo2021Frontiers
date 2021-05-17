@@ -1,0 +1,147 @@
+
+[\TODO~This is an orphan paragraph from Section IV, and seems redundant now. It must be merged.]
+To avoid tilting or sliding the \ta{feet}, additional inequality constraints must be maintained---\ra{and the variables that define these base--ground forces are not part of a standard fixed base robot model, but are expressed as the Lagrange multipliers of the contact constraint that defines the virtual base.}\ta{constraints on the base--ground forces. These forces are not part of the standard \emph{fixed-base} robot model. They are rather the Lagrange multipliers corresponding to the Lagrangian constraint that fixes the virtual base of our \emph{floating-base} model.}
+\ra{The goal of our exoskeleton \ra{in multi-contact} is to accomplish the desired tasks. And}\ta{Typically, these reaction forces are just whatever they need to be to satisfy the other tasks of the exoskeleton.}\ra{this is accomplished by allowing the force at the ``base'' to be whatever necessary to accomplish the other objectives, within their constraint limits.} \ra{When}\ta{But when} these constraint limits are hit, it is assumed that something will have to be sacrificed.
+
+
+
+%\ta{Our approach is to feed back sensed human-robot interaction forces (or filtered versions thereof) using ``whole body control'' style tasks in an optimization-based framework that considers actuator torque limits.}
+\ra{Also concerning healthy operators, \cite{CrowellEA2018Report} defines ``capability platform'' applications as ones where the exoskeleton \ta{\emph{continuously}} lifts \ta{fixed} (and well modeled) payloads, like body armor, cooling systems, or tools \ta{(i.e. they provide new capabilities to the wearer in a military context)}.
+The related applications of manual material handling, and tool operation differ in that \ta{the exoskeleton is expected to \emph{intermittently} lift variable (and un-modeled) payloads}---in these applications the exoskeleton is expected to improve the user's physical strength as they manipulate the unknown environment.}
+\ra{This focus extends beyond the hardware we employ, which was designed to consider only the capability platform application (though it has the force sensing needed to test amplification control systems).}
+
+\ra{\ta{In heavy exoskeletons, the weight of an exoskeleton itself} can be the largest responsibility of the controller \cite{KazerooniRacineHuangSteger2005ICRA}.
+\ta{But gravity compensation can also be used with the operator's own body mass acting like the payload \cite{KongMoonJeonTomizuka2010TMech,LvZhuGregg2018CSM,LinLvGregg2019ACC}.}}
+
+\ra{that is 1) backdrivable (having naturally low or artificially attenuated transmission friction), 2) of unmodified compliance (i.e. whatever admittance the rigid structure happens to have), and 3) artificially compensating for gravity,}}\ra{with gravity compensation may well be sufficient for a}\ta{
+
+%\ra{To}\ta{However, to} improve the human experience \ra{relative to such a backdrivable, gravity-compensated system,}\ta{beyond this baseline,} a controller must---either by positive acceleration feedback \cite{Kazerooni2005IROS}, or by interface force feedback (this paper)---increase the compliance of the human interface.
+
+A more complete list of approaches to specifying a mechanical impedance would be primarily split between cascaded approaches based on a low-level position controller \cite{GonzalezAsada2019RAL,Kazerooni2005IROS,KongTomizuka2009TMech} and those with a low-level torque controller, with non-cascaded approaches \cite{AlbuschafferOttHirzinger2007IJRR} a distance third.
+Positive position feedback can undo the effect of negative position feedback at the actuator level \cite{GonzalezAsada2019RAL}. So can the admittance control strategy previously mentioned. Positive acceleration feedback can `cancel' some inertia of the exoskeleton \cite{Kazerooni2005IROS} or even the operator \cite{KongTomizuka2009TMech}---but such `cancellation' is imperfect and inherently non-passive. Admittance controller could do this too, but typically do not. 
+
+
+% Force based versus position based low level
+%\ta{
+%Force controlled actuators can increase compliance by hiding both the reflected inertia and friction of the actuators} \ta{(}for example by employing series elastic actuators with force disturbance observers \cite{PaineOhSentis2014TMech,Paine2014Dissertation}\ta{)}. \ta{However, even the best actuator force control leaves the operator feeling the inertia of the exoskeleton's rigid links. Finally, building on force controlled actuators, an additional feedback of operator--robot interface forces, as adopted in this paper, can improve the human experience. Unfortunately, the problem of non-passivity is inherent to both this and the inertia cancellation approach. Indeed, it is the use of feedback control to conceal inertia that is the problem. Even when our exoskeleton is stable, it will not be passive. }
+
+
+%\ra{\ra{Gravity compensation requires a decent model of the robot's mass, however this requirement}\ta{While gravity compensation requires a decent model of the robot's mass, this requirement} can be avoided \ra{by using low level position control and cascaded high level force control, a strategy known as}\ta{with} admittance control \ta{since a position-controlled robot can counteract gravity as a disturbance} \cite{YuRosen2013TCyb,FontanaVertechyMarcheschiSalsedoBergamasco2014RAM,JacobsenOlivier2014Patent}.}
+%\ra{\ta{With amplified strength, an operator would still feel what they are doing, but with admittance control all external loads are rejected in the same way gravity is rejected.}}
+
+
+%\ra{\ta{Without changing the relative admittance of the human side and environment side of the exoskeleton, a controller will not amplify the strength of the operator. And without force sensors to distinguish between environment and human side forces and torques, this distinction can't be sensed or controlled.}}
+
+%\ra{Gravity compensation is the majority of the task for a capability platform system, but only part of the task for manual materials handling and tool operation.}%
+%\ra{The other component being the augmentation of the forces the \ta{operator} applies to the unknown environment or manipulated object.}%
+
+
+\ra{
+%%% The non-autonomous exoskeleton is an unorthodox vision
+Ref.~\cite{TRADOC2017RAS} employs a distinction between ``human-in-the-loop'' systems, where humans provide the final OK on actions and ``human-on-the-loop'' systems where humans take on a more abstracted managerial intervention role.
+\ra{Clearly, exoskeletons provide much more direct control for the human (perhaps requiring that the ``human-is-the-loop'').}\ta{However this step from ``human-in-the-loop'' to ``human-on-the-loop'' autonomy is in the opposite direction to our vision of seamless interaction with an exoskeleton. As the exoskeleton approaches simple, continuous, and predictable behavior, we envision a ``human-is-the-loop'' or ``subconscious-in-the-loop'' interaction, where the exoskeleton can be forgotten and the human body re-learns its autonomous locomotion as it would in accommodating ice-skates, skis, or snow-shoes.}
+\ra{But even within exoskeleton control, amplification is very low-level. }\ta{Amplification exoskeletons exemplify this vision of ``subconscious-in-the-loop'' interaction, and this vision runs counter to traditional notions of progress in exoskeleton autonomy---especially in that amplification controllers are not designed to use a high level behavior classifier.}
+In the general controller framework of \cite{TuckerEA2015JNER}, all exoskeleton control can be split into low (joint state implementation), middle (intent to state), and high level (intent recognition) control layers.
+Amplification control distinguishes itself in having a trivial high level layer, as opposed to systems which must classify human intent into action types \cite{KimWalshEA2019Science}.
+It also has a relatively straightforward middle layer---a whole body task controller---which requires far less optimization and tuning than approaches which use a lookup table or adjustable functions to assign torques based on perceived completion of the gait cycle \cite{LeeKimBakerLongKaravasMenardGalianaWalshJNR2018,ZhangFiersWitteJacksonPoggenseeAtkesonCollins2017Science}.
+}
+
+
+
+%% Context of adjusting compliance?
+%%% Backdrivable low-level systems
+%\ta{To be sensitive to the environment a system needs to be both compliant, and to avoid friction disturbances.}%% Questionable
+As shown in \cite{GonzalezAsada2019RAL}, low level position feedback controllers can be entirely canceled out by high-level control if the high level control desires a compliant behavior. But this \ra{is accomplished by}\ta{canceling requires} \ra{additional }high level position feedback. Since the admittance control strategy \ra{does not do this}\ta{lacks high level position feedback}, it \ra{ultimately reduces the}\ta{cannot change the} compliance of the environment-side port of the exoskeleton \ta{relative to the base position-controlled robot}. 
+
+% add in context of modifying human-side compliance/admittance
+\ta{(}Apparent inertia of the operator \cite{KongTomizuka2009TMech} or the exoskeleton \cite{Kazerooni2005IROS} can be reduced through feedback of acceleration.\ta{)}
+
+
+
+%%% Other volitional paradigms
+\ra{Other ``subconscious-in-the-loop'' approaches to exoskeleton control have been used for purposes besides amplification of human strength.}
+
+
+\ra{
+The BLEEX exoskeleton \ta{(a capability platform)} also employs a combination of gravity compensation and positive acceleration feedback to attenuate the operator's perception of known loads \cite{KazerooniRacineHuangSteger2005ICRA,Kazerooni2005IROS}.
+The operator's own weight can also be compensated for using an operator model \cite{KongMoonJeonTomizuka2010TMech} or ``potential energy shaping'' of the exoskeleton--human system \cite{LvZhuGregg2018CSM,LinLvGregg2019ACC}.}
+
+
+\ra{
+Low level force control is a more direct way to \ra{achieve backdrivability}\ta{increase the compliance} of the environment-side of the exoskeleton, \ta{and will also attenuate the nonlinear transmission friction disturbance that can prevent backdrivability} . 
+}
+
+
+\ra{
+% Context of adjusting compliance
+%%% old human-side complaince increase
+However, there are limits on the ability of a system to alter the behavior it presents at the human interface, since the coupled human--exoskeleton system must be stable \cite{Kazerooni1990TSMC}. As discussed in the literature on haptic impedance rendering, the human is hard to model accurately and requires controllers which are robust to the variation in its potential behavior \cite{ColgateHogan1988IJC,Hogan1989ICRA,ColgateBrown1994ICRA,AdamsHannaford1999TRA}. 
+More \ta{specifically}, it is the operator's natural (and unconscious) high frequency dynamics---indirectly adjustable with antagonistic muscle co-contraction \cite{Hogan1984TAC}---that are important to model in order to avoid resonance that the human does not want or expect.
+While many interaction controllers treat the space of possible unconscious user impedances as the set of all passive impedances, this is a very conservative assumption which severely limits performance \cite{BuergerHogan2007TRO}. A recent and more accurate representation of human behavior is that of a complex stiffness (with an inertia at higher frequencies) \cite{HeHuangThomasSentis2019pre} \TODO~update reference to published IROS and preprint journal. Using this model with parameteric uncertainty in the spring stiffness and damping ratio, stable amplification systems can be designed using robust control\cite{HeThomasPaineSentis2019ACC} or by shaping the compliance \cite{ThomasCoholichSentis2019AIM}. Both of these last strategies are tested only on a one-degree of freedom system, which permits extensive system identification and careful design. Ref.~\cite{HeThomasPaineSentis2019ACC}'s controller also suffered from a lack of analytical guarantees about what behavior would be accomplished. And \cite{ThomasCoholichSentis2019AIM} presented a very complex strategy that depended on re-implementing the series elastic actuator controller at the high level in a way that changed its behavior as a function of the joint inertia (i.e. the mass matrix).
+}
+
+\ra{%old admittance par
+%%% Admittance control
+The strength amplification claim of the extender system \ta{of \cite{KazerooniGuo1993JDSMC} }rests on the two force sensors distinguishing human inputs from the environment. Without the environment-side sensing, \ta{only the human-side admittance is controllable. The strategy of controlling only human-side admittance is commonly known as}\ra{the strategy is called} admittance control. 
+\ra{With no force-feedback to make the environment-side port of the exoskeleton more compliant than the low-level position controller, admittance control is more of a feedforward system from the human point of view.}\ta{Both admittance control and the extender control of \cite{KazerooniGuo1993JDSMC} are cascaded controllers sitting on top of a position-controlled robot. Without environment-side force-feedback, the environment side admittance will be unchanged from that provided under the base position controller. This default environment-side admittance is typically very, very small (representing good, high-gain position control), but this makes the amplification ratio so large that the human cannot sense the environment through the exoskeleton.}
+\ra{(Transmission friction in the drivetrain of a position controlled system typically makes it much less backdrivable than a linear model would suggest.)}\ta{(This lack of sensation is actually even worse than the linear models would suggest, since real  position-controlled robots have transmission friction and low back-driving efficiency.)}
+The SARCOS/Raytheon exoskeleton (responsible for some of the most impressive strength amplification footage to date) appears to have used the admittance control strategy, according to their patent \cite{JacobsenOlivier2014Patent}, to achieve a ``get out of the way'' behavior where the robot responsively moves away from detected interaction forces. The strategy lends itself well to large (or strongly position controlled) robots where the human cannot move the robot by themselves \cite{LecoursStongeGosselin2012ICRA}, at which point the force sensor functions almost like a joystick control for the robot.
+Ref. \cite{YuRosen2013TCyb} emphasizes the importance of quality, model-free, position control at the mid level in the application of admittance control.
+Similarly, the Body Extender \cite{FontanaVertechyMarcheschiSalsedoBergamasco2014RAM} (not to be confused with the human extender introduced in  \cite{KazerooniGuo1993JDSMC}), which is a heavy-duty exoskeleton designed for manual materials handling applications, has a controller that allows for a desired robot impedance transfer function, but (as with the others) leaves the selection of this impedance beyond the scope of the paper.
+}
+
+
+%% This should go back somewhere:
+
+
+
+%%% Dynamics vs statics (orphan paragraph)
+Since the exoskeleton and the human theoretically share a hip position, we might have hoped that this hip-frame acceleration would inform the exoskeleton about the human's center of pressure during dynamics walking---with human led footstep transitions emerging naturally if the exoskeleton and human have sufficiently similar mass distributions. Unfortunately, the connection was less than rigid in practice, and this ideal behavior was not observed. In fact, the influence of the acceleration terms was not noticed by our operator when we experimentally removed them. This led us to believe that the essence of our exoskeleton controller was really a static force balance rather than a full inverse dynamics process.
+
+
+
+%% relationship between weighted 1-norm optimization and general humanoids applications -> reformat for discussion?
+One takeaway of this work in exoskeletons that may apply to more general WBC problems is that lexicographic optimization has a fast approximate solution using the 1-norm cost and linear programming. This lexicographic optimization, or strictly prioritized control, is popular in the whole body control community for humanoid robots \cite{SentisParkKhatib2010TRO,KimEA2016TRO}. But strict optimization priorities require solving the problem once for each priority level, while this linear programming formulation allows all the priorities to be computed in one step, so long as the disparities in cost are large enough.
+
+
+
+
+Combining our relationships for the actuated space of reaction forces and desired force distribution, we can express the constraints on the reaction forces as constraints on $\tau$, and the optimization objectives in terms of a list of tasks dependent on $\tau$:
+
+
+	Exoskeletons based on interaction force feedback are different (and a more interesting control problem) from ones based on joint position feedback.
+
+	The control problem is to achieve coupled stability with a human, while amplifying the human's strength with respect to the environment.
+
+
+	Exoskeletons should be easy to move, or compliant, and heavy ones should hide some of the exoskeleton's inertia to accomplish this. 
+
+
+	We want to augment the physical strength of the operator: to fully lift a known payload, to help lift unknown payloads, and to hide some of the robot's inertia.
+
+
+	In this paper we design a new admittance controller which pushes the upper limit on human-side compliance.
+
+	It could be said that compliance shaping is just another way to design admittance controllers.
+
+	Control strategies for exoskeletons known as admittance control, impedance control, or compliance control are all essentially the same. They all are shaping the interface dynamics to accomplish amplification. Compliance shaping distinguishes itself by using bode plot phase margin to quantify phase-relaxed passivity
+
+	We introduce an ideal expression of an amplificaiton behavior.
+
+	Our control strategy is based on direct volitional control 
+
+>Exoskeleton must stand by itself (!) but still be able to sway with the human (humans do not stand still) The exoskeleton should ignore this sway to avoid spending energy on it: actually, the exoskeleton should be designed to sway with the human, as this is a cue for foot liftoff.
+
+
+Frequency-Domain Human Joint Moment Feedback Active Exoskeleton Capability Platform
+Augmentation System
+Interface force/torque sensing
+Interface force/torque performance metrics
+physical performance
+NO: Whole-Body Amplification (confused with full body exoskeletons)
+Designed to increase effectiveness and protect the force
+Human in-the-loop
+
+Limbs are gravity compensated through software
+
+Ref [TuckerEA2015JNER] introduces a generalized control framework which is helpful for understanding the working of our exoskeleton controller relative to the other controllers in the literature. This framework splits the functionality of the controller into high, mid, and low levels. High level control is a perception layer, which estimates the intent of the human, the context of the human's action. This maps well to the behavior classifiers found in many controllers designed for two or more distinct scenarios (running vs. walking, climbing stairs vs. walking, etc.). The mid level is a translation layer that converts the intent to a desired state. For example, this could be a stage that calculates the phase of the walking gait and applies a lookup table to find the joint torques. Finally the low level is an execution layer that implements the desired state with feedback control. To continue our example, this could be joint level torque feedback controllers implementing the desired torques from the mid layer. In our controller, the high level calculates the human forces in task space based on interaction force/torque sensors, and computes the human pressure distribution between the feet---this is treated as a representation of human intent. The mid layer translates that intent to a desired interface force using a matrix of frequency domain filters, and uses an optimzation problem to minimize the error in the achievement of those forces given the limitations on the contact and joint torques. The low level is a now common force control scheme with a disturbance observer.

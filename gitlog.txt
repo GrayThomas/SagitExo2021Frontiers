@@ -1,0 +1,254 @@
+commit 5007b3a604254176fa9314dd2296a29ff6fdd76c
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Thu Jun 25 10:49:56 2020 -0400
+
+    A more clear description of the human model as used in the context of the control system has been added.
+
+commit e07b2ac2f53f18c84c2ff85a660a9f1d745d2e2d
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Jun 24 11:00:41 2020 -0400
+
+    Done with Section II? Partway into Section III.
+
+commit 79f8296802cd968ad516688531c4bcc220beddd3
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Tue Jun 23 11:00:35 2020 -0400
+
+    Changed the way the compliance ratio interpretation is introduced so it doesn't require small magnitude assumptions (and those assumptions don't need to be defended.)
+
+commit e86805ab69bf287b821ea82d04a098e354be0fe2
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Mon Jun 22 11:13:54 2020 -0400
+
+    I think I nailed the definition of tasks and the description of the amplification task now.
+
+commit 19236a209e0fa30a160943adfd86ed4ada8425f3
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Sun Jun 21 11:13:17 2020 -0400
+
+    started moving on to the rest of reviewer 7's comments.
+
+commit d3247e290e58b4794b6e57aabe45ccc993020d2d
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Jun 19 11:16:41 2020 -0400
+
+    added cross-references to the response letter
+    
+    This is to follow advice on good response letters linked by bobby on Twitter/slack. Additional work included finishing up the detailed breakout of the introduction changes in the common section.
+
+commit 569f65bbdee72fd04b1c0f0c0ca2d00cba19285f
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Thu Jun 18 12:03:28 2020 -0400
+
+    Incorporated Luis' comments and began describing the introduction changes in the response letter.
+
+commit 399385cc264c6ccaa1832d62f0065fd43382c20a
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Jun 17 11:07:17 2020 -0400
+
+    Moar editing
+
+commit 190f1e25af2018be32c8ffb8f628ab6a9924ccb4
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Jun 17 09:37:16 2020 -0400
+
+    First draft of the new introduction.
+
+commit 631c3311d224162dafd7d6d1ad1fb024283391bd
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Tue Jun 16 10:58:25 2020 -0400
+
+    the 'ways to change admittance' pararaph bites it.
+    Homeless citations flee to more stable paragraphs.
+
+commit ff38e43919de4a036054d95d5566d135f17a940a
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Mon Jun 15 11:13:12 2020 -0400
+
+    Continued editing the introduciton. Background section is no more.
+    
+    I've also added HeHuangThomasSentis2020TNSRE to the submitted papers folder. I needed to use it's bib file to get the latest on our conference papers. Re-work on the the introductory paragraph is coming along (not done though). Some bib items were updated but more could still be out of date.
+
+commit 2f9ef3c6b74f2562c6c03bd3a8b2bcba7e10c470
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Sun Jun 14 11:18:34 2020 -0400
+
+    Organizing 'background' segments.
+    In an attempt to use more 'classical' style, I've been rewriting the background. At this point, I believe it can be integrated into the introduction with minimal loss of important citations.
+
+commit a1cce096c4bfc7f1d7a10f1f65a5cf6ea941293e
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Jun 12 10:01:55 2020 -0400
+
+    still working on the shortened new intro. Luis has comments he still needs to send me.
+    We resolved to keep the background section in our meeting (motivated by avoiding a drop in citation count). Several issues in reading level persist in the changes.
+
+commit a19a0a4e7f2891c1cda61a410479f962def1fba0
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Thu Jun 11 11:18:58 2020 -0400
+
+    part-way into restructuring the introduction. I'm probably going to have to delete a lot of the old stuff, which makes me regret a little.
+
+commit 430df3562869ea478b0567ffb88c0a02bbfd2f8a
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Jun 10 11:41:34 2020 -0400
+
+    now it's just the big restructuring of the introduction left to do (for the introduction anyway). Added cool features to the response letter so that it now shares references and a bibliography with the main file, allowing for seamless copy paste of the relevent snippets of text.
+
+commit 4752092edbf3f86adbcb25647897b1738c13569e
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Tue Jun 9 11:06:16 2020 -0400
+
+    roughly halfway through page 2 of reviewer 7's edits
+
+commit a6bfff62bc2d2cca838946307782e8a0a86702ee
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Apr 24 14:06:15 2020 -0400
+
+    newest resubmission of the compliance shaping paper.
+
+commit 844d519f9f511a0984a69ba678e0b53b160ed4b3
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Mon Jan 20 16:33:54 2020 -0500
+
+    moved the TMech resubmission to the submissions folder
+
+commit 470a2451dfb44a4ce4e06b508a14a3c6cff9b90c
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Mon Jan 20 16:33:08 2020 -0500
+
+    this is the version that I resubmitted, including the track changes.
+
+commit 4896ca80e27f584d8f2a933105f043c541a78f44
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Thu Jan 16 10:42:38 2020 -0500
+
+    new theorem on regenerative efficiency
+
+commit e5661803259640bdc9a9995fdd2055fc0ec63b25
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Jan 15 12:45:25 2020 -0500
+
+    paper is six pages for the first time
+
+commit 16abadafee2d358394a9fa68d19317d704806580
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Jan 15 11:29:27 2020 -0500
+
+    updated gitignore, added the submitted version of the TRO paper. Lots of work on the revision for the TMech paper.
+
+commit 670e91a4f3f79ab57d9982062db5e36b8f28f6c9
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Mon Nov 18 11:57:41 2019 -0500
+
+    notes on branding, and some tone changes.
+
+commit 8e7d5375544ea9c330e49a8abf290b28fb525a0f
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Sat Nov 16 18:49:54 2019 -0500
+
+    finished the big TODO list. paper at 18 pages.
+
+commit 152e7e71f7fafa63bf96b9d0b43ace56b85af267
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Nov 15 17:50:04 2019 -0500
+
+    finished the nomenclature table for sec. V and confirmed the structure of section V. Fixed the human phase margin par with a definition.
+
+commit 4bfd9020e3bc475750eb6cbed11e51d96e6f0177
+Merge: fb31c27 7ebbdc1
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Nov 15 09:59:58 2019 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 7ebbdc1e440f04c9476fa717f77eb69221b43689
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Nov 15 09:59:26 2019 -0500
+
+    forgotten files needed to compile.
+
+commit fb31c27b3cd01b28392301f794d71e99e90c88da
+Merge: ca7d45e b204aca
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Nov 15 09:50:25 2019 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+commit b204acafad5c65072d5befe35800085d8a408344
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Nov 15 09:49:49 2019 -0500
+
+    updates to the paper. Test of compilation from git repo.
+
+commit ca7d45e61c4332c6705af248bba54f8c927becf4
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Fri Nov 15 09:44:18 2019 -0500
+
+    added some reviews,fixed a name
+
+commit 05d3a74a5533fc34fec989be10280b0191e4251f
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Mon Oct 21 20:18:27 2019 -0400
+
+    latest update features better figures and some improvements to the text in section V
+
+commit 0c43151d30a3ff78b5659302f6b9c81bcbaa2ead
+Author: Gray Thomas <gray.c.thomas@gmail.com>
+Date:   Sat Sep 28 03:51:10 2019 -0500
+
+    This is the paper, with the exo data synch, as I left UT.
+
+commit d686acf1cfcbc7e825f58c254a9e316aefd1edf2
+Author: Gray Thomas <gray.c.thomas@gmail.com>
+Date:   Thu Sep 12 17:17:47 2019 -0500
+
+    fixed passivity par
+
+commit 0f7110c62a2ea23952243957c7ce4125288e40fd
+Author: Gray Thomas <gray.c.thomas@gmail.com>
+Date:   Thu Sep 12 16:15:04 2019 -0500
+
+    Got to the end. Still a big todo list.
+
+commit e012793f52287141a46d62c54548f22edff9e302
+Author: Gray Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Sep 11 22:06:23 2019 -0500
+
+    just about ready for section V
+
+commit 05ae1cd28d4a560e91517c1be2dc3fe17eabcb02
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Wed Sep 11 11:00:34 2019 -0500
+
+    working on the frequency domain section. Introduced an explanation of the big block diagram figure.
+
+commit 8a460063cba079b02268c063f40adae9bbd339f4
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Tue Sep 10 20:06:50 2019 -0500
+
+    finished (maybe) the theory of strength amplification tasks, and moved on to the compliance shaping tools used in the next section.
+
+commit 5c3d8805d9205074e03015e54e1c3deda9319dee
+Author: Gray Thomas <gray.c.thomas@gmail.com>
+Date:   Tue Sep 10 18:00:05 2019 -0500
+
+    finished the intro and almost finished the first draft of the section II
+
+commit c53c916f0cebf4f03962c2199c3a8fd0b91f869f
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Tue Sep 10 09:41:10 2019 -0500
+
+    laptop. tuesday morning. intro.
+
+commit 2a428e4c7815d17804c1b9d63c619aa93db4c232
+Author: Gray Cortright Thomas <gray.c.thomas@gmail.com>
+Date:   Tue Sep 10 08:10:12 2019 -0500
+
+    introduction work. laptop. monday evening.
+
+commit bc5db7d5e33d0b2e42f219910520efeda4904352
+Author: Gray Thomas <gray.c.thomas@gmail.com>
+Date:   Mon Sep 9 17:05:01 2019 -0500
+
+    rearranging to use synch

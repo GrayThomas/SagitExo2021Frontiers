@@ -1,0 +1,87 @@
+%\newcommand{\ubar}[1]{\underaccent{\bar}{#1}} %% conflicting defs
+\newcommand{\rt}{\textcolor{red}}
+
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of "TeX Unbound" for suggested values.
+% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+% remember to use [htp] or [htpb] for placement
+
+
+\DeclareMathOperator{\Parallel}{Parallel}
+\DeclareMathOperator{\Series}{Series}
+
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand*{\htwo}{\mathcal H_2}
+\newcommand*{\hinf}{\mathcal H_\infty}
+\newcommand*{\jo}{(j\omega)}
+\newcommand*{\s}{(s)}
+\newcommand*{\tr}{\mathrm{tr}}
+\newcommand*{\AM}{\mathrm{AM}}
+\newcommand*{\GM}{\mathrm{GM}}
+
+\pdfsuppresswarningpagegroup=1
+\pdfminorversion=4
+
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}
+	\endgroup
+}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}
+
+% Define roman thorem types
+\theoremstyle{definition}
+\newtheorem{problem}{Convex Problem}
+\newtheorem{definition}{Definition}
+
+% Definie low-key roman thorem types
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newenvironment{leveldown}% Demote sectional commands
+{   \let\chapter\section%
+	\let\section\subsection%
+	\let\subsection\subsubsection%
+	\let\subsubsection\paragraph%
+	%\let\subparagraph\relax%
+}{}
+
+%\newtheorem{definition}{Definition}
+\newcommand{\underbracedmatrix}[2]{%
+	\left(
+	\smash[b]{\underbrace{
+			\begin{matrix}#1\end{matrix}
+		}_{#2}}
+	\right)
+	\vphantom{\underbrace{\begin{matrix}#1\end{matrix}}_{#2}}
+}
+\newcommand{\minimatrix}[1]{\mbox{\tiny $\setlength{\arraycolsep}{2pt}\begin{pmatrix} #1 \end{pmatrix}$}}
+
+\newcommand{\noop}[1]{}
+\newcommand{\link}[2]{{\bf\color{blue}\underline{\smash{#2}}}}

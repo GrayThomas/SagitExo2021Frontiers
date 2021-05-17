@@ -1,0 +1,30 @@
+
+%% Re-definition of compliance that doesn't rely on small motion assumptions.
+[Rmk.~\ref{rev1:linear_assumptions}.A] transfer function analysis (presented in Section III) is valid only for linear systems. However, 
+\label{rev7:limitations_on_linearity}The definition of amplification as the ratio of compliance transfer functions relies on [Rmk.~\ref{rev7:limitations_on_linearity}.A] the assumption of linear DE (small motion magnitude, near-zero velocity, non-singularities zone), which is hardly met in practice.
+\label{rev7:footnote_assumptions}``We can also see that the $x_t$ solutions to the above differential equation, if we assume it is linear\footnote{As would be very nearly the case if the magnitude of motion was small, the velocity was near zero, and the robot was far from any singularities.}, is the sum of the solutions for the two inputs ($f_c$ and $f_e$) indepndently.''---how realistic is this assumption for the real-case scenario?
+\label{rev7:assumptions_not_easy}The developed framework seems to be relying on assumptions that are not easy to meet in the real-case scenarios,
+
+%% Treatment of nonlinearity
+[Rmk.~\ref{rev1:linear_assumptions}.B] the target exoskeleton robot system has highly nonlinear dynamics. Therefore, 
+[Rmk.~\ref{rev1:linear_assumptions}.E] How can these transfer function analyses be useful when a human user moves dynamically? }
+[Rmk.~\ref{rev1:linear_assumptions}.C] usefulness of these analyses is unclear. Authors need to 
+
+%% Definition of Human-side which includes the interface compliance
+\label{rev7:human_side_env_side}``And this leads us to define 	amplification as the ratio of compliance transfer functions	between the larger human-side compliance and the smaller environment-side compliance.''---explain what exactly is  considered by ``human side'' and ``environment side'' compliance. a physical interface? control interface? both?
+Furthermore, [Rmk.~\ref{rev7:limitations_on_linearity}.B] the analysis of the stability of the human-robot pair is based on the assumption of the rigid human-robot connection (physical interface), which is never the case in practice.
+[Rmk.~\ref{rev7:limitations_on_linearity}.C] No proper analysis of the effects of physical interfaces has been presented in the paper.
+\label{rev7:physical_interface_compliance}my understanding is that you are not taking into account (physical) interface compliance, which will certainly have an affect on not only the total human-robot compliance, but also on the system's stability, responsivness, and effectiveness. can you comment on this, if not before, in the Discussion?
+
+%% Citation of the literature that motivates the human model.
+\label{rev7:human_as_spring}please explain in which sense ``the human behaves similarly to a spring''
+[Rmk.~\ref{rev1:linear_assumptions}.D] quantitatively show how the behavior of the exoskeleton robot system has similar properties to the analyzed model in Section III with using experimental data.
+
+
+
+
+
+
+
+
+

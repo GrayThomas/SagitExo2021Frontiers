@@ -1,0 +1,185 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'block_diagrams.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{468bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.95384612)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{block_diagrams.pdf}}%
+    \put(0.1355653,0.39260909){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_H(s)$\end{tabular}}}}%
+    \put(0.1355653,0.42984335){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_E(s)$\end{tabular}}}}%
+    \put(0.08471056,0.46131861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Amplification Exo\end{tabular}}}}%
+    \put(0.00049467,0.44123888){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_E(s)$\end{tabular}}}}%
+    \put(0.00049467,0.40540874){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_H(s)$\end{tabular}}}}%
+    \put(0.01347723,0.47262159){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}D.)\end{tabular}}}}%
+    \put(0.13549777,0.24256339){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_H(s)$\end{tabular}}}}%
+    \put(0.13549777,0.27979765){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_E(s)$\end{tabular}}}}%
+    \put(0.08464303,0.31127291){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Amplification Exo\end{tabular}}}}%
+    \put(0.00049467,0.29306691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_E(s)$\end{tabular}}}}%
+    \put(0.01219613,0.32392472){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}E.)\end{tabular}}}}%
+    \put(0.13549777,0.18916629){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$-H^{-1}(s)$\end{tabular}}}}%
+    \put(0.15336859,0.0853627){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$\frac{1}{C_E^{-1}(s)+\left(\frac{C_E(s)}{C_H(s)}H(s)\right)^{-1}}$\end{tabular}}}}%
+    \put(0.00221171,0.03872809){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_E(s)$\end{tabular}}}}%
+    \put(0.0105773,0.13139688){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}F.)\end{tabular}}}}%
+    \put(0.33157923,0.93855495){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}G.) Compliances in Parallel\end{tabular}}}}%
+    \put(0.35719511,0.72776858){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$C_E(s)$\end{tabular}}}}%
+    \put(0.71233448,0.91595249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$C_E(s)$\end{tabular}}}}%
+    \put(0.62160781,0.32179715){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\alpha(s)$\end{tabular}}}}%
+    \put(0.4949393,0.32121027){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$K(s)$\end{tabular}}}}%
+    \put(0.33149811,0.75523127){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}H.) Open Loop System\end{tabular}}}}%
+    \put(0.33142124,0.34990337){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}I.) Amplificiation Controller\end{tabular}}}}%
+    \put(0.95355361,0.915098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$H(s)$\end{tabular}}}}%
+    \put(0.6851729,0.93855495){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}J.) Realized Behavior\end{tabular}}}}%
+    \put(0.35586929,0.32121027){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$1$\end{tabular}}}}%
+    \put(0.84605662,0.91595249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$C_H(s)$\end{tabular}}}}%
+    \put(0.83784342,0.15181444){\color[rgb]{0.9372549,0.16078431,0.16078431}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Non-Passive Phase\end{tabular}}}}%
+    \put(0.7445671,0.88689099){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-1}$\end{tabular}}}}%
+    \put(0.7445671,0.85235584){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-2}$\end{tabular}}}}%
+    \put(0.7445671,0.81782079){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-3}$\end{tabular}}}}%
+    \put(0.7445671,0.78328574){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-4}$\end{tabular}}}}%
+    \put(0.7445671,0.74875059){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-5}$\end{tabular}}}}%
+    \put(0.39640475,0.68351778){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-2}$\end{tabular}}}}%
+    \put(0.39640475,0.65534301){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-3}$\end{tabular}}}}%
+    \put(0.39640475,0.62716835){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-4}$\end{tabular}}}}%
+    \put(0.39640475,0.59899358){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-5}$\end{tabular}}}}%
+    \put(0.41285372,0.4239629){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{-1}$\end{tabular}}}}%
+    \put(0.52466249,0.4239629){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{0}$\end{tabular}}}}%
+    \put(0.65135885,0.4239629){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{1}$\end{tabular}}}}%
+    \put(0.52476332,0.40857537){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Frequency (Hz)\end{tabular}}}}%
+    \put(0.39579424,0.56175295){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$180^{\circ}$\end{tabular}}}}%
+    \put(0.39579424,0.44758935){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-180^{\circ}$\end{tabular}}}}%
+    \put(0.39579424,0.53321208){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$90^{\circ}$\end{tabular}}}}%
+    \put(0.39579424,0.47613023){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-90^{\circ}$\end{tabular}}}}%
+    \put(0.39579424,0.5046712){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$0^{\circ}$\end{tabular}}}}%
+    \put(0.7462765,0.70963331){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$180^{\circ}$\end{tabular}}}}%
+    \put(0.7462765,0.55344247){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-180^{\circ}$\end{tabular}}}}%
+    \put(0.7462765,0.67058563){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$90^{\circ}$\end{tabular}}}}%
+    \put(0.7462765,0.59249015){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-90^{\circ}$\end{tabular}}}}%
+    \put(0.7462765,0.63153794){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$0^{\circ}$\end{tabular}}}}%
+    \put(0.34739845,0.6453081){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Magnitude\end{tabular}}}}}%
+    \put(0.34739845,0.51108981){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Phase\end{tabular}}}}}%
+    \put(0.69622663,0.83657601){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Magnitude\end{tabular}}}}}%
+    \put(0.69622663,0.63217939){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Phase\end{tabular}}}}}%
+    \put(0.39699634,0.27263369){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{0}$\end{tabular}}}}%
+    \put(0.39699634,0.22546457){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-1}$\end{tabular}}}}%
+    \put(0.39421857,0.0380351){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-180^{\circ}$\end{tabular}}}}%
+    \put(0.39421857,0.13056482){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$90^{\circ}$\end{tabular}}}}%
+    \put(0.39421857,0.06887831){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-90^{\circ}$\end{tabular}}}}%
+    \put(0.39421857,0.09972161){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$0^{\circ}$\end{tabular}}}}%
+    \put(0.43040323,0.01825909){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{-1}$\end{tabular}}}}%
+    \put(0.53530931,0.01825909){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{0}$\end{tabular}}}}%
+    \put(0.6499445,0.01825909){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{1}$\end{tabular}}}}%
+    \put(0.76395614,0.52729803){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{-1}$\end{tabular}}}}%
+    \put(0.87663273,0.52729803){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{0}$\end{tabular}}}}%
+    \put(0.87641269,0.5119106){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Frequency (Hz)\end{tabular}}}}%
+    \put(0.7605099,0.01931995){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{-1}$\end{tabular}}}}%
+    \put(0.8740499,0.01931995){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$10^{0}$\end{tabular}}}}%
+    \put(0.99815174,0.01931995){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{1}$\end{tabular}}}}%
+    \put(0.8740499,0.00393241){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Frequency (Hz)\end{tabular}}}}%
+    \put(0.7455134,0.35991856){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-2}$\end{tabular}}}}%
+    \put(0.7455134,0.32049099){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-3}$\end{tabular}}}}%
+    \put(0.7455134,0.28106343){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-4}$\end{tabular}}}}%
+    \put(0.7455134,0.24163587){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{-5}$\end{tabular}}}}%
+    \put(0.74273562,0.20898122){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$180^{\circ}$\end{tabular}}}}%
+    \put(0.74273562,0.04180134){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-180^{\circ}$\end{tabular}}}}%
+    \put(0.74273562,0.16718622){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$90^{\circ}$\end{tabular}}}}%
+    \put(0.74273562,0.08359623){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$-90^{\circ}$\end{tabular}}}}%
+    \put(0.74273562,0.12539133){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$0^{\circ}$\end{tabular}}}}%
+    \put(0.71990248,0.4210185){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\frac{1}{C_E^{-1}(s)+(\alpha^{-1}(s)H(s))^{-1}}$\end{tabular}}}}%
+    \put(0.70864186,0.44547441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$C_E(s)$\end{tabular}}}}%
+    \put(0.90047859,0.44547441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$\alpha^{-1}(s)H(s)$\end{tabular}}}}%
+    \put(0.68280072,0.46938036){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}K.) Reflection of Human\end{tabular}}}}%
+    \put(0.53436478,0.00287155){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Frequency (Hz)\end{tabular}}}}%
+    \put(0.2359903,0.90139722){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$f_E(t)$\end{tabular}}}}%
+    \put(0.07874928,0.8954983){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$f_A(t)$\end{tabular}}}}%
+    \put(0.22200208,0.93336321){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$x(t)$\end{tabular}}}}%
+    \put(0.29926179,0.77806426){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$X(s)$\end{tabular}}}}%
+    \put(0.29903234,0.42972233){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$X(s)$\end{tabular}}}}%
+    \put(0.29816238,0.27913806){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$X(s)$\end{tabular}}}}%
+    \put(0.29653428,0.03674533){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$X(s)$\end{tabular}}}}%
+    \put(0.64263223,0.89747887){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$F_E$\end{tabular}}}}%
+    \put(0.34301701,0.89697097){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_E$\end{tabular}}}}%
+    \put(0.49384271,0.82191244){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$X$\end{tabular}}}}%
+    \put(0.49384271,0.85825319){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$\alpha^{-1}H$\end{tabular}}}}%
+    \put(0.49384271,0.89956314){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_E$\end{tabular}}}}%
+    \put(0.1343443,0.75885269){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_E(s)$\end{tabular}}}}%
+    \put(0.1343443,0.7235632){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_A(s)$\end{tabular}}}}%
+    \put(0.1343443,0.79608695){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_E(s)$\end{tabular}}}}%
+    \put(0.00049467,0.80776856){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_E(s)$\end{tabular}}}}%
+    \put(0.00049467,0.77193842){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_H(s)$\end{tabular}}}}%
+    \put(0.00049467,0.73405437){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_A(s)$\end{tabular}}}}%
+    \put(0.1719692,0.57708008){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_E(s)$\end{tabular}}}}%
+    \put(0.1719692,0.5417906){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_A(s)$\end{tabular}}}}%
+    \put(0.1719692,0.61431434){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$C_E(s)$\end{tabular}}}}%
+    \put(0.00049467,0.62742689){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_E(s)$\end{tabular}}}}%
+    \put(0.00049467,0.59159674){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$F_H(s)$\end{tabular}}}}%
+    \put(0.01401044,0.65653387){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}C.)\end{tabular}}}}%
+    \put(0.07152107,0.5417906){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$K(s)$\end{tabular}}}}%
+    \put(0.16584353,0.90197158){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Exo\end{tabular}}}}%
+    \put(0.01430723,0.93855495){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}A.)\end{tabular}}}}%
+    \put(0.01259396,0.83266819){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}B.)\end{tabular}}}}%
+    \put(0.07874928,0.93158463){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$f_H(t)$\end{tabular}}}}%
+    \put(0.28052603,0.60805673){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$X(s)$\end{tabular}}}}%
+    \put(0.08348955,0.82756221){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Exo\end{tabular}}}}%
+    \put(0.12111446,0.6457896){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Exo\end{tabular}}}}%
+    \put(0.2147715,0.75889077){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$\sum$\end{tabular}}}}%
+    \put(0.25239644,0.57711816){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$\sum$\end{tabular}}}}%
+    \put(0.21790032,0.41029635){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$\sum$\end{tabular}}}}%
+    \put(0.21783279,0.26025065){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$\sum$\end{tabular}}}}%
+    \put(0.59687162,0.52275097){\color[rgb]{0.33333333,0.34117647,0.3254902}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}influence of $\eta(s)$\end{tabular}}}}%
+    \put(0.3462369,0.25391437){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Magnitude\end{tabular}}}}}%
+    \put(0.3462369,0.09662781){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Phase\end{tabular}}}}}%
+    \put(0.69615907,0.31084097){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Magnitude\end{tabular}}}}}%
+    \put(0.69615907,0.13008134){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Phase\end{tabular}}}}}%
+    \put(0.99815174,0.52697272){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{0}\smash{\begin{tabular}[t]{r}$10^{1}$\end{tabular}}}}%
+    \put(0.60116046,0.72776858){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}$C_A(s)$\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
