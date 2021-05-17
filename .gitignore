@@ -12,12 +12,12 @@
 *.odp
 junk/
 # *.pdf
-*.png
+# *.png
 *.pkl
-*.jpg
-*.jpeg
-*.JPEG
-*.JPG
+# *.jpg
+# *.jpeg
+# *.JPEG
+# *.JPG
 # *.bst
 # *.cls
 *.xcf
