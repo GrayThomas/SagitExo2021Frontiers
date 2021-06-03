@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{234bp}%
+    \setlength{\unitlength}{468bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,29 +50,28 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.76923077)%
+  \begin{picture}(1,0.53846154)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{new_first_fig.pdf}}%
-    \put(0.73101189,0.60375865){\color[rgb]{0.8,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}%
-    \put(0.42913884,0.37463226){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E.)\end{tabular}}}}%
-    \put(0.68434024,0.46196466){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Amplification of the Human\end{tabular}}}}%
-    \put(0.65357049,0.53603587){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Environment\end{tabular}}}}%
-    \put(0.42913884,0.15539627){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F.)\end{tabular}}}}%
-    \put(0.38721107,0.72299273){\color[rgb]{0.8,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A.) Human\end{tabular}}}}%
-    \put(0.38721107,0.65400396){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}C.) Environment\end{tabular}}}}%
-    \put(0.38721107,0.68849825){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}B.) Exoskeleton\end{tabular}}}}%
-    \put(0.80688634,0.5695943){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Exo\end{tabular}}}}%
-    \put(0.85003377,0.34264444){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Exo\end{tabular}}}}%
-    \put(0.80574299,0.12808942){\color[rgb]{0,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Exo\end{tabular}}}}%
-    \put(0.75467424,0.36768808){\color[rgb]{0.8,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human-Side Force\end{tabular}}}}%
-    \put(0.68434019,0.24520261){\color[rgb]{0.8,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Human-Side Compliance (Large)\end{tabular}}}}%
-    \put(0.68434019,0.03407458){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Environment-Side Compliance (Small)\end{tabular}}}}%
+    \put(0.38415596,0.50723795){\color[rgb]{0.9372549,0.16078431,0.16078431}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A) Human\end{tabular}}}}%
+    \put(0.38415596,0.44806203){\color[rgb]{0.20392157,0.39607843,0.64313725}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}C) Load\end{tabular}}}}%
+    \put(0.38415596,0.47779153){\color[rgb]{0.18039216,0.20392157,0.21176471}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}B) Exoskeleton\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{new_first_fig.pdf}}%
-    \put(0.42913884,0.59386881){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D.)\end{tabular}}}}%
-    \put(0.73975913,0.14889239){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Env.-Side Force\end{tabular}}}}%
-    \put(0.76397638,0.5105109){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Accelertation\end{tabular}}}}%
-    \put(0.75467424,0.30912132){\color[rgb]{0.8,0,0}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Resulting Accelertation\end{tabular}}}}%
-    \put(0.73975913,0.08478958){\color[rgb]{0.1254902,0.29019608,0.52941176}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Resulting Acceleration\end{tabular}}}}%
+    \put(0.439487,0.27301286){\color[rgb]{0.9372549,0.16078431,0.16078431}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}}%
+    \put(0.49197256,0.17999635){\color[rgb]{0.20392157,0.39607843,0.64313725}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Load\end{tabular}}}}}%
+    \put(0.48073004,0.32753137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$M_x$\\\end{tabular}}}}%
+    \put(0.54595896,0.27301286){\color[rgb]{0.18039216,0.20392157,0.21176471}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Net Exo.\end{tabular}}}}}%
+    \put(0.65119826,0.27301286){\color[rgb]{0.9372549,0.16078431,0.16078431}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}}%
+    \put(0.70368387,0.17999635){\color[rgb]{0.20392157,0.39607843,0.64313725}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Load\end{tabular}}}}}%
+    \put(0.76130359,0.27301286){\color[rgb]{0.18039216,0.20392157,0.21176471}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Net Exo.\end{tabular}}}}}%
+    \put(0.8666239,0.27301286){\color[rgb]{0.9372549,0.16078431,0.16078431}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}}%
+    \put(0.91910979,0.17999635){\color[rgb]{0.20392157,0.39607843,0.64313725}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Load\end{tabular}}}}}%
+    \put(0.97281666,0.27301286){\color[rgb]{0.18039216,0.20392157,0.21176471}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Net Exo.\end{tabular}}}}}%
+    \put(0.39422399,0.3993462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D): Passive\end{tabular}}}}%
+    \put(0.59966685,0.3993462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E): Grav. Comp.\end{tabular}}}}%
+    \put(0.81438154,0.3993462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F): Amplification\end{tabular}}}}%
+    \put(0.69376857,0.32753137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$M_x$\\\end{tabular}}}}%
+    \put(0.91020673,0.32753137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$M_x$\\\end{tabular}}}}%
   \end{picture}%
 \endgroup%
