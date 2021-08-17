@@ -1,0 +1,1271 @@
+\documentclass[utf8]{frontiersSCNS}
+
+\usepackage{url,lineno,microtype,subcaption}
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{bold-extra}
+\linenumbers
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amscd}  
+% \usepackage{bm,upgreek}
+\usepackage{amsfonts}
+% \usepackage{wasysym}
+\usepackage{amsthm}
+% \usepackage{amssymb}
+% \usepackage{nccmath}
+% \usepackage{epsfig}
+% \usepackage{moreverb,url}
+\usepackage{graphicx}
+%\usepackage[font=footnotesize]{caption}
+%\usepackage[font=footnotesize]{subcaption}
+% \usepackage{capt-of}
+\usepackage{booktabs}
+\usepackage{xcolor}
+%\usepackage{citesort}
+%\usepackage{accents}
+\usepackage{import}
+% \usepackage{placeins}
+\usepackage{mathtools}
+%\usepackage{subcaption}
+\usepackage{array}
+% \usepackage{multirow}
+% \usepackage{tabu}
+\usepackage{booktabs}
+% \usepackage{resizegather}
+
+\usepackage{transparent}
+\pdfminorversion=4
+
+\renewcommand*{\cite}[1]{\citep{#1}}
+
+% \renewcommand{\floatpagefraction}{.95}
+% \renewcommand{\topfraction}{.95}
+% \renewcommand{\bottomfraction}{.95}
+% \renewcommand{\textfraction}{.95}
+% \renewcommand{\dbltopfraction}{.95}
+% \renewcommand{\floatpagefraction }{.95}
+
+
+%\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
+%\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,draft,citecolor=red,urlcolor=red]{hyperref}
+
+% \AtBeginDocument{%
+%	\providecommand*\ext@lstlisting{lol}%
+%	\renewcommand{\fnum@lstlisting}{\lstlistingname\nobreakspace\thelstlisting}
+%}
+
+
+\input{defines.tex}
+
+%\def\volumeyear{2021}
+\setcounter{secnumdepth}{3} % numbers sections
+
+
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+ %use et al only if is more than 1 author
+
+% Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
+% If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
+
+% The Corresponding Author should be marked with an asterisk
+% Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
+\def\corrAuthor{Corresponding Author}
+
+\def\corrEmail{email@uni.edu}
+
+
+
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+\def\firstAuthorLast{Thomas {et~al.}} %use et al only if is more than 1 author
+\def\Authors{Gray C. Thomas\,$^{1,*}$, Orion Campbell\,$^{2}$, Nick Nichols\,$^{2}$, Nicolas Brissonneau\,$^{3}$, Binghan He\,$^{3}$, Joshua James\,$^{2}$,  Nicholas A. Paine\,$^{2}$ and Luis Sentis\,$^{3,*}$}
+
+\def\Address{$^{1}$The University of Michigan, USA \\
+$^{2}$Apptronik Inc., USA \\
+$^{3}$The Human Centered Robotics Lab, The University of Texas at Austin, Austin, USA}
+\def\corrAuthor{Gray Thomas / Luis Sentis}
+\def\corrEmail{gcthomas@umich.edu / lsentis@austin.utexas.edu}
+
+
+\newcommand{\add}[1]{\textcolor[HTML]{8710b3}{#1}}
+
+\begin{document}
+\onecolumn
+\firstpage{1}
+\title[Deploying Strength Amplification]{Formulating and Deploying Strength Amplification Controllers for Lower-Body Walking Exoskeletons}
+\author[\firstAuthorLast ]{\Authors} %This field will be automatically populated
+\address{} %This field will be automatically populated
+\correspondance{} %This field will be automatically populated
+
+\extraAuth{}
+\maketitle
+
+\begin{abstract}
+Augmenting the physical strength of a human operator during unpredictable human-directed (volitional) movements is a relevant capability for several proposed exoskeleton applications, including mobility augmentation, manual material handling, and tool operation. 
+Unlike controllers and augmentation systems designed for repetitive tasks (e.g. walking), we approach physical strength augmentation by a task-agnostic method of force amplification---using force/torque sensors at the human--machine interface to estimate the human task force, and then amplifying it with the exoskeleton.
+% Coupled stability of the machine with the human motivates our introduction of an amplification shaping framework for the design of bandwidth-limited controllers.
+% To avoid system identification of the operator wearing the exoskeleton, we refine the amplification strategy down to a one-parameter tunable compensator.
+We deploy an amplification controller that is integrated into a complete whole-body control framework for controlling exoskeletons that includes human-led foot transitions, inequality constraints, and a computationally efficient prioritization.
+A powered lower-body exoskeleton is used to demonstrate behavior of the control framework in a lab environment.
+This exoskeleton can assist the operator in lifting an unknown backpack payload while remaining fully backdrivable.
+\end{abstract}
+
+% \titlepgskip=-15pt
+
+
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%	Exoskeleton, Compliance Shaping, Human Augmentation.
+%\end{IEEEkeywords}
+
+%\keywords{Exoskeleton, Compliance Shaping, Human Augmentation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:intro}
+% reviewer comment: too long!
+ 
+%%% Diverse applications of exoskeletons, narrowing down to amplification
+Exoskeletons offer the potential to greatly augment the physical load carrying ability by placing the strength of machines under the dexterous control of people. But the amplification of strength through force sensor feedback remains a challenging problem in practice.
+This problem is unique to this application area and is rarely discussed with regard to the various other types of exoskeletons---\emph{e.g.} those that aim to recover locomotion capability lost to disease \cite{KwaNoordenMisselCraigPrattNeuhaus2009ICRA,AgrawalHaribHereidFinetMasselinPralyAmesSreenathGrizzle2017Access}, offload the strenuous work of rehabilitation therapy from therapists \cite{SugarHeEA2007TNSRE,KimDeshpande2017IJRR}, or aid healthy locomotion with timed power boosts \cite{MooneyRouseHerr2014JNRE,ZhangFiersWitteJacksonPoggenseeAtkesonCollins2017Science,SawickiBeckKangYoung2020JNER}.
+% To amplify human strength is to treat forces of human origin differently from forces of any other origin.
+% And we frame this problem as designing a pair of compliances (or integral-admittances\footnote{We prefer `compliance' to `integral-admittance' for brevity, but note that this makes `compliance' a transfer function of position per force.}) for the human-side interface of the robot and the environment-side interface of the robot.
+%Amplification control systems are designed to magnify the physical strength of operators as they attempt non-repetitive, unpredictable tasks with unknown payloads.
+Amplification control systems are designed to magnify the physical strength of the operator as he or she interacts with a load \emph{through the exoskeleton}, while also reducing the weight and inertia the operator feels from the exoskeleton itself. This kind of control allows non-repetitive, unpredictable tasks with unknown payloads.
+
+
+%%% Gravity compensation is not amplification
+Lifting \emph{known} payloads is a simpler problem. These loads can be lifted by directly compensating their nominal weight with actuator torque commands (\emph{i.e.} the ``gravity compensation'' strategy).
+This compensation could be lifting mostly the exoskeleton itself \cite{KazerooniRacineHuangSteger2005ICRA}, or even offloading the operator's own bodyweight \cite{KongMoonJeonTomizuka2010TMech,LvZhuGregg2018CSM,LinLvGregg2019ACC}.
+In an exoskeleton system that can be easily backdriven by the operator, gravity compensation alone is a practical approach for lifting well-modeled payloads \cite{Campbell2018Thesis}.
+However, the operator must still accelerate the full inertia, compensate for any model error, and lift any extra payloads.
+The inertia burden can be lessened by adding positive acceleration feedback \cite{Kazerooni2005IROS,KongTomizuka2009TMech}, but all three issues can be addressed by adding force-feedback-based amplification.
+
+
+%% Admittance control is not amplification
+Admittance control for exoskeletons \cite{YuRosen2013TCyb,FontanaVertechyMarcheschiSalsedoBergamasco2014RAM,JacobsenOlivier2014Patent,LecoursStongeGosselin2012ICRA} uses force sensor feedback at the human interface\footnote{Measuring human muscular effort, as can also be accomplished via electromyography (muscle measurement) \cite{KawamotoSankai2005AR,YoungFerris2016TNSRE}.} in order to increase the human-side closed-loop admittance, reduce sensitivity to the mass model, and lift unknown loads. But the admittance `increase' is relative to the admittance controller's plant: a position-controlled robot. Since position-controlled robots have an artificially low admittance to begin with \cite{YuRosen2013TCyb,GonzalezAsada2019RAL}, the closed-loop human-side admittance is typically not an improvement over the torque-controlled gravity compensation strategy. Additionally, the position-controlled plant of the admittance controller will attenuate all external forces acting on the robot. This has the disadvantage of depriving the operator of the force feedback they would normally perceive when they interact with the load.
+
+
+%% Amplification requires two force sensors
+In order to allow bidirectional transmission of forces to coexist with amplification of human strength, the exoskeleton must transmit both amplified forces from the user to the load and attenuated forces from the load to the user.
+And this requires a force sensor configuration that can distinguish between load- and human-originated forces.
+Directly measuring a robot--load interface and robot--human interface with force sensors allowed \cite{KazerooniGuo1993JDSMC,KazerooniMahoney1991ICRA,KazerooniMahoney1991JDSMC} to control \emph{disparate} admittance behaviors for each interface.%
+\footnote{The HARDIMAN I exoskeleton \cite{MakinsonBodineFitck1969Techreport} attempted to do this as well, but with a flawed approach that neglected multi-joint coordination.}
+But the controller from \cite{KazerooniGuo1993JDSMC} was still not designed to improve the human-side admittance relative to the torque-controlled gravity compensation strategy. It still used admittance control and a position-controlled robot.
+In this paper, we use force sensing at the human--exoskeleton and actuator--exoskeleton interfaces (\emph{i.e.} series elastic actuators), and this serves the dual purposes of distinguishing the human from the load and allowing torque control at the joints.
+The two interface admittances are then shaped with a cascade of amplification feedback on top of torque-controlled actuators.\footnote{Our reaction-force sensing series elastic actuators are torque controlled based on disturbance observers \cite{PaineOhSentis2014TMech,Paine2014Dissertation}.}
+
+\begin{figure}\centering
+	\def\svgwidth{.8\columnwidth}
+	\input{new_first_fig.pdf_tex}
+	\caption{Human--exoskeleton--load interaction illustrating the concept of amplification. Marker A, the Human (inc. part of the backpack), connects to B, the Apptronik Sagittarius Exoskeleton, which connects to C, the unknown Load. The Human--Exoskeleton connection is force/torque sensitive to allow human force feedback. Three diagrams represent forces acting on the inertia matrix of the exoskeleton $M_x$ in static equilibrium. When the exoskeleton is in zero-torque mode, the human supports both the load and the gravitational weight of the exoskeletons (D). When the exoskeleton compensates gravity, the human needs only compensate the load and the gravity compensation error (E). Amplification improves on this by making the exoskeleton augment the human input, in addition to compensating gravity (F).
+	}\label{fig:newfirst}
+\end{figure}
+
+%% Problem of non-passivity 
+Unfortunately, the problem of non-passivity is inherent to feedback control that conceals inertia. This is an issue regardless of how the inertia was concealed---through positive acceleration feedback \cite{Kazerooni2005IROS} or force feedback \cite{BuergerHogan2007TRO}.
+Without passivity, we must fall back to robust control in order to certify such behaviors. 
+Most importantly, the exoskeleton's human-facing port---its force--position relationship at the human--exoskeleton interface---will be in a feedback interconnection with the human's exoskeleton-facing port.
+Studies of this feedback interconnection \cite{Kazerooni1990TSMC,BuergerHogan2007TRO,BuergerHogan2006IROS,HeThomasPaineSentis2019ACC} and the human in particular \cite{HeHuangThomasSentis2019IROS,HeHuangThomasSentis2020TNSRE} have modeled the human as a mass-spring-damper system with a range of parameter values. The most variable parameter is stiffness, as this depends on muscle contraction \cite{Hogan1984TAC}.
+We must demonstrate that no possible human behavior leads to instability---a robust control problem.
+Designing a machine to be passive \cite{ColgateHogan1988IJC,Hogan1989ICRA,ColgateBrown1994ICRA,AdamsHannaford1999TRA} can also be seen as a robust control problem: such designs guarantee stability against a very wide range of 'human' behaviors---the set of all passive transfer functions. Our prior work \cite{ThomasCoholichSentis2019AIM,HeThomasPaineSentis2019ACC,HeHuangThomasSentis2019IROS,HeHuangThomasSentis2020TNSRE} has studied this stability problem for a table-mounted elbow exoskeleton.
+
+
+%%% STATEMENT OF CONTRIBUTION... Mention tasks so that they can be referred to in the structuring paragraph
+In this paper, we deploy an amplification controller on a 12 degree of freedom (12-DOF) lower-body exoskeleton with 8 torque-controlled active joints and 4 passive (but sensorized) joints (Fig.~\ref{fig:newfirst}). The core framework of this controller is a multi-joint coordination approach modeled after humanoid robot controllers for torque-controlled joints \cite{SentisParkKhatib2010TRO,KimEA2016TRO} (e.g. the Valkyrie robot at NASA JSC \cite{RadfordEA2015JFR,PaineEA2015JFR}) in which a list of `tasks' (e.g. the position of the end effector, or the force between the feet) is accomplished by the robot.
+The full controller comprises (a) an optimization that determines robot joint torques using a \emph{prioritized} list of tasks and a set of constraints that act on the sum of human and robot torques---the `Shared-Body Controller' (Sec.~\ref{sec:opt}); (b) a six degree of freedom (6-DOF) task that constrains the robot to follow human-led footstep transitions---the \emph{inter-foot force task} (Sec.~\ref{sec:ift}); (c) an amplification task that accomplishes strength amplification in Cartesian space (Sec.~\ref{sec:theory}); and (d) a heuristic tuning strategy for the amplification filter, which is based on \cite{HeThomasPaineSentis2019ACC} and \cite{ThomasCoholichSentis2019AIM} (Sec.~\ref{sec:fd}). We demonstrate the deployed controller's ability to reduce the human effort necessary to lift the robot itself and an unknown payload, as well as the operator's ability to easily back-drive the system to walk around and climb some stairs (Sec.~\ref{sec:exp}).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Strength Amplification Task}\label{sec:theory}
+Strength amplification can be illustrated using the example of an ideal fixed-base (arm-like) ``exoskeleton'' performing a force-feedback behavior with an end effector in contact with both the human and some load.
+
+
+
+Consider a fully actuated, grounded base exoskeleton acted on by both a human operator (Jacobian $J_h$, and force $f_h$) and an unknown load (Jacobian $J_l$, and force $f_l$) (list of symbols in Tab.~\ref{tab:not1}),
+\begin{equation}
+M_x(q) \ddot q + B_x(q,\ \dot q) + g_x(q) = \tau + J_h^T f_h + J_l^T f_l.\label{eq:exo_equation}
+\end{equation}
+The exoskeleton measures the human forces, $f_h$, and can use this measurement to specify $\tau$. 
+As we will see, by implementing an amplifying control law, the exoskeleton can reduce the human's perception of the load. 
+However to define this amplification law, we will need to first introduce the concept of a whole-body control task \cite{SentisParkKhatib2010TRO}.
+
+Whole body control tasks describe behaviors we want a robot to achieve, for example moving an end effector to a desired 6-DOF pose in Cartesian space. While this task constrains 6-DOF, it could equivalently be divided into sub-components, e.g. a 3-DOF position task and a 3-DOF orientation task.
+\add{Singularity-prone kinematics are not necessarily reflected in the tasks. Rather, the tasks are goals that may not always be possible to satisfy given the constraints of the robot.}
+Tasks can also specify the desired internal forces of multi-contact \cite{KimEA2016TRO}.
+More generally, tasks define both an effort-flow port of the robot and a target behavior for the robot to imitate at that port---a spring-damper behavior for position control and a force behavior for force control. This port is known as the task-space. By using the mapping between the joint-space of the robot and the task-space (and the mapping's Jacobian, $J_t$), a whole-body controller can implement the task behaviors even while floating in zero gravity or maintaining contact with arbitrarily shaped ground \cite{SentisParkKhatib2010TRO}. 
+
+\begin{table}[tb]
+	\centering
+	\begin{tabular}{rl}
+		\toprule
+		Symbol & Meaning \\
+		\midrule
+		$M_x$, $B_x$, $g_x$  & exoskeleton mass matrix, Coriolis vector, and gravity vector\\
+		$\ddot q$, $\dot q$, $q$ & exoskeleton joint acceleration, velocity, and position vectors\\
+		$\tau$ & exoskeleton joint torque vector\\
+		$J_h$, $f_h$ & human interaction cuff Jacobian, forces\\
+		$J_l$, $f_l$ & load interaction Jacobian, forces\\
+		$J_t$, $x_t$ & task Jacobian, position\\
+		$\widebar J_t$ & dynamically \add{consistent} pseudo-inverse of $J_t$\\
+		$\Lambda_t$ & Task-space inertia matrix\\
+		$\widehat f_t$ & desired task force\\
+		$\alpha$ & human strength amplification rate\\
+		$\widehat f_a$ & Ideal (infinite bandwidth) desired amplification force\\
+		$\widehat f_a(t)$, $\widehat F_a(s)$ & desired amplification task force vector (time domain, frequency domain)\vspace{.25em}\\
+		$f_h^\prime(t)$, $F_h^\prime(s)$ & transformed human force (time domain, frequency domain)\vspace{.25em}\\
+		$K (s)$ & Force feedback filter\\
+		\bottomrule
+	\end{tabular}
+	\caption{Nomenclature for Sec.~\ref{sec:theory}}\label{tab:not1}
+\end{table}
+
+We define the amplification task to reduce human perception of load and exoskeleton dynamics disturbances in the task space. These task-space dynamics are originally (\emph{i.e.} in open-loop) found by premultiplying \eqref{eq:exo_equation} by $(J_t M_x^{-1}J_t^T)^{-1}J_t M_x^{-1}$, yielding
+\begin{equation}
+ \Lambda_t (\ddot x_t - \dot{J}_t \dot q) + \widebar{J}_t^T (B_x + g_x) = \widebar{J}_t^T(\tau +J_h^T f_h + J_l^T f_l),
+\end{equation}
+where $\Lambda_t = (J_t M_x^{-1} J_t^T)^{-1}$ is the task-space mass matrix and $\widebar{J}_t = M_x^{-1} J_t^T\Lambda_t$ is the dynamically consistent pseudo-inverse of the task Jacobian \cite{KimEA2016TRO}. The amplification task specifies only a linear subspace of the torque vector, $\widebar J_t^T \tau$, as
+\begin{equation}
+\widebar{J}_t^T \tau = \widehat f_{a} + \widebar{J}_t^T(g_x),\ \text{where}\ \widehat f_{a} = (\alpha-1)\widebar{J}_t^T J_h^T f_h.\label{eq:ideal_amp_task}
+\end{equation}
+Here, the first term $\widehat f_{a}$ represents a desired force amplifying the human operator's strength, and the second term compensates gravity.
+Reduced human perception of load and exoskeleton dynamic disturbances can be seen in the closed-loop task-space,
+\begin{equation}
+ \frac1\alpha \Lambda_t (\ddot x_t - \dot{J}_t \dot q) + \frac1\alpha \widebar{J}_t^T (B_x) = \widebar{J}_t^T J_h^T f_h + \frac1\alpha \widebar{J}_t^T J_l^T f_l.
+\end{equation}
+While the human term stays the same, every other term is reduced. Equivalently, we could say these closed-loop dynamics amplify the influence of the human force by a factor of $\alpha$. But this behavior is complicated by the matrices $\widebar{J}_t^T J_h^T$ and $\widebar{J}_t^T J_l^T$, which represent projection onto the space of the task as well as the potential for mismatch between the reference frames of the task, the human-measuring cuff interface, and the load.
+
+In the special case where the human and load forces act \emph{only} in the task-space and the human and load forces are expressed in the units and reference frame of the task-space (\emph{i.e.} $J_t=J_h=J_l$), this simplifies to
+\begin{equation}
+ \Lambda_t (\ddot x_t - \dot{J}_t \dot q) + \widebar{J}_t^T (B_x) = \alpha f_h + f_l,\label{eq:ideal_amplification}
+\end{equation}
+which clearly shows the human advantage with respect to the load, inertia, and Coriolis forces.
+For example, this case occurs if (1) both forces are applied to one sensorized, 6-DOF end effector; (2) the sensor measurements of the spatial force vectors of the human and the load are all converted to the same reference frame \cite{Featherstone2014Book}; and (3) this frame is also the frame in which the task is expressed.
+
+This law is unfortunately an unobtainable ideal, because it changes the apparent inertia the human feels instantaneously. In other words, the law requires that the actuation bandwidth is infinite.
+Beyond the actuation bandwidth, all feedback systems asymptotically revert to their natural dynamics. Thus, in the limit as frequency approaches infinity, the frequency-domain representation of exoskeleton torque should be zero.
+
+\subsection{Filtered Amplification Task}\label{sec:fd_task}
+To allow for bandwidth limited amplification tasks, we introduce the notion of filtered force feedback amplification. Instead of an amplification task following Eq.~\eqref{eq:ideal_amp_task}, we define a desired filtered amplification force as the result of a frequency domain filter as 
+\begin{equation}
+\widehat F_a(s) = K(s) F^\prime_h(s), \qquad \text{where} \qquad f^\prime_h(t) = \widebar{J}_t^T J_h^T f_h, \label{eq:amplification_task_desired}
+\end{equation}
+$f^\prime_h$ is the human force vector represented in the task space, $F^\prime_h(s)$ is its Laplace transform, and $K(s)$ is some matrix of linear filters analogous to $(\alpha-1)$ in the ideal case. We design this matrix of filters to be diagonal, and consider a strategy for tuning the diagonal filter elements in Sec.~\ref{sec:fd}. 
+
+In our exoskeleton, the \emph{amplification task} is a 6-DOF task concerning the exoskeleton's hip/backpack frame and the 6-axis force/torque sensor that connects the hip/backpack link to the operator. The vector $F_h^\prime(s)$ is the 6-axis force/torque sensor measurement's expression in the task frame (the exoskeleton's hip frame). And $\widehat F_a(s)$ is the desired \emph{amplification task} spatial force vector (expressed in hip frame), which  will be treated as a time-domain vector signal $\widehat f_a(t)$ in Sec.~\ref{sec:opt}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tuning the Amplification Filters}\label{sec:fd}
+
+%%% TODO: delete this table?
+\begin{table}[tb]
+	\centering
+	\begin{tabular}{rl}
+		\toprule
+		Symbol & Meaning \\
+		\midrule
+		$m$  & one-DOF exoskeleton mass\\
+		$k_h+h_h j$ & human complex stiffness (see \cite{HeHuangThomasSentis2020TNSRE})\\
+% 		$\phi$ & human phase lag\\
+		$x(t)$, $X(s)$ & one-DOF position (time-domain, frequency-domain)\\
+		$f_l(t)$, $F_l(s)$ & load force\\
+		$f_x(t)$, $F_x(s)$ & exoskeleton actuator force\\
+		$f_h(t)$, $F_h(s)$ & human force\\
+		$\widehat\alpha(s)$ & desired amplification transfer function\\
+		$\alpha(s)$ & realized amplification transfer function\\
+		$K(s)$ & feedback controller transfer function\\
+		$\eta(s)$ & actuation imperfections (time-delay, low-pass filtering)\\
+		$\omega_a$ & amplification bandwidth (tuning parameter)\\
+		$\alpha_0$ & steady-state amplification rate\\
+		$\zeta$ & amplification damping ratio\\
+		\bottomrule
+	\end{tabular}
+	\caption{Nomenclature for Sec.~\ref{sec:fd}}
+	\label{tab:not2}
+\end{table}
+
+Since ideal amplification cannot be attained, we must consider a design space of more realistic amplification behaviors. And the essence of this design space is a bandwidth limitation on the control. This bandwidth limit, and its impact on coupled human--exoskeleton stability, has been studied in the context of single degree of freedom exoskeleton systems \cite{HeThomasPaineSentis2019ACC,ThomasCoholichSentis2019AIM,HuangCappelThomasHeSentis2020ACC,HeHuangThomasSentis2020TNSRE}, and we will use the single degree of freedom case as a heuristic for understanding the tuning of the amplification task's $\mathbf K(s)$ filter elements in our multi-DOF exoskeleton. While this heuristic omits several obvious nonlinear effects and inter-task couplings in the full system, it captures the basic problem of human--exoskeleton instability that can occur when bandwidth limits are ignored.
+
+\subsection{Human-Exoskeleton Stability Model}
+\begin{figure*}[]
+	\def\svgwidth{\textwidth}
+	{
+		\input{simple_block_diagrams.pdf_tex}}
+
+\caption{Amplification filter tuning model, a one-DOF mass ($m$) acted upon by human ($f_h$), exoskeleton actuator ($f_x$), and load ($f_l$) forces (A). Closed loop system resulting from complex stiffness human mechanical impedance and exoskeleton amplification with bandwidth-limiting time-delay and low pass filter effects in $\eta(s)$ (B).}
+	\label{fig:block_diagrams}
+\end{figure*}
+
+Consider a 1-DOF linear human and exoskeleton system (Fig.~\ref{fig:block_diagrams}.A, Tab.~\ref{tab:not2}) where the exoskeleton acts like an inertia $M$ and is being acted upon by three forces: the human $f_h(t)$, the actuator $f_x(t)$, and the load $f_l(t)$ as
+\begin{equation}
+m \ddot x(t) = f_l(t)+f_h(t)+f_x(t),
+\end{equation}
+where $x(t)$ the shared position of the human and the exoskeleton. We write this model in the frequency domain as
+\begin{equation}
+m s^2 X(s) = F_l(s)+F_h(s)+F_x(s),
+\end{equation}
+using capitalization to distinguish Laplace transforms from time-domain versions of the same signal.
+
+The force-feedback filter $K(s)$ is based on a nominal amplification behavior $\widehat \alpha(s) = 1+K(s)$.\footnote{We reserve the symbol $\alpha(s)$ for the realized amplification behavior, which includes the effect of actuator imperfections $\eta(s)$.}
+We parameterize the desired amplification transfer function as
+\begin{equation}
+\widehat\alpha(s) = \frac{s^2 + 2\zeta \omega_z s + \omega_z^2}{s^2 + 2\zeta \omega_p s + \omega_p^2},
+\end{equation}
+i.e. a second order lag with two conjugate poles at lower frequency than the two conjugate zeros, using the same $\zeta$ twice for convenience, though this could potentially be optimized. 
+While this $\widehat\alpha(s)$ is not strictly causal, it produces a $K(s)$ which is:
+\begin{equation}
+K(s) = \widehat\alpha(s)-1 = \frac{2\zeta (\omega_z-\omega_p) s + \omega_z^2-\omega_p^2}{s^2 + 2\zeta \omega_p s + \omega_p^2}.
+\end{equation}
+
+Actuation imperfections ultimately limit the bandwidth, and we model these as the transfer function $\eta(s)$. They include a time delay $T$ and low pass filter effect (i.e. the closed loop bandwidth of the actuator's torque controller) at frequency $\omega$ with damping ratio $\zeta$,
+\begin{equation}
+\eta(s) = e^{-Ts} \frac{\omega^2}{s^2+2\zeta\omega + \omega^2}.
+\end{equation}
+
+The mechanical impedance of the human is also modeled as a complex stiffness---a spring with a dissipation term that does not change with frequency. (This model can be interpreted as similar to a spring with a coulomb friction term that scales with the magnitude of deflection, such that the energy lost in flexing the spring does not depend on the speed of the flexing \cite{BrissonneauHeThomasSentis2021CSL}.) This complex stiffness model is more accurate than the viscous damping model in predicting human energy dissipation in the elbow, especially at low frequencies  \cite{HeHuangThomasSentis2020TNSRE}.
+
+To facilitate easy tuning of our controller we \add{reparameterize} in terms of an amplification bandwidth parameter $\omega_a$ (equal to $\omega_p$) and a low frequency amplification gain $\alpha_0\geq1$ (equal to $\omega_z^2/\omega_p^2$) so that
+\begin{equation}
+K(s) = \frac{2\zeta (\sqrt{\alpha_0}-1)\omega_a s + (\alpha_0-1)\omega_a^2}{s^2 + 2\zeta \omega_a s + \omega_a^2}.
+\end{equation}
+We then tune only the amplification bandwidth $\omega_a$.
+
+
+\subsection{Tuning $\omega_a$}
+The tuning process we propose is simple. Sufficiently low values of $\omega_a$ are always stable, so we can increase $\omega_a$ until instability to tune the system without explicit system identification.
+
+\begin{figure*}
+	\centering
+	\resizebox{1\textwidth}{!}{
+	\def\svgwidth{\textwidth}
+	{%\footnotesize%
+		\input{one_parameter_tuning.pdf_tex}}}
+	\caption{One parameter tuning of the amplification filter. Three bode plots show three different tuning configurations as the single tuning parameter (the amplification bandwidth $\omega_a$) is increased to failure in our frequency domain model. Tuning arrows indicate increasing $\omega_a$. Plotted are the (integral) admittance of the human, $C_h(s)=1/(K_h+C_h j)$, the human-side admittance of the exoskeleton, $C_x(s)=1/(\alpha(s)Ms^2)$, and the admittance of the closed loop system obtained when the two are interconnected in parallel, $C_s(s) = X(s)/F_l(s)$. Note that in the third plot, the phase of the closed loop system rises instead of falling, indicating an unstable pole in the right half of the complex plane. In all three bode plots, magnification is used to highlight the calculation of a ``Human Phase Margin'' which predicts this instability. This calculation uses the phase of $C_x(s)$ at the frequency where the magnitude of $C_x(s)$ is equal to the magnitude of $C_h(s)$---the crossover frequency. At this frequency, stability of the resulting human--exoskeleton interconnection is determined by comparing the phase of $C_x(s)$ to a reference phase $180^\circ$ offset from the phase of $C_h(s)$. The difference between the phase of $C_x(s)$ and this reference is the ``Human Phase Margin.'' }\label{fig:oneptune}
+\end{figure*}
+
+The bode plot of $X(s)/F_l(s)$ (`System' in Fig.~\ref{fig:oneptune}) transitions from a stable low-pass filter behavior to an unstable system as $\omega_a$ is increased. We note that the critical frequency satisfies a relationship akin to zero phase margin, where both the magnitude of the human (integral) admittance, $1/(K_h+C_h j)$ (`Human' in Fig.~\ref{fig:oneptune}), is equal to that of the amplified exoskeleton admittance, $1/(\alpha(s)Ms^2)$ (`Robot' in Fig.~\ref{fig:oneptune}), and the phases of the two are offset by $180^\circ$. \add{We call the phase angle difference $\angle C_x(j\omega)-\angle C_h(j\omega)-180^\circ$ at crossover frequency $\omega$ where $|C_x(j\omega)|=|C_h(j\omega)|$ the `Human Phase Margin'. Since the human phase margin is also the phase margin for the open loop transfer function $C_x(s)C_h^{-1}(s)$ (in the unit negative feedback case), the human phase margin predicts the stability of the closed loop system resulting from the human--exoskeleton interconnection.}
+
+% One parameter tuning
+A single tuning experiment can determine the limiting bandwidth for any particular amplification shape.
+Starting with $\omega_a$ very low, we slowly scale it up until the system appears to vibrate. Once the threshold of oscillation is found, the oscillation frequency is roughly the crossover frequency, and we could obtain an estimate of the human phase if we had a good model of the torque tracking performance and time delay. The problem is practically solved, however, by the formulation of the controller in a one-parameter tunable way. With one knob, it is easy to increase the performance up to the limit, back off for robustness, and get a good result in the end.
+
+\subsection{Practical Considerations}
+Ultimately this model is introduced as a heuristic for the tuning behavior occurring in the more complex exoskeleton system, so we now revisit its assumptions with an eye to the realistic case. 
+
+If a small value for $\alpha_0$ is selected such that the minimum phase of $1/(\widehat\alpha(s)Ms^2)$ stays above the gray line in Fig.~\ref{fig:oneptune}, the system will be stable even for very high $\omega_a$. However, this will not hold true forever, and the bandwidth limiting factors in $\eta(s)$ will cause \add{the} realized behavior $1/(\alpha(s)Ms^2)$ itself to become unstable for high values of $\omega_a$.
+
+
+The human model considered here neglected human inertia. If this term were added, the human inertia would be roughly comparable to the inertia of the exoskeleton. The model would not be changed at low frequencies, so the base case (stability of low $\omega_a$) of our tuning process would stay the same. The lower phase of the human due to the inertia would improve the maximum allowable $\omega_a$, but a limit would still exist due to the bandwidth limiting factors in $\eta(s)$.
+
+The inertia of the exoskeleton changes as the person moves it, and this means that the stability of the amplification behavior can change depending on the configuration. Practically, this means that when tuning for maximum performance, care will need to be taken to test each iteration of the $\omega_a$ parameter over a wide range of poses, to ensure a robust stability. 
+
+It is well known that humans have the ability to co-contract their antagonistic muscles and artificially raise their mechanical impedance, and this represents another changing aspect of this problem. If we assume that this scales both $k_h$ and $h_h$ together, as supported in \cite{HeHuangThomasSentis2020TNSRE}, then co-contraction will lower the human admittance and improve the human phase margin. \add{In fact, this effect has even been exploited to improve controller performance online, provided a co-contraction predictor can be learned from wearable sensors (\textit{e.g.} EMG and bicep circumference sensors) \cite{HuangCappelThomasHeSentis2020ACC}.} To ensure robust stability while tuning for performance, the operator will need to avoid co-contraction so as to explore the gain-limiting case. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Inter-Foot Force Task}\label{sec:ift}
+
+
+Human-led foot contact transitions, such as walking or shifting balance, are an important part of any scheme for controlling lower-body exoskeletons. To allow this critical feature we introduce a second task, the \emph{inter-foot force task}, that is achieved simultaneously and  causes the exoskeleton to follow human-initiated foot lifting.
+
+% relation to previous approaches
+
+With one foot on the ground, this foot acts as a virtual base for the exoskeleton---a contact constraint on its otherwise free-fall dynamics.
+Since the exoskeleton is not designed to jump, we can assume that some sort of virtual base always exists.
+When two feet are on the ground at the same time,
+we can imagine a virtual single foot between them that acts like a base and moves between the feet according to the operator's own weight distribution.
+
+Two feet together have 12-DOF worth of reaction forces, and the virtual single foot contact only allows 6-DOF to be used as a virtual base.
+The remaining 6-DOF can be thought of as an error, representing the mismatch between the exoskeleton's reaction force distribution and the operator's.
+This error should be zero, and eliminating it is the purpose of the \emph{inter-foot force task}.
+
+
+To define this error, we first consider how correct reaction force distribution looks, and then consider the linear space of reaction forces perpendicular to this. For this purpose, we introduce an optimization problem that optimally distributes a net reaction wrench $f_s$ into two components, one for each foot,
+
+\begin{table}[tb]
+	\centering
+	\begin{tabular}{rl}
+		\toprule
+		Symbol & Meaning \\
+		\midrule
+		$f_i$ & foot $i$'s spatial force vector in frame $i\in\{1,2\}$\\
+		$f$ & stacking of $f_1$ and $f_2$\\
+		$f_s$ & sum of foot spatial force vectors in frame $s$\\
+		$Q_1$, $Q_2$, $Q$ & reaction force cost definition matrices\\
+		$\prescript{b}{}{X}_a^*$ & spatial force vector transform, frame $a$ $\rightarrow$ frame $b$\\
+		$\lambda$ & Lagrange multiplier vector in optimization\\
+		$X$ & equality constraint matrix in optimization\\
+		$\Gamma$ & $=[X Q^{-1} X^T]^{-1}$\\
+		$\widebar X$ & $=Q^{-1}X^T\Gamma$, a pseudo-inverse of $X$\\
+		$f_d$ & \emph{inter-foot force task} error in frame $d$\\
+		$\widetilde X$ & weighted inter-foot difference matrix\\
+		$\mathbf G$ & virtual base definition matrix\\
+		\bottomrule
+	\end{tabular}
+	\caption{Nomenclature for Sec.~\ref{sec:ift}}\label{tab:not_ift}
+	\label{tab:not3}
+\end{table}
+
+\vspace{-2em}\begin{align}
+\underset{f_1,\ f_2}{\mathrm{minimize}}\quad& \frac{f_1^T Q_1 f_1}{2} + \frac{f_2^T Q_2 f_2}{2}\\
+\mathrm{subject\ to} \quad& \prescript{s}{}{X}_1^* f_1 + \prescript{s}{}{X}_2^* f_2 = f_s,\label{eq:sum_force_constraint}
+\end{align}
+where $Q_1$ and $Q_2$ are positive definite and typically diagonal.
+We introduce two new reference frames: frame $s$ (for ``sum''), and frame $d$ (for ``difference'').
+Both frames are weighted averages of the two foot frames.
+Frame $s$ is approximately matched with the human center of pressure.
+Frame $d$ is the mirror image of frame $s$, and both frames overlap at the mid-foot point when the human puts equal weight on each foot.
+Transformation $\prescript{s}{}{X}_1^*$ converts spatial force vectors from the 1$^{\rm{st}}$ foot's frame to frame $s$, and $\prescript{s}{}{X}_2^*$ is the same for the other foot.
+The force $f_s$ represents the sum of the two foot spatial force vectors expressed in frame $s$ (Tab.~\ref{tab:not_ift}).
+
+
+The equality constrained quadratic programming problem can be solved analytically. Starting from the equilibrium conditions, 
+
+\vspace{-2.5em}\begin{align}
+&Q f + X ^T \lambda = 0, \qquad \text{where},\label{eq:Q1Q2def}\\
+&Q = \begin{pmatrix}Q_1 & \\ & Q_2\end{pmatrix},\\
+&f = \begin{pmatrix}f_1\\f_2\end{pmatrix},\\
+&X = \begin{pmatrix}\prescript{s}{}{X}_1^* & \prescript{s}{}{X}_2^* \end{pmatrix},\qquad \text{and}\\
+&X f = f_s.\end{align}
+In matrix form,
+
+\vspace{-2.5em}\begin{align}
+&\begin{pmatrix} Q & X^T\\X &0\end{pmatrix} \begin{pmatrix} f \\\lambda\end{pmatrix} = \begin{pmatrix} 0\\ f_s\end{pmatrix},\\[3mm]
+&\begin{pmatrix} f \\\lambda\end{pmatrix}
+ = \begin{pmatrix}
+ Q^{-1}-\widebar X X Q^{-1} &
+  \widebar X\\
+ \widebar X^T &
+ -\Gamma
+ \end{pmatrix}
+ \begin{pmatrix} 0\\ f_s\end{pmatrix}, \label{eq:inversion}\end{align}
+where $\Gamma=[X Q^{-1}X^T]^{-1}$ and $\widebar X = Q^{-1}X^T \Gamma$. Thus
+
+\vspace{-2.5em}\begin{align}
+&f = (Q^{-1}X^T)\cdot[X Q^{-1}X^T]^{-1} f_s,\\[3mm]
+&\begin{pmatrix} f_1\\f_2\end{pmatrix} = \begin{pmatrix}Q_1^{-1} {\prescript{s}{}{X}_1^{*T}} \\ Q_2^{-1} {\prescript{s}{}{X}_2^{*T}}\end{pmatrix}\cdot \begin{bmatrix} {\prescript{s}{}{X}_1^*}Q_1^{-1}{\,\prescript{s}{}{X}_1^{*T}}+{\prescript{s}{}{X}_2^*}Q_2^{-1}{\,\prescript{s}{}{X}_2^{*T}}\end{bmatrix}^{-1} f_s.
+\end{align}
+
+
+This 12-DOF solution $f$ is the virtual single foot contact's distribution of reaction forces between the two feet. The other six degrees of freedom in the foot forces---the degrees of freedom not specified by constraint \eqref{eq:sum_force_constraint}---represent the \emph{inter-foot force task} error.
+More specifically, we define the \emph{inter-foot force task} error $f_d$ in frame $d$ to complete a parameterization of the foot forces $f$
+
+\vspace{-2.5em}\begin{gather}
+f = \widebar X f_s + \left[I-\widebar X(\widebar X^T \widebar X)^{-1}\widebar X^T\right] \widetilde X^T f_d,
+\end{gather}
+where we introduce
+
+\vspace{-2.5em}\begin{equation}
+\widetilde X = \begin{pmatrix} {\prescript{d}{}{X}_1^{*}}^{-1} w_2 \\ -{\prescript{d}{}{X}_2^{*}}^{-1} w_1\end{pmatrix},
+\end{equation}
+as a rough parameterization of the deviation from the desired force distribution. This gets contorted into being perpendicular to $\widebar X$ by the premultiplication with an $\widebar X$ image space nullifier. Ultimately, the \emph{inter-foot force task} tries to \add{avoid choosing an exoskeleton torque that results in a nonzero} $\|f_d\|$, and when \add{$f_d=0$}, reaction forces minimize the previously defined quadratic cost (since $f = \widebar X f_s$). This leaves $f_s$ as the path of least resistance the optimization uses to hold up the weight of the exoskeleton.
+
+We define $\mathbf G$ to simplify notation: 
+
+\vspace{-2em}\begin{equation} f = \mathbf G\cdot \begin{pmatrix} f_s\\f_d\end{pmatrix},\label{eq:G_use}\end{equation}%
+\begin{equation}
+\mathbf G = \begin{pmatrix}
+\widebar X & \left[I-\widebar X(\widebar X^T \widebar X)^{-1}\widebar X^T\right] \widetilde X^T
+\end{pmatrix}.\label{eq:G_def}
+\end{equation}
+
+
+
+% \subsection{Interpreting the Controller Through Reaction Forces:}
+%% High level explanation moved up from the IFT section
+As mentioned in Sec.~I, our exoskeleton controller is tasked with \emph{simultaneously} accomplishing the \emph{amplification task} at the hip/backpack interface (Sec.~\ref{sec:fd}) and the \emph{inter-foot force task}.
+In terms of reaction forces, the \emph{amplification task} serves a similar purpose to the centroidal momentum task introduced in \cite{KoolenEA2016IJHR} or the center of mass task in \cite{SentisParkKhatib2010TRO}: it determines the required \emph{sum} of reaction forces.
+Meanwhile, the \emph{inter-foot force task} (similar to the internal force tasks from \cite{KimEA2016TRO}) determines the part of the reaction force vector that is decoupled from the center of mass acceleration.
+With both tasks active, the reaction forces are all defined and the joint torques can be thought of as resulting from an inverse dynamics process---as in the Dynamic Balance Force Control of \cite{StephensAtkeson2010IROS}.
+
+
+
+
+ 
+
+%\subsection{Hierarchy of Exoskeleton Metrics}
+%we can define the following two norms of human torques and interface torques,
+%\begin{equation}
+%\mathcal J_o = \int\limits \tau_o(t)^T \tau_o(t) dt,\qquad \mathcal J_h = \int\limits f_h^T(t)J_h J_h^T f_h(t) dt.
+%\end{equation}
+%Metrics for the utility of an amplification exoskeleton can be derived. Here we arrange some, roughly from easiest to hardest:
+%\begin{enumerate}
+%	\item The exoskeleton demonstrates payload amplification in the weak sense if $\mathcal J_h$ is lower with the exoskeleton powered on then powered off in a task where the human simply walks around with the payload attached to the back of the exoskeleton.
+%	\item The exoskeleton demonstrates payload amplification in the a strong sense if $\mathcal J_h$ is lower with the exoskeleton powered on then without the exoskeleton at all (but still supporting the payload as a backpack) in the same activity.
+%	\item The exoskeleton demonstrates strength amplification if $\mathcal J_h$ is lower with the exoskeleton powered on then off for an activity where the exoskeleton is used to push on an unmodelled obstacle.
+%	\item The exoskeleton demonstrates endurance amplification in the weakest sense if $\mathcal J_o$ is lower with the exoskeleton powered on then off for any activity.
+%	\item The exoskeleton demonstrates endurance amplification in a strong sense if $\mathcal J_o$ is lower with the exoskeleton powered on then with no exoskeleton at all (but still with the payload) for any activity.
+%	\item The exoskeleton demonstrates endurance amplification and payload amplification in a strong sense if $\mathcal J_o$ is lower with the exoskeleton powered on then with no exoskeleton and a lighter payload for any activity.
+%	\item The exoskeleton demonstrates all three of payload, strength, and endurance amplification in a strong sense if $\mathcal J_o$ is lower with the exoskeleton powered on then with no exoskeleton and a lighter payload for a battery of activities including both unimpeded motions and holds against unmodelled objects.
+%	\item The exoskeleton demonstrates agile payload, strength, and endurance amplification in a strong sense if $\mathcal J_o$ is lower with the exoskeleton powered on then with no exoskeleton and a lighter payload for a battery of activities including both unimpeded motions, high acceleration motions (jumps, for example), a
+
+%\end{enumerate}
+%
+%These criteria are essentially $L_2$ norm criteria on the torque signal. It is also possible to represent this criteria as a frequency domain integral using the Fourier transform of the time domain data. If we look at it in this light, it is also possible to test for evidence of amplification by frequency. We suspect that strategies which do not smooth contact transitions will perform badly in high frequency comparisons. This approach would also differentiate high bandwidth amplification from low bandwidth amplification.
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Weighted 1-Norm Shared-Body Control}\label{sec:opt}
+
+To combine the \emph{amplification task} and \emph{inter-foot force task} while also respecting limitations on the exoskeleton, we compute the joint torques of the exoskeleton using a linear optimization problem. This problem uses concepts of contact constraints, prioritization between task sub-components, a weighted 1-norm cost, and the actuator-mapped reaction force space in order to be computationally efficient.
+
+
+\begin{table}[tb]
+	\centering
+	\begin{tabular}{rl}
+		\toprule
+		Symbol & Meaning \\
+		\midrule
+		$\tau$ & optimization variable: joint torque vector\\
+		$M_x$, $B_x$, $g_x$  & exoskeleton mass, Coriolis, gravity\\
+		$\ddot q$, $\dot q$, $q$ & joint acceleration, velocity, position\\
+		$S$ & underactuation matrix for a free floating base\\
+		$J_h$, $f_h$ & Jacobian for human contact and forces\\
+		$J_r$, $f_r$ & Jacobian for ground contact and reaction forces\\
+		$C_r,\  c_r$ & reaction force inequality matrix and bias\\
+		$e(\cdot)$ & a task error function\\
+		$\sigma(\cdot)$ & a task scalarization function\\
+		$s_+, s_-$ & 1-norm slack variables\\
+		$w$ & weight vector\\
+		$J_a$, $f_a$, $\ddot{x}_a$ & Jacobian, force, accel. for the \emph{amplification task}\\	
+		$J_f$, $f_f$, $\ddot{x}_f$ & Jacobian, force, accel. for feet\\
+		$\mathbf J$, $\mathbf f$, $\ddot {\mathbf{x}}$ & Jacobian, force, accel. for composite task\\
+		$\widebar {\mathbf J}$ & Dynamically consistent pseudo-inverse of $\mathbf J$\\
+		$\Lambda$ & inertia matrix in composite task frame\\
+		$\mathbf G$ & virtual base definition matrix\\
+		$\widebar \tau$ & maximum torque, human + exoskeleton\\
+		$\widehat f_a$ & vector of filtered desired \emph{amplification task} forces from Sec.~\ref{sec:theory}\\
+		\bottomrule
+	\end{tabular}
+	\caption{Nomenclature for Sec.~\ref{sec:opt}}
+	\label{tab:not4}
+\end{table}
+
+\subsection{Contact Constraints}
+
+There is an important caveat to this concept of a virtual single-foot contact.
+Unlike actual fixed-base robots, exoskeletons with feet can topple over.
+Since an exoskeleton is essentially a humanoid robot (in feedback interconnection with a human), the inequality-constrained floating base models \cite{KoolenEA2016IJHR,KimEA2016TRO,KimJorgensenHwangSentis2018Humanoids,MungaiGrizzle2020Access} are still relevant to keeping its feet flat on the ground.
+These constraints act on the base--ground reaction forces, $f_r$, which are not part of the standard \emph{fixed-base} robot model. They are defined by the combination of a \emph{floating-base} exoskeleton and a contact constraint:
+
+\vspace{-2em}\begin{gather}
+M_x \ddot q + B_x + g_x = S \tau + J_h^T f_h + J_r^T f_r + J_l^T f_l,\label{eq:physical_dynamics_1}\\
+J_r \ddot q + \dot J_r \dot q = 0,\label{eq:physical_dyamics_2}
+\end{gather}
+with notation as in  Tab.~\ref{tab:not4}. To avoid tilting the feet, sliding the feet, or pulling on the ground, additional inequality constraints must be maintained,
+
+\vspace{-2em}\begin{gather}
+C_r f_r + c_r \geq 0.\label{eq:contact_inequalities}
+\end{gather}
+
+The inequalities described by $C_r$ and $c_r$ are simple approximations of the friction cone: for example, two rows would be used to express $\mu |f_x|\leq f_z$, where $\mu$ is the friction coefficient. But the size of $C_r$ depends on how many feet are on the ground. In addition to these limits due to contact, there are upper bounds to the torque magnitude the exoskeleton can provide. And if some of the joints are not actuated, then they have an upper limit of zero. 
+
+
+\subsection{Actuator-Mapped Reaction Force Space}\label{sec:actuator_mapped}
+% Concept, avoid letting the optimizer do linear algebra.
+In order to speed up the solver and increase its accuracy, we reduce the number of free variables in our optimization problem by handling some equality constraints in advance. This is not necessary theoretically, as the problem is not actually changed by handling these constraints, however attempts to lean on the solver's own ability to perform linear algebra resulted in disappointing precision and speed. Thus, we found the need to quickly re-express reaction forces as functions of joint torque.
+
+% Introduce composite Jacobian and force $\mathbf J$, $\mathbf f$, which combine ground contact with amplification contact
+More specifically, we find $(f_a(\tau)^T, f_f(\tau)^T)^T$---the mapping from the 12-DOF joint torque vector to an 18-DOF vector of forces that concatenates the ground reaction forces with the human--exoskeleton interaction forces at the backpack.\footnote{Ultimately we only care about the 12-DOF vector of the \emph{inter-foot force task} error and \emph{amplification task} error, $(f_a(\tau)^T, f_d(\tau)^T)^T$ but the 18-DOF vector representation was more intuitive to debug. We will use the $\mathbf{G}$ matrix to obtain $f_d(\tau)$ from $f_f(\tau)$ later.}
+We define a new composite Jacobian, $\mathbf J$, force vector, $\mathbf f$, and task acceleration, $\ddot{\mathbf x}$, as
+\begin{equation}
+\mathbf{J} = \begin{pmatrix} J_a\\J_f\end{pmatrix},
+\qquad \mathbf{f} = \begin{pmatrix} f_a\\f_f\end{pmatrix},
+\qquad \ddot{\mathbf{x}} = \begin{pmatrix} \ddot{x}_a\\\ddot{x}_f\end{pmatrix}. \label{eq:bigJdef}
+\end{equation}
+
+
+Beginning with the physical equations  \eqref{eq:physical_dynamics_1} and \eqref{eq:physical_dyamics_2}, we can reformat the dynamics of the exoskeleton as a matrix equality with an analytic solution, 
+
+\vspace{-2em}\begin{gather}
+\begin{pmatrix}
+M_x & \mathbf{J}^T\\ \mathbf{J} & 0
+\end{pmatrix}
+\begin{pmatrix}
+\ddot q \\ -\mathbf f
+\end{pmatrix}
+=
+\begin{pmatrix}
+- B_x - g_x \\ \ddot {\mathbf x} -\dot{ \mathbf{J}}\dot q
+\end{pmatrix}
++
+\begin{pmatrix}
+S \\ 0
+\end{pmatrix}
+\tau, 
+\end{gather}
+which can be solved as in \eqref{eq:inversion}. The $S$ matrix represents the under-actuation due to the floating base (under-actuation due to non-actuated mechanical joints is handled separately, through joint torque limits). We define the dynamically consistent pseudo inverse of $\mathbf{J}^T$, ${\widebar{\mathbf{J}}^T}$, satisfying ${\widebar{\mathbf{J}}^T}\mathbf{J}^T  = I$ (a left inverse), but likely \emph{not} satisfying $\mathbf{J}^T{\widebar{\mathbf{J}}^T}=I$:
+\begin{equation}
+{\widebar{\mathbf{J}}^T} = (\mathbf{J} M_x^{-1} \mathbf{J}^T)^{-1}\mathbf{J} M_x^{-1}.
+\end{equation}
+And we define inertia in the composite task frame $\Lambda=(\mathbf{J} M_x^{-1} \mathbf{J}^T)^{-1}$.
+Together, these allow us to state the result,
+\begin{equation}
+{\mathbf f}
+=
+\Lambda\ddot{\mathbf x} -\Lambda\dot{ \mathbf{J}}\dot q + {\widebar{\mathbf{J}}^T}(B_x + g_x) 
+-{\widebar{\mathbf{J}}^T}S 
+\tau.\label{eq:dynamic_equilibrium}
+\end{equation}
+
+%Justify the steady state
+Some terms in the previous expression are more significant than others, and some of the less significant terms are also corrupted by both imperfect knowledge of the exoskeleton's mass matrix and (filtered) differentiation noise inherent in using quantized position sensors to estimate velocity and acceleration estimates. We did not notice a significant drawback in switching to a simplified version which represents a steady state equilibrium:
+\begin{equation}
+{\mathbf f} = {\widebar{\mathbf{J}}^T} (g_x - S\tau). \label{eq:static_equilibrium}
+\end{equation}
+Of course, if we moved fast enough, these omissions would be noticeable. With this simplification, swinging the swing foot very fast should require the operator to resist the centrifugal extension of the knee due to the inertia of the exoskeleton. Also, squatting very quickly should result in a non-zero backpack sensor force due to the neglected acceleration terms. However, at the speeds we tested these effects were dwarfed by other control and mechanical imperfections. We hope that future exoskeletons will achieve such mastery over the basic terms that these dynamic terms will regain relevancy.
+
+\subsection{Prioritized Tasks}\label{sec:lexicographic_cost}
+%%% setup the problem
+With multiple tasks and inequality constraints, the exoskeleton's behavior is often over-specified.
+For example, the combination of the lateral (y-axis force) component of the \emph{amplification task}, the mediolateral-plane rotation (x-axis torque) component of the \emph{amplification task}, and the stance-foot's lateral center-of-pressure limitation may require a non-zero task error. This is easy to visualize if the exoskeleton's hip is far from the stance foot: the ground reaction force can point toward the hip and avoid rotation, or it can point straight up and avoid lateral force, but it cannot do both simultaneously. A more general version of this problem is well known in the humanoid robotics community \cite{BretlLall2008TRO}.
+This happens frequently during dynamic walking. And it demands that we specify not only which tasks we want to achieve, but in which order the task sub-components should fail to be satisfied if they conflict in this way.\footnote{After trying both prioritizations, we determined that the operator prefers a failure in x-axis torque balance, even if this causes the exoskeleton's hip to ``wobble'' relative to the human's with every step due to the compliance of the backpack attachment in this degree of freedom.}
+
+
+%%% Why we use Priorities
+When constraints become active, there is neither an obvious choice for what to give up nor an analytical method to optimally decide.
+However, if we provide a \emph{prioritization} of the task sub-components, then an optimal answer exists. This prioritization requires additional parameters---a rank order for each task sub-component---but these are relatively few, and easy to understand and adjust.
+This approach has also been used to handle redundancy in task definition even without the limitation of constraints \cite{SentisParkKhatib2010TRO}.
+When constraints become active, the prioritization approach simply abandons the task sub-components one at a time, starting with the least important, until the problem is solvable.
+The lowest priority task sub-components are the ones for which we feel the human will have the easiest time comfortably handling the task sub-component failure.
+In the case of our \emph{amplification task}, this could mean a failure to amplify the interaction force and/or a failure to achieve gravity compensation.
+In the case of our \emph{inter-foot force task}, it could mean applying a force to the user's swing foot (failure to gravity compensate) or failing to match the user's desired contact force distribution (failure to transition appropriately, most evident if a foot is load-bearing when it should not be).
+
+%%% Speed Issues with straight lexicographic approach
+Strict prioritization between the tasks is a mathematically well-defined optimization scheme known as lexicographic optimization \cite{BouyarmaneKheddar2017TAC}. %%% Sim Speed comparison?
+Lexicographic problems must be solved as a series of related optimization sub-problems. First, the most important cost must be optimized within the problem constraints---the first optimization sub-problem. Next, the second most important cost must be optimized within both the original problem constraints and a new constraint.
+This new constraint requires that the previously minimized cost for the most important objective stays at its previously determined optimal value.
+With a solution to this second optimization sub-problem, a lexicographic optimization would proceed forward one cost at a time, solving optimization sub-problems with an ever-increasing list of constraints.
+And this recursive process will continue until each component of the prioritized list of costs has been optimized in its own sub-problem.%
+
+%However, to solve a lexicographic problem entails great computational work. Linear lexicographic costs with linear constraints and inequalities require solving one linear programming problem for each level of cost hierarchy.
+In our hardware, we could only solve three lexicographic optimization sub-problems within our one millisecond real-time control window, so with 12 prioritized task sub-components, a proper lexicographic solution was outside the realm of plausibility.
+
+
+\subsection{Weighted 1-Norm Cost}\label{sec:cost_approx}
+%%% Weighted 1-Norm is an approximation of the lexicographic norm (Limit case is lexicographic) 
+Weighted scalarization costs are an established approach to approximating a lexicographic optimization in the context of humanoid control \cite{BouyarmaneKheddar2017TAC}. To avoid our computational bottleneck, we also used a scalarization that retains the linearity of the cost function. But in doing so we must add two positive slack variables and two inequality constraints for each scalarized cost (which were all task elements) to remain within a linear programming framework. For our vector of task errors $e(\tau)$, we define a vector of scalarizations $\sigma(\tau)$
+\begin{equation}
+\sigma(\tau) = s_+ + s_-\qquad\text{where}\qquad s_+\geq e(\tau),\qquad \mathrm{and}\qquad s_- \geq -e(\tau),\label{eq:slack_ineq}
+\end{equation}
+where $s_+$, and $s_-$ are the newly introduced vector slack variables, and the new vector inequalities in \eqref{eq:slack_ineq} are elementwise inequalities.
+Under conditions that are almost always met,\footnote{Specifically that each element of $\sigma(\tau)$ appears in the cost with a strictly positive weight, and that $\sigma(\tau)$, $s_-$, and $s_+$ are otherwise decoupled from the problem.} $\sigma(\tau) = |e(\tau)|$ (as an elementwise absolute value).
+
+% why we call it weighted 1 norm (and not weighted sum scalarization)
+This approach to modelling an absolute value function within the confines of a linear programming problem is the key to our application of a weighted 1-norm cost on the vector of all task errors. Clearly, summing the elements of $\sigma(\tau)$ results in the vector 1-norm of $e(\tau)$. Summing the elements of $\sigma(\tau)$ with positive weightings (setting cost equal to $w^T\sigma(\tau)$ for some vector of positive weights $w$) is a weighted scalarization in the sense of \cite{BouyarmaneKheddar2017TAC}, but we can also think of it as a weighted 1-norm---as the 1-norm for a scaled version of the original space. We prefer this as a name for the way it invokes a lozenge-like rhomboid geometry in 2D, and a diagonally-scaled octahedron geometry in 3D.
+
+
+\begin{figure}\centering\footnotesize
+	\def\svgwidth{.5\columnwidth}
+	\input{onpwbc.pdf_tex}
+	\caption{Illustration of how weighted 1-norm costs can behave similarly to lexicographic (prioritized) costs. Plot in the space of task error for task-$x$ and task-$y$. Weighted 1-norm costs A, B, and C are depicted with a single contour line each. Optimal solutions for each task shown as colored circles. The so-called ``sparsity promoting'' nature of the weighted 1-norm cost can be understood in this context as optimal solutions which sacrifice one task to achieve the other. As exemplified by cost B, however, this is not guaranteed and depends on the inequality constraints and the shape of the valid region they generate. }\label{fig:onpwbc}
+\end{figure}
+
+
+
+% 2D intuition about this approximation strategy
+To capitalize on this 2D intuition, Fig.~\ref{fig:onpwbc} illustrates how the weighted 1-norm cost can be adjusted through the weighting to approximate different lexicographic costs (there are only two in 2D space: either $x$ matters more than $y$ or vice versa). The illustration features a convex 2D set of solutions which satisfy constraints. The two axes represent orthogonal tasks, with the origin representing zero error for both tasks. Cost A uses a weighting that penalizes $y$ error more than the $x$, cost B penalizes them roughly equally, and cost C penalizes $x$ error more than $y$. In both cases A and C, the minimum cost point which satisfies constraints falls on one of the two axes---exactly as a lexicographic solution would. The fact that 1-norm costs tend to produce solution vectors with many zero entries (so-called ``sparse'' solutions \cite{CandesWakinBoyd2008JFAA}) is well known and frequently exploited. To promote \emph{lexicographic solutions} instead of simply solutions with many zeros requires tuning the penalty weights to favor the prioritized tasks. 
+In our illustration, the weightings in A and C are sufficiently extreme, and two lexicographic solutions emerge.
+Cost B illustrates a non-lexicographic middle-ground: neither cost is penalized enough to completely dominate the other, and the solution vector assigns non-zero error to both tasks.
+
+% Limitation in switching
+One disadvantage of weighted 1-norm costs in exoskeleton control is that the constraints are continuously varying due to the changing exoskeleton geometry, and this can cause the optimal behavior to jump discontinuously.
+This can occur if the 1-norm cost discontinuously switches from being aligned with one lexicographic solution to a different lexicographic solution or even a non-lexicographic solution.
+We call these abrupt switches ``priority inversion events.'' To avoid these events entirely, we would need 1-norm weights with near-infinite scale differences between task sub-components. Since this is obviously not possible with floating-point numbers, the weighted 1-norm is an approximation: it sacrifices accuracy for speed.
+Fortunately, the approximation of the lexicographic problem is asymptotically perfect as the weight discrepancy increases.
+\add{We exploited large differences in the weights to avoid priority inversion events during our experiment.}
+The numerical precision of the linear program solver allowed us sufficient space to set these weights orders of magnitude apart and achieve reliable reproduction of the lexicographic problem in practice.
+\add{These numerical limits restrict the total number of priority levels that can be correctly implemented.}
+
+
+
+
+\subsection{A Linear Program for Shared-Body Control}
+
+% passive joints and predictability
+At this point, we can express the optimization problem that the shared-body controller needs to solve at every controller update.
+Note that the passive joints\footnote{The exoskeleton has 2 passive DOFs per leg: ankle inversion/eversion (ankle roll) and internal/external rotation of the hip (hip yaw).} are treated as being active joints for the purpose of the optimization. Their non-zero torques represent the expectation of the exoskeleton on the human operator.
+
+
+%% Optimization problem
+We write our optimization problem,
+
+\vspace{-2em}\begin{subequations}
+	\begin{align}
+	&\underset{\tau, s_+, s_-}{\mathrm{minimize}}
+	&& w^T s_+ +  w^T s_- \label{eq:general_opt}\\
+	&\text{subject to}
+	&&C_r f_r(\tau) \geq 0,\label{eq:contact_inequalities_in_opt}\\
+	&&& \tau \leq \widebar{\tau},\qquad -\tau \leq \widebar{\tau},\\
+	&&& s_+ \geq e(\tau), \qquad s_+\geq 0,\label{eq:slackplus}\\
+	&&& s_- \geq -e(\tau), \qquad s_-\geq 0,\label{eq:slackminus}\end{align}
+\end{subequations}
+with some new notation from Tab.~\ref{tab:not4}. Slack variables $s_+$ and $s_-$ are introduced to describe absolute value operations. Weightings $w$ form the weighted 1-norm cost. Limits on absolute torque are expressed with $\widebar\tau$. And the $\tau$-dependent vector $f(\tau)$ from (38) (or from the steady-state approximation (39)) is used to find $e(\tau)$ and $f_r(\tau)$.
+
+The first, $e(\tau)$, represents the 12-DOF vector of task errors for the \emph{amplification task} and \emph{inter-foot force task}:
+\begin{equation}
+e(\tau) = \begin{pmatrix} f_d(\tau) -0\\
+f_a(\tau) - \widehat f_a \end{pmatrix},\label{eq:e_def}
+\end{equation}
+where $\widehat f_a$ is the desired amplification task force from \eqref{eq:amplification_task_desired} in Sec.~\ref{sec:fd_task}; $f_a(\tau)$ is the force the exoskeleton applies at the backpack interface, which is a part of $f(\tau)$ as written in \eqref{eq:bigJdef}; and $f_d(\tau)$ is also related to $f(\tau)$ as in \eqref{eq:G_use}:
+\begin{equation}
+\begin{pmatrix}
+f_s(\tau)\\f_d(\tau)
+\end{pmatrix} = \mathbf G^{-1} f_f(\tau),
+\end{equation}	
+using the matrix $\mathbf G$ from \eqref{eq:G_def}.
+	
+The second, $f_r(\tau)$, represents the subset of the foot forces $f_f(\tau)$ corresponding to the feet that are actually on the ground. 
+This vector is used to compute the constraints associated with hard friction cones and unilateral contacts---i.e. \eqref{eq:contact_inequalities}, which is directly reproduced in \eqref{eq:contact_inequalities_in_opt}.
+
+% about the treatment of human reaction forces
+We call this program ``Shared-Body Control'' because the human and the exoskeleton's torque and contact forces are both relevant. The true conditions for tipping over the foot are a function of both human and exoskeleton reaction forces. The sum of the human and exoskeleton reaction forces needs to lie within the friction cone, but sometimes the human works to counterbalance large torques the exoskeleton applies to the ground. We cannot know the human forces given our sensor configuration, so we are forced to be either optimistic (risking failure) or very conservative. Taking the conservative route means that our constraint will occasionally interfere with our tasks unnecessarily. 
+
+The human is also the only possible source of torques for the passive joints. By relaxing the torque requirements on the passive joints, the optimization will produce a torque vector representing a sum of exoskeleton and human originated torques. While we cannot expect the human to implement such torques, we can use this technique to prevent the exoskeleton from abandoning tasks which it could accomplish with help from the human (bounded, of course, by $\widebar \tau$).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implementation in Hardware}\label{sec:exp}
+%Implementing the control framework into a physical lower-body exoskeleton allows us to demonstrate both amplification and footstep transitions. %This testing was deemed exempt from oversight by the Human Subjects Institutional Review Board of the University of Texas.
+
+\subsection{Hardware}
+
+% Kinematics of the exoskeleton
+Our hardware platform is the Sagittarius P5 lower-body exoskeleton from Apptronik Systems, shown in Fig.~\ref{fig:parts}. This exoskeleton has 12 joints, six per leg. We name the joints in the serial kinematic chain from the torso to the foot 1) hip abduction/adduction, 2) hip flexion/extension, 3) hip internal/external rotation (hip yaw), 4) knee flexion/extension, 5) ankle flexion/extension, and 6) ankle pronation/supination (ankle roll). Of these six, four are powered joints. The two passive joints are hip internal/external rotation (also referred to as hip yaw for alignment with the local z axis) and ankle pronation/\add{supination} (which we also call ankle roll for similar reasons). The powered hip abduction and hip flexion joints are actuated by rotary series elastic actuators, while the other two feature proprietary linkage designs connecting linear series elastic actuators with rotary joint motion. Power is provided from off-board the device via a joint power and communication tether. The actuators communicate with a real-time Linux desktop workstation through an ethercat bus.
+
+
+\begin{figure}[]\centering
+	\includegraphics[width=.5\columnwidth]{exo_parts.pdf}%
+	\caption{The Apptronik Sagittarius Exoskeleton used in this paper. The operator can climb stairs with the exoskeleton, even when it is not amplifying forces, due to the backdrivable torque-controlled actuators (gravity compensation and strength amplification are both active in the pictured movement). Coloring segregates rigid exoskeleton parts for the right leg (blue-through-purple), human interfaces (orange) and the safety features (red).}\label{fig:parts}
+\end{figure}
+
+%% Fig:parts and safety features of the exoskeleton
+The different parts of the exoskeleton are highlighted in Fig.~\ref{fig:parts}, with rigid bodies being bordered by different color lines on the spectrum from blue to purple, human attachment points in orange, and safety features in red. To ensure the safety of the operator, the exoskeleton is attached via a slack safety rope to an overhead gantry system, and the rope's height is operated by an assistant when the height is changing rapidly (as in the stair-climbing activities pictured in Fig.~\ref{fig:parts}. The operator wears a helmet, and there are multiple easy ways to stop the exoskeleton in an emergency: 1) a software emergency stop button, 2) a button on the top of the main backpack circuitry box, and 3) a button that the operator is required to hold at all times. 
+
+
+\subsection{Controller Implementation}
+While we have presented the controller design in a very general way, not all of its nuanced behavior is relevant enough to demand implementation in the hardware system we used. In particular, the dynamic terms in \eqref{eq:dynamic_equilibrium} were not large enough for the operator to notice their omission, and the dynamically consistent pseudo-inversion of $\mathbf J$ is unnecessary given that $\mathbf J$ is invertible with the tasks we defined, thus
+\begin{equation}
+\mathbf f = \mathbf J^{-T} (g_x - S\tau).
+\end{equation}
+Note that when a component of the \emph{amplification task} has $K(s)$ set to zero, it will not amplify human forces but will still compensate gravity.
+
+% 1->2 reparameterize foot motion error rows by foot_center and foot-spread
+% 2->3 adding in monopod motion row and monopod force column
+% 3->4 adding in passive torques
+% 4->5 new hip and diff error rows replacing monopod motion and foot spread
+% 5->6 addition of a two part cost function on difference error
+
+% controller overview
+To summarize the tasks of the controller, the six individual spatial force vector components of the human-side force are fed into a diagonal matrix of amplification compensators as described in Sec.~\ref{sec:fd}. And this occurs in the frame of the \emph{amplification task}---the hip frame. For the three sagittal plane forces and torques ($x$-force, $z$-force, and $y$-torque) we may apply non-zero amplification, but the other three are left at zero in this work. This is based on the physical intuition that the sagittal plane forces and torque represent the larger interaction quantities during walking. This forms the 6-DOF \emph{amplification task}.
+Based on a bed of 12 insole-mounted pressure sensitive resistors, a rough estimate of the human center of pressure is produced. This estimate is used to construct the elements of the \emph{inter-foot force task}, which is also a 6-DOF task.
+With this hardware-specific preprocessing completed, the tasks are sent to a separate and more generic module to perform the linear programming optimization work. The software implementation of this optimization process is separate from the Apptronik control framework and is available as open source software \cite{Thomas2019LPExo}. It primarily acts as a wrapper layer for the linear programming solver from the COIN-OR \cite{LougeeHeimer2003IBM} community.
+
+%% Paragraph about fig:cartoon
+% Fig.~\ref{fig:cartoon} describes the sensor configuration on the Sagit exoskeleton and contrasts this to the way we visualize the behavior of the optimization problem. Fig.~\ref{fig:cartoon}.a shows the HCRL logo wearing the exoskeleton, colored dark gray for the structure of the exoskeleton, yellow for the visible force sensors, and green for the parts of the exoskeleton that are considered to be part of the human (the human attachments). In Fig.~\ref{fig:cartoon}.b only the exoskeleton and the sensors are displayed, revealing the shoe inserts, with sensorized pads and an additional force sensor on the back. In Fig.~\ref{fig:cartoon}.c we label the three human attachments as they are numbered in the code. Fig.~\ref{fig:cartoon}.d introduces the visualization of the optimization configuration, where the operator (without its mass) and the exoskeleton are grounded at attachments which happen to correspond to the human interfaces.
+% With the exoskeleton and massless operator hanging from these grounding points, the job of the exoskeleton is to choose the joint torques that minimize some cost, and this cost essentially identifies two groundings to avoid using (Fig.~\ref{fig:cartoon}.e).
+% For example, if the steady state amplification rate is non-amplifying, i.e. $\alpha_0=1$, then the \emph{amplification task} directly penalizes the 1-norm of forces on ground 0---the fictitious connection between the exoskeleton and the world at the backpack. When the human's weight is on the left foot (interface 1) the foot cost penalizes the 1-norm of ground 2---the right foot's friction grounding, resulting in the robot deciding to support its weight as far as possible from ground 1---the left foot. The significance of the massless operator is that the optimization gives an allowance for the human to help the shared-control system exceed the limitations of the robot's own actuators. This means the robot is unlikely to abandon part of a task simply due to the passive joints, but it will if achieving this task would put unreasonably high strain on the human's ankle roll and hip yaw joints.
+
+% \begin{figure}[]\centering\resizebox{.5\columnwidth}{!}{
+% 	\def\svgwidth{.6\columnwidth}
+% 	{%\footnotesize%
+% 		\input{exo_cartoon.pdf_tex}%
+% 	}}
+% 	\caption{
+% To visualize our optimization problem's behavior, we consider our exoskeleton (a) and the difference between its real force sensor configuration (shown in b) and the three human interfaces the optimizer cares about (shown in c). The optimizer treats the operator as massless and assumes the three interfaces are contact constraints (d). The optimizer is aware of the mapping between the exoskeleton joint torque vector and the reaction forces at the three constraints. With the exoskeleton and massless operator hanging from these grounding points, the job of the optimizer is to choose the joint torques that minimize the cost function, and this cost essentially identifies two groundings to avoid using (Fig.~\ref{fig:cartoon}.e). The result is that the cost function guides the exoskeleton to support the system's weight from the stance foot, at least when this does not conflict with the foot contact constraints or joint torque limits. While not explicitly pictured, the \emph{amplification task} simply shifts the ``zero'' point for the cost function's penalty on the e.0 contact (measured by the b.0 force/torque sensor, and felt by the operator through the c.0 backpack attachment).
+% }\label{fig:cartoon}
+% \end{figure}
+
+\subsection{Priorities}
+
+% New paragraph on priority inversion
+\add{We avoided priority inversion events by iterative tuning of the priority weights (Tab.~\ref{tab:priorities}). This tuning was done with squatting and stepping behaviors similar to the planned tests. High-priority tasks that were never sacrificed held large weights. To save space in the limited numerical precision, these tasks were ambiguously ranked relative to each other. The most important weights were quickly identified and set to values that reliably avoided priority inversion in the tested behaviors. The more difficult question was identifying the priorities preferred by the operator.}
+
+%% Setting priorities
+We iterated various priority rankings between the components of the \emph{amplification task} until our operator was satisfied with the behavior.
+First, we attempted to re-create linear inverted pendulum behavior by prioritizing the moment components over the force components. This prioritization had been effective with the Hume/Mercury biped robot \cite{KimEA2016TRO,KimJorgensenSentis2020IJRR}. % TODO: Hume/Mercury update cite
+Unfortunately, this first approach frustrated the operator, as the exoskeleton was naturally unstable.
+We eventually settled on the weightings in Tab.~\ref{tab:priorities}, which sacrifice $x$-torque first and are more comfortable for the operator.
+This preference may be exoskeleton or operator specific.
+The main drawback of the priorities from Tab.~\ref{tab:priorities} is that at each stance transition the hips of the device roll such that the stance hip is higher than the swing hip---likely due to the lower penalty on hip amplification $x$-torque.
+However, we must sacrifice something, and this appeared to be the least-uncomfortable choice. The large swing in the hip position is due to the rather loose coupling that the backpack provides in this degree of freedom.
+
+
+
+\begin{table}[tb]\centering
+	\begin{tabular}{cc}
+		\toprule
+		Task & Weighting\\
+		\midrule
+		Hip Amplification $x$-Force & $1\times 10^{5}$\\
+		Hip Amplification $y$-Force & $1\times 10^{5}$\\
+		Hip Amplification $z$-Force & $1\times 10^{5}$\\
+		Hip Amplification $x$-Torque & $1\times 10^{0}$\\
+		Hip Amplification $y$-Torque & $1\times 10^{1}$\\
+		Hip Amplification $z$-Torque & $1\times 10^{5}$\\
+		Inter-Foot $x$-Force, Limit Penalty& $1\times 10^{-1}$, $1\times 10^{5}$\\
+		Inter-Foot $y$-Force, Limit Penalty & $1\times 10^{-1}$, $1\times 10^{5}$\\
+		Inter-Foot $z$-Force, Limit Penalty & $1\times 10^{-6}$, $1\times 10^{6}$\\
+		Inter-Foot $x$-Torque, Limit Penalty & $1\times 10^{-6}$, $1\times 10^{5}$\\
+		Inter-Foot $y$-Torque, Limit Penalty & $1\times 10^{-6}$, $1\times 10^{5}$\\
+		Inter-Foot $z$-Torque, Limit Penalty & $1\times 10^{0}$, $1\times 10^{5}$\\
+		\bottomrule
+	\end{tabular}
+	\caption{Implemented Task Priorities}\label{tab:priorities}
+\end{table}
+
+%\subsubsection{Limit Penalties for Ground Contact}
+In testing, we began to suspect that operators may prefer a lower task penalty on the \emph{inter-foot force task} while in double support but react strongly negatively to \emph{inter-foot force task} violation while in swing (since this entails the exoskeleton loading their swing foot).
+We made a slight modification to the sum scalarized cost for the \emph{inter-foot force task} as described in \eqref{eq:general_opt}, \eqref{eq:slackplus}, \eqref{eq:slackminus}, and \eqref{eq:e_def}. 
+A second copy of the task penalty was added, with a dead zone. We made the \emph{inter-foot force task} error appear \emph{twice} in the task error vector $e(\tau)$ instead of only once as in \eqref{eq:e_def}. Thus, we had two separate components of the weight vector $w$ from \eqref{eq:general_opt} that penalized the same task. To introduce the dead zone for the second copy of the penalty, we added a sparse bias vector to \eqref{eq:slackplus} and \eqref{eq:slackminus}. We call this new penalty, with its dead zone and higher penalty cost, the ``Limit Penalty'' (see Tab.~\ref{tab:priorities}) since it acts like a soft limit forcing the values to stay within the dead zone. Within the dead zone, this new cost still behaves like the original weighted 1-norm cost (plus a constant bias that does not influence the optimum), but at the boundary of the dead zone, the weight suddenly becomes much higher.
+
+We scheduled the dead zone width based on the center of pressure location, such that in single support this dead zone collapsed to zero and the \emph{inter-foot force task} essentially took on the higher weighting of the limit penalty. In dual support, the width of the dead zone reached its widest when the feet were evenly balanced and reduced linearly in either direction away from that midpoint. 
+
+
+
+\begin{table}\centering
+\begin{tabular}{cccc}
+			\toprule
+			Test & SBC$^\dagger$ & $\alpha_0$ & Load\\
+			\midrule
+			\ref{subs:amp}.1 & Off & 0 & 0 N\\
+			\ref{subs:amp}.2 & On & 0 & 0 N\\
+			\ref{subs:amp}.3 & On & 0 & 110 N\\
+			\ref{subs:amp}.4 & On & 3 & 110 N\\
+			\bottomrule
+		\end{tabular}
+		
+		\scriptsize$\dagger$---Shared-Body Controller (SBC) enabled.
+		\caption{Experimental Parameters}\label{tab:expparam}
+\end{table}
+
+\begin{figure}[t]
+\centering
+		\def\svgwidth{1.6in}
+		\input{experimental_condition.pdf_tex}
+
+	\caption{Load position in \ref{subs:amp}.3 and \ref{subs:amp}.4. Load hangs from a chain attached to the exoskeleton. Human effort measured with a six-axis force torque sensor, highlighted in red. Measurements are presented in the pictured ``hip center'' coordinate frame.}\label{fig:experimental_condition}
+\end{figure}
+
+\begin{figure}[!tp]%
+	\centering\resizebox{1\textwidth}{!}{\def\svgwidth{\textwidth}\footnotesize%
+	\input{experiment_v2.pdf_tex}}%
+	\caption{The four experiments from Tab.~\ref{tab:expparam}, shown as subfigure columns A--D, are compared in terms of the three sagittal plane components of the human--exoskeleton interaction force/torque, the sagittal joint torques, and the sagittal joint angles. In Exp.~\ref{subs:amp}.1 (A), the exoskeleton joints apply no torque (as shown in A.4), and the human--exoskeleton interface supports $\approx300$ N (as shown in A.3) as well as a $\approx35$ Nm moment at the hip (as shown in A.1). In Exp.~\ref{subs:amp}.2 (B), the controller is turned on with $\alpha_0=1$ (no amplification), and human--exoskeleton vertical force (B.3) and sagittal torque (B.1) are vastly decreased due to gravity compensation. In Exp.~\ref{subs:amp}.3 (C), a 11~kg mass is attached to the back of the exoskeleton (as shown in Fig.~\ref{fig:experimental_condition}), and this produces an increase in the human--exoskeleton sagittal torque (C.1), $\approx30$ Nm. Finally, Exp.~\ref{subs:amp}.4 (D) increases $\alpha_0$ from 1 (no amplification) to 3 in the sagittal tasks, and the human--exoskeleton sagittal torque increase due to the added mass is reduced by roughly a third---considering B.1, C.1, and D.1 representing the average numerical value of the curves, D.1 $-$ B.1 $\approx 1/3($C.1 $-$ B.1$)$---as expected. With the amplification engaged, the operator deepens the squat at 10 seconds (D.5) and then moves to a second, less extreme squat at 20 seconds (D.5), showing that the torque reduction continues to work. This squat is shown in the video attachment  \cite{Thomas2020Youtube}. We would also expect that amplification would reduce the vertical force from the added mass; however, the vertical force remains roughly zero before adding the weight (B.3), after adding the weight (C.3), and with both the weight and amplification (D.3)---the expected 110 N force increase between (B.3) and (C.3) did not occur. Since the operator recalls feeling vertical forces from the addition of the mass, we suspect that there is a ``force leak'' where the vertical component transferred to the operator in a way the force sensor could not detect. Torque and angle measurements in the bottom two subfigure rows are measured using the exoskeleton's spring deflection encoders and joint encoders, and therefore represent the exoskeleton's---and not the operator's---torque and position.
+	}\label{fig:experiment}
+\end{figure}
+
+\subsection{Demonstrating the Amplification Task}\label{subs:amp}
+We conducted a set of simple tests to demonstrate the difference between gravity compensation and human strength amplification. These tests aimed to demonstrate an improvement in amplification stability relative to previous controllers developed for the exoskeleton and its previous partial prototypes (the 1-DOF testbed from \cite{HeThomasPaineSentis2019ACC,ThomasCoholichSentis2019AIM}, a two degree of freedom leg, and a previous revision on the same lower-body design) under the same project \cite{Campbell2018Thesis}, which was a condition of our using the exoskeleton.\footnote{Which is to say, our testing time was limited, and the scope of our experiments was narrow.} 
+
+Fig.~\ref{fig:experimental_condition} and Tab.~\ref{tab:expparam} show the basic structure of our tests: the operator wears the exoskeleton in a roughly standing position and various controller features are turned on and off. Extra weight is attached to the backpack as an unknown load in tests \ref{subs:amp}.3-4, and the image shows where it hangs relative to the operator. Fig.~\ref{fig:experiment} shows the results of the three tests. \add{This experimental condition and posture were chosen to avoid singularity in the knees, prevent the actuators from overheating during the highest payload test, and avoid reaching the friction limits of the foot contact, which could prevent complete satisfaction of the amplification task.}
+
+ 
+% \subsection{Discussion of The Amplification Task}\label{subs:amp_disc}
+
+In the first test, \ref{subs:amp}.1 the exoskeleton joints are on, but the desired torque is zero. The first column of plots in Fig.~\ref{fig:experiment} show the large $z$-force on the backpack due to the gravitational load of the exoskeleton acting on the operator. Variation in the angle shows that the operator was not perfectly holding still over the duration of the test.
+This natural human movement, while it prevents us from easily comparing across experiments (the operator does not even have the same resting posture between loading configurations), is hard to compensate for or avoid.
+
+The next test, \ref{subs:amp}.2 enables gravity compensation---which means the torques from the shared-body controller are applied to the exoskeleton, but the amplification filters are all set to apply no strength amplification feedback ($\alpha_0=1$, so $\widehat f_a=0$). This drastically reduces, but does not entirely eliminate, the interface forces and torques. Even if the exoskeleton's mass parameters were perfectly modeled, the operator would still need to apply forces through this interface to control the passive joints of the exoskeleton. Compensating for the weight of the heavy exoskeleton is the most significant component of the system's behavior. We can see this from the enormous reduction in human interface forces and torques in Fig.~\ref{fig:experiment} between \ref{subs:amp}.1 and \ref{subs:amp}.2: the vertical force, Fz, drops roughly 300 Newtons, and the sagittal plane torque, Ty, drops roughly 40 Newton meters.
+
+In test \ref{subs:amp}.3, we added an 11 Kg (25 lb) mass to the backpack, without changing the control mode. Based on our empirical determination, this represents the maximum load the exoskeleton could reliably handle without overheating during dynamic motions like walking. The test does not focus on the transient response but on the steady state behavior with the weight (mechanically, it would be hard to make the weight addition appear sudden without dropping it).
+
+We see some unexpected behavior in the vertical sensor force: the weight's 110 N did not transfer to the sensorized interface. The user confirmed that additional vertical force and sagittal torque were felt. This suggests a ``force leak'' in the design of the backpack sensor, where the force of the added weight is transferred to the operator without passing through the sensor. A likely culprit is the hip-pad of the backpack (directly connected to the operator) and the hips of the exoskeleton---as this would be consistent with the clear increase in the $y$-torque. The ``force leak'' does not appear to allow all vertical forces to bypass the sensor. \ref{subs:amp}.1 clearly shows large forces.
+
+\begin{figure}[t]%
+	\centering\footnotesize
+	\resizebox{.9\textwidth}{!}{\input{frames_of_demo_compressed.pdf_tex}}
+	\caption{Frames from the demo. Frames a.1-5: climbing stairs with amplification but no added weight. Frames b.1-5: walking around. Frames c.1-3: walking around with amplification and extra weight.}\label{fig:demo}
+\end{figure}
+
+In the final test, \ref{subs:amp}.4, we engaged the amplification filters---providing a steady state amplification factor of 3, and a zero pair at 1 Hz for all three degrees of freedom in the sagittal plane.
+By choosing these conservative settings, we were able to achieve stability on the first try.\footnote{A later gain-tuning experiment revealed that the bandwidth limit is higher than this, but we ran out of time for exhaustive identification of this limit.}
+
+Our system is pioneering in that it amplifies human strength at the backpack/hip link of the exoskeleton; there are no direct performance comparisons for this control feature.
+Our steady state amplification of human forces by 300\% exceeded the 208\% amplification (52\% mass reduction) of sagittal hip moment in \cite{ZanottoAkiyamaStegallAgrawal2015TRO}, which also used force feedback to amplify human lower-body strength.
+However, this is not an exact comparison, as \cite{ZanottoAkiyamaStegallAgrawal2015TRO}'s system used a treadmill mounted exoskeleton, had a different sensing configuration, and has only two degrees of freedom whereas our system has 12.
+The amplification's pole frequency (.58 Hz) and amplification magnitude ($\alpha_0=3$) at the hip/backpack human--exoskeleton interface are comparable to our previous results on a 1-DOF human elbow exoskeleton; in the notation of Appendix A, \cite{HeThomasPaineSentis2019ACC}'s robust controller used $\alpha_0=10,\ k_G=0.1,\ Z_g=10,\ \text{and}\ P_g=0.01,$ resulting in an amplification magnitude of 2.995 at 0.58 Hz.
+However, unlike our controller, \cite{HeThomasPaineSentis2019ACC} had even greater amplification at lower frequencies: its lowest pole-pair was at $0.146$ Hz, and its steady state amplification rate was 9.91.
+%In terms of \emph{mechanical} performance, our preliminary testing suggests a payload capacity of $\sim$11-23 kg, which is lower than \cite{Kazerooni2005IROS}'s 34 kg.
+
+
+As shown in Fig.~\ref{fig:experiment}'s fourth column, the human's effort was reduced to roughly a third of its value in the third column in the $y$-torque component.
+More specifically, the disturbance due to the added weight, which can be seen by comparing \ref{subs:amp}.3 (with weight) against \ref{subs:amp}.2 (no weight) in terms of y-axis torque, is attenuated by the amplification factor, resulting in a much smaller disturbance effect when comparing \ref{subs:amp}.4 (attenuated weight) to \ref{subs:amp}.2 (no weight). We must make this comparison despite joint angle differences on the order of 10 degrees between these tests---a limitation of our operator and operator--exoskeleton coupling. In \ref{subs:amp}.4, the operator engages in two different squat positions (switching posture at roughly 10 and 20 seconds). The interface forces remain within 10-15 Nm despite these kinematic changes. This supports the notion that if the operator were able to perfectly reproduce the posture from Exp.~\ref{subs:amp}.3 in \ref{subs:amp}.4, the y-axis torque would also be within this range.
+
+
+\subsection{Demonstrating Foot Transitions}
+
+ \begin{figure}[t]%
+ 	\centering%
+	\resizebox{\textwidth}{!}{\footnotesize\input{transitions_small.pdf_tex}}\vspace{-.15in}
+ 	\footnotesize%
+\begin{tabular}[t]{rp{.4\textwidth}rp{.4\textwidth}}
+\toprule
+Callout & Description&Callout & Description\\
+\midrule
+a.0 & The base or hip frame.&
+ 		a.1 & The frame of the backpack's  force/torque sensor.\\
+ 		a.2 & Visualization of child frame  to parent frame vectors.&
+ 		a.3 & (Obscured) frame of the left hip adductor joint.\\
+ 		a.9 & (Clearly visible) frame of the right hip adductor joint.&
+ 		a.4/a.a & Frame of the left/right hip flexor joint.\\
+ 		a.5/a.b & Frame of the left/right passive hip ``yaw'' joint.&
+ 		a.6/a.c & Frame of the left/right knee flexion joint.\\
+ 		a.7/a.d & Frames of the left/right ankle flexion and passive ankle roll joints (hard to distinguish) & 
+ 		a.8/a.e & Frame of representation for the constructed sum/difference reaction force vectors---momentarily coincident with the (not visualized) left/right foot bottom frame due to single support.\\
+ 		b.0 & Spatial force vector (SFV) of the backpack force/torque sensor.&
+ 		b.1 & SFVs of the left and right foot structural force/torque sensors, expressed in the ankle frame.\\
+ 		b.2 & Optimal reaction SFV for the right foot&
+ 		b.3 & Frame of the representation for the inter-foot SFV.\\
+ 		b.4 & Robot contribution to optimal sum SFV. &
+ 		b.5 & Measured sum SFV (from structural sensors).\\
+ 		b.6 & Optimal sum SFV.&
+ 		c.0 & Measured backpack SFV in hip frame.\\
+ 		c.1 & Robot gravity SFV visualization.&
+ 		c.2 & Robot gravity compensation SFV visualization.\\
+ 		c.3 & Measured human COP (ankle origin weighted average).&
+ 		c.4 & Frame of rep. for sum SFV.\\
+ 		c.5 & Frame of rep. for inter-foot SFV.&
+ 		d.0 & Optimal exoskeleton joint torques.\\
+ 		d.1 & Applied exoskeleton joint torques (filtered and saturated).&
+ 		d.2 & Individual FSR relative magnitude visualization for the 12 sensors of each foot, used to estimate within-foot center of pressure. \\
+ 		\bottomrule
+\end{tabular}
+ 
+% \begin{tabular}[t]{rl}%
+% \begin{minipage}[t]{.49\textwidth}%
+%  	\begin{tabular}[t]{rl}%
+%  		\toprule
+%  		Callout & Description\\
+%  		\midrule
+%  		a.0 & The base or hip frame.\\
+%  		a.1 & The frame of the backpack's  force/torque sensor.\\
+%  		a.2 & Visualization of child frame  to parent frame vectors.\\
+%  		a.3 & (Obscured) frame of the left hip adductor joint.\\
+%  		a.9 & (Clearly visible) frame of the right hip adductor joint.\\
+%  		a.4/a.a & Frame of the left/right hip flexor joint.\\
+%  		a.5/a.b & Frame of the left/right passive hip ``yaw'' joint.\\
+%  		a.6/a.c & Frame of the left/right knee flexion joint.\\
+%  		a.7/a.d & \begin{minipage}{2.75in} Frames of the left/right ankle flexion and passive ankle roll joints (hard to distinguish). \end{minipage}\vspace{.025in}\\\vspace{.025in}
+%  		a.8/a.e & \begin{minipage}{2.75in}Frame of representation for the constructed sum/difference reaction force vectors---momentarily coincident with the (not visualized) left/right foot bottom frame due to single support.\end{minipage}\\
+%  		b.0 & Spatial force vector (SFV) of the backpack force/torque sensor.\\
+%  		b.1 & \begin{minipage}{2.75in}SFVs of the left and right foot structural force/torque sensors, expressed in the ankle frame.\end{minipage}\vspace{.0275in}\\
+%  		\bottomrule
+%  	\end{tabular}%
+% \end{minipage}&%
+% \begin{minipage}[t]{.49\textwidth}%
+% 	\begin{tabular}[tbph]{rl}%
+%  	\toprule
+%  	Callout & Description\\
+%  	\midrule
+%  	b.2 & Optimal reaction SFV for the right foot\\
+%  		b.3 & Frame of the representation for the inter-foot SFV.\\
+%  		b.4 & Robot contribution to optimal sum SFV. \\
+%  		b.5 & Measured sum SFV (from structural sensors).\\
+%  		b.6 & Optimal sum SFV.\\
+%  		c.0 & Measured backpack SFV in hip frame.\\
+%  		c.1 & Robot gravity SFV visualization.\\
+%  		c.2 & Robot gravity compensation SFV visualization.\\
+%  		c.3 & Measured human COP (ankle origin weighted average).\\
+%  		c.4 & Frame of rep. for sum SFV.\\
+%  		c.5 & Frame of rep. for inter-foot SFV.\\
+%  		d.0 & Optimal exoskeleton joint torques.\\
+%  		d.1 & Applied exoskeleton joint torques (filtered and saturated).\\
+%  		d.2 & \begin{minipage}{2.75in}Individual FSR relative magnitude visualization for the 12 sensors of each foot, used to estimate within-foot center of pressure.\end{minipage} \\
+%  		\bottomrule
+%  	\end{tabular}%
+%  \end{minipage}%
+% \end{tabular}
+ 	
+ 	\caption{Human weight transfer in 0.2 seconds (subfigures evenly spaced in time) showing the exoskeleton visualization in the rviz program.}\label{fig:transitions}
+ \end{figure}
+ 
+ 
+Distributing weight between the two feet using the \emph{inter-foot force task} is a key behavior of the system and was tested when the operator walked on level ground and stairs.
+Since the exoskeleton itself was based on high bandwidth torque-controlled actuation, the operator could easily backdrive it to climb up stairs or to stand on one foot.
+While this happened, the exoskeleton continued to compensate for its own gravitational weight and amplify strength at the hip/backpack sensor.
+
+
+%The amplification was certainly the less obvious of the behaviors, yet was still perceived as beneficial.
+ %Since there was no reason to manipulate the load with the exoskeleton's backpack---it essentially just compensated for the error in the gravity compensation term.
+ 
+Fig.~\ref{fig:demo}.b and Fig.~\ref{fig:transitions} show the operator shifting weight from one foot to another and lifting up the legs one at a time.
+%This behavior highlights the human-led foot contact transitions and demonstrates how the weight is shifting in \emph{anticipation} of the actual contact transition.
+\add{Since the operator decreases the ground reaction force on a foot before lifting it, matching the human ground reaction force distribution between the feet leads the exoskeleton to reduce its own ground reaction force on that foot in anticipation of the loss of contact.} 
+As mentioned in Sec.~\ref{sec:ift}, the weighting matrices $Q_1$ and $Q_2$ in \eqref{eq:Q1Q2def} are scheduled according to the exoskeleton's measurement of the human's weight distribution.
+When the human shifts weight to one foot, the $Q$ matrix penalty for reaction forces on the other foot becomes much larger. And since this causes the COP of the exoskeleton to approximate the COP of the human, this prevents the human from needing to lift a load-bearing exoskeleton leg. In addition, the penalty limit method allowed the exoskeleton more freedom during dual support but smoothly reduced this freedom when approaching single support, so that by the time it was reached the \emph{inter-foot force task} was essentially the highest priority.
+ 
+ This behavior is shown in more detail through the internal exoskeleton visualization of Fig.~\ref{fig:transitions}.
+ This Rviz model \add{visualizes many signals of interest}, as described in the legend table.
+ All frames are expressed as red ($x$) green ($y$) blue ($z$) line segments meeting at the local origin.
+ Spatial force vectors (comprising a force and a torque) are shown as a ray from the local origin (the force) and a bi-vector---a directed plane comprised of four vectors making a square---to represent the torque. Joint torques are represented as pure bi-vectors.
+ Unlike vector descriptions of torque, the bi-vector visualization has an unambiguous scaling relative to the force visualizations and cannot be confused for them.
+ The four instants pictured in Fig.~\ref{fig:transitions} of the contact transition show the apparent center of pressure moving from the left foot to the right foot, and the corresponding shift in all the joint torques and the predicted reaction forces from the shared-body controller.
+ As this is shifting, the reference frame of expression for the sum of reaction forces and the \emph{inter-foot force task}'s difference of reaction forces swap feet.
+ At all times, the reaction force/torque b.6 representing the sum is roughly equal to the sum ground reaction force calculated without using the passive joints b.4---which means that the exoskeleton is supporting the vast majority of its weight even during this transition.
+ The backpack force/torque sensor b.0 confirms this, as it is small (and therefore hard to spot) throughout the transition.
+
+
+% Table of footstep transition parameters?
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}\label{sec:disc}
+
+% return to high level
+
+Strength amplification control offers us the potential to feel stronger as we manipulate the load through our exoskeleton.
+This paper deploys a control that has put that vision into practice under laboratory circumstances.
+
+
+
+\subsection{Benefits and Drawbacks}
+% What can it do (potential benefits) What kind of control performances are newly achieved How does this improve over the state of the art
+
+This controller has several advantages relative to the state of the art.
+It respects contact limitations---guaranteeing that the exoskeleton will never force the person to roll their ankles, lift their toes, or slide their feet.
+It improves human-side admittance relative to the gravity compensation baseline without the anti-stable acceleration feedback of \cite{KazerooniRacineHuangSteger2005ICRA}.
+It keeps the human in control of the inter-foot force distribution using an elegant linear algebraic decomposition of the contact forces---a more general approach than Ref.~ \cite{JacobsenOlivier2014Patent}.
+It allows the operator to move heavy objects without removing the force-feedback path that they would need in order to move the objects carefully---a force-feedback path that is removed by admittance control strategies \cite{FontanaVertechyMarcheschiSalsedoBergamasco2014RAM}.
+
+
+% What can it not do (potential drawbacks)
+Of course, the controller has downsides as well.
+The strategy depends on centralizing the contact between the human and the exoskeleton into a small set of sensors.\footnote{With one foot on the ground, our exoskeleton measures the human at two places: the hip/backpack attachment and the swing foot attachment.}
+This centralization places a significant burden on the mechanical design and introduces a new failure mode---the ``force leak,'' where interaction between the exoskeleton and the operator occurs outside the sensors.
+Additionally, all amplified interaction with the load must go through the exoskeleton structure---another mechanical design challenge.
+Due to the complexity of the mechanical design problem, the strategy makes it difficult to achieve the ultra-high energy density of successful locomotion augmentation exoskeletons \cite{KimWalshEA2019Science,MooneyRouseHerr2014JNRE}.
+This is an open problem.
+Augmentation exoskeletons are already close to the energy-density boundary at which the energy they provide is equal to the energy they cost the user due to their mass.
+The extra design constraints make it harder for amplification exoskeletons to cross this boundary even at slow walking speeds.
+
+
+
+\subsection{Open Problems in the Control Framework}
+\label{subs:open_control}
+% open questions in the control framework: 1: human approximation
+The control framework itself also has some open questions.
+First, we approximated the mechanical impedance of the human and the cuff as being component-wise decoupled between the six degrees of freedom in our \emph{amplification task}.
+Since an extremely low amplification bandwidth is still stable, and since our tuning process increases bandwidth until instability is discovered, this approximation limits us by introducing conservatism in the final tuning. %
+Because of inter-component human coupling behavior, the tuning process may result in a different answer depending on the order with which the individual task sub-component bandwidths are tuned. %
+
+
+
+% second: scalability Address generality and scalability
+Second, the framework was only tested with six \emph{amplification task} sub-components.
+In theory, it supports arbitrarily many task sub-components.
+And it is also theoretically possible to join the \emph{inter-foot force task} with the \emph{amplification task}---to make the swing foot capable of acting like an amplified manipulator.
+\add{Elimination of the inter-foot force $f_d$ restricts the exoskeleton to applying a pair of ground reaction forces inside a six-dimensional space. The six-dimensional null space that is prohibited includes non-zero internal forces along the axis between the feet and canceling vertical torques perpendicular to the ground. Such internal forces and torques \cite{SentisParkKhatib2010TRO} would be possible if the inter-foot force tasks were transformed into a second amplification task. And this would enable amplified kicking and manipulation of objects on the floor with the feet.}
+We lacked the sensing configuration for such a test: it would require the full 6-DOF interaction force/torque between the human foot and the exoskeleton foot to be measured, rather than just the vertical pressure between them.
+Thus, to validate the scalability our theory predicts, we would need an exoskeleton with either A) more sensorized human contacts (arms, for example) or B) the elimination of all human--load contact that does not pass through the exoskeleton as an intermediary.
+
+
+
+% 3rd: automatic Controller tuning: is it task-dependent? Can controller tuning be automated?
+Third, the controller tuning process is intended to be robust to all activities the operator performs, but we cannot know all these activities beforehand.
+A practical extension to this work would be to introduce an always-online learning process to continually adapt the tuning and avoid instability.
+Previously we have looked at tuning automation using online stiffness estimation \cite{HuangCappelThomasHeSentis2020ACC}.
+However, this type of automation could potentially be simpler: if the system starts to vibrate, it could reduce the amplification bandwidth until the vibration subsides.
+\add{Such a procedure would essentially automate our manual tuning approach.}
+
+% automatic tuning, but higher performance.
+On the other hand, higher performance might be obtained with a more complex strategy: modeling the human and redesigning the controller.
+Modeling the human online could \add{exploit} convex programs that automatically learn bounded-uncertainty models \cite{ThomasSentis2019TAC}. 
+With this more versatile system identification approach, even a human stiffness with `off-diagonal' terms could be learned.
+With every change to the model of the human stiffness bounds, robust control theory could synthesize a transfer matrix $\mathbf K(s)$ that guarantees stability.
+
+% on alternative cost functions
+\add{Relating to the approximate lexicographic optimization using the 1-norm cost, other cost functions could also be considered. In particular, a 2-norm cost approach could smoothly transition through priority inversion events---improving over the hard-switching behavior of the 1-norm cost. Such a cost has been explored in \cite{Campbell2018Thesis} for this exoskeleton and in \cite{KimJorgensenSentis2020IJRR} for biped robots. However this cost obfuscates the realized task priorities, which hindered efforts to understand the required sacrifices when designing the cost. Perhaps a generalizing compromise exists in costs that are locally quadratic, but asymptotically linear.}
+
+
+
+% address Rmk.~\ref{rev7:proper_discussion}.F: no ground contact
+Finally, the approach makes an assumption that a foot is always on the ground---and this precludes interesting applications in free-fall, underwater (with neutral buoyancy), or micro-gravity.
+In such circumstances, the \emph{amplification task} and \emph{inter-foot force task} structures would need to be combined together and significantly altered.
+A ``virtual single foot contact'' would not exist.
+In its place, the \emph{change in centroidal momentum} \cite{KoolenEA2016IJHR} would need to become the component of torque-space left intentionally unconstrained by the tasks.
+The remaining DOFs in torque-space would then be the subject of the new combined amplification task.
+The assignment of intuitive and easy-to-tune amplification controllers to such a task---which would concern an ever-changing subspace of the end effector contact force space---is an open problem.
+However, the approach to parameterizing the \emph{internal forces of multi-contact} from \cite{SentisParkKhatib2010TRO} would be a reasonable starting point.
+
+
+\subsection{Series Elastic Actuators}
+
+%Benefits and drawbacks of the compliant actuators
+Our exoskeleton hardware features series elastic actuators that are force/torque-controlled, and this decision also comes with benefits and drawbacks.
+To our knowledge, this paper is the first demonstration of Multi-DOF amplification control based on human interface force sensors and actuator force sensors (i.e. the series elastic elements).
+While such actuators are commonly used in wearable robots, they are a key part of our strategy, because with them we can avoid sensorizing the external force interface.
+This is a major advantage compared to systems designed to follow the extender concept \cite{KazerooniGuo1993JDSMC}.
+The lack of load sensors gives us the freedom to properly handle amplification for load contract forces at any contact point along the structure of the exoskeleton.
+
+
+
+As for series compliance itself, however, control performance would be \emph{better} with nearly-rigid springs.
+\add{In our experiment, the primary bandwidth-limiting factor that $\eta(s)$ must describe is the 10 Hz bandwidth of the exoskeleton's actuators. And this bandwidth is limited by the mechanical stiffness of the series spring, the noise level in the motor position and spring deflection sensors, and the bandwidth of the electrical current controller. The time-delay of approximately 1 ms was non-limiting, so to improve the overall performance of the exoskeleton, the most efficient strategy would be to increase the spring stiffness and spring deflection sensor resolution.}
+The series elastic actuators are simply torque sources to us, and direct drive motors offer higher bandwidth as torque sources.
+Removing the springs could also save weight.
+But series elasticity has some practical advantages: the force sensing is cheap and high quality, the exoskeleton's motors are protected from impacts, and both the transmission's friction and the rotor's reflected inertia are well hidden from the user.
+
+
+\subsection{Potential Applications}
+
+% Clear purpose, not ``non-repetitive and unpredictable''
+We have demonstrated the control framework on the Apptronik Sagittarius exoskeleton, which is designed to lift heavy payloads as the user moves quickly.
+In this use case, the benefit of amplification control---relative to gravity compensation of the payload---is the potential reduction of inertial forces the user needs to compensate (without resorting to acceleration feedback) and the forces due to modeling error in the compensation. Future controllers for this application might investigate further enhancements to the operator's quality of life, such as posture or safety support that guides the user.
+
+However, amplification is also of great interest in load manipulation and heavy-duty tool use. We imagine some industrial amplification exoskeletons might be for slowly manipulating very large loads under direct human control.
+If they were to move fast, they would require significantly more impressive power density than we typically see today.
+Such an exoskeleton, worn by a skilled operator, might be fielded in difficult terrain as an alternative to tracked construction vehicles, perhaps with specialized tools for manipulating the environment.
+Given the strength of the system, these tools might not be constrained by weight relative to other tools for such difficult environments.
+The exoskeleton could act as an adjustable bracing system that allows the operator to maneuver them into position in a controlled way.
+\add{For example, a construction worker could use an exoskeleton to maneuver an oversize pneumatic drill to carve a staircase on un-finished mountain terrain.}
+\add{Exoskeletons as platforms offer new possibilities for industrial tools and potential job sites by combining the flexibility of people with the strength of machines.}
+
+% What problem is our control framework equipped to solve---out there industrial non-anthropomorphic tool holder.
+While our exoskeleton is designed to mimic the kinematics of the person wearing it, this is not the only way to \add{approach} the design. The control framework also has the potential to allow non-anthropomorphic exoskeletons to amplify human interaction. \add{For example, consider} a robot connected to an operator's feet with long spindly legs that join together at a robot 'hip'. \add{Where} this hip also features an enormous power tool that requires the user to manipulate it with both hands. Such an architecture would require the same control system features as our anthropomorphic exoskeleton structure: strength amplification in the frame of the robot's hip, awareness of contact inequalities, and human-led footstep transitions.
+
+
+
+
+% \appendices
+% \section{Relation to Earlier Controller Design Framework}
+
+% \ra{In our own prior work in exoskeleton control, we}\ta{The control strategy we previously published in \cite{HeThomasPaineSentis2019ACC} can also be re-expressed in terms of an amplification transfer function. Ref.~\cite{HeThomasPaineSentis2019ACC}} explored the creation of amplification controllers based on reduction of an ``ideal amplification error signal'' $Y(s)=(\alpha_0-1)F_h(s)-\eta(s) F_x(s)$ (in the notation of Sec.~\ref{sec:fd}) using a feedback compensator $G(s)$, with desired actuator force $F_x(s) = G(s) Y(s)$. This left us with a feedback stability model that required system identification of the human. Our proposed structure for $G(s)$ was that of a first order lag filter. The purpose of this section is to explain this prior approach in terms of the modified human-side compliance.
+
+% We can eliminate the self-referential $F_x(s)$ definition using algebra:
+% \begin{gather}
+% F_x(s) = G(s)((\alpha_0-1)F_h(s)-\eta(s) F_x(s)),\\
+% %(1+G(s)\eta(s))F_x(s) = G(s)(\alpha_0-1)F_h(s)\\
+% F_x(s) = \frac{G(s)(\alpha_0-1)}{(1+G(s)\eta(s))} F_h(s).\end{gather}
+% We also have a first order lag model of $G(s)$,
+% \begin{gather}
+% %K(s) = \frac{G(s)}{(1+G(s)\eta(s))}(\alpha_0-1)\\
+% G(s) = \frac{s+z_G}{s+p_G}k_G,
+% \end{gather}
+% where $k_G$ is the gain, $z_G$ is the zero frequency, and $p_G$ is the pole frequency for the lag. We can therefore express the equivalent $K(s)$ this strategy is implementing,
+% \begin{gather}
+% K(s) = \frac{s+z_G}{s/k_G + p_G/k_G+(s+z_G)\eta(s)}(\alpha_0-1).
+% \end{gather}
+% From here, we can see that the strategy results in something close to another lag filter (if we neglect the actuator dynamics to treat $\eta(s)\approxeq 1$). However, in this case the nominal amplification of the strategy is 
+% \begin{gather}
+% %\alpha(s) = \frac{\alpha_0 s+\alpha_0 z_G - s - z_G +s/k_G + p_G/k_G + s+z_G}{s/k_G + p_G/k_G+(s+z_G)}\\
+% \alpha(s) = \frac{(\alpha_0 + 1/k_G) s + (\alpha_0 z_G + p_G/k_G)}{(1+1/k_G)s + (z_G+ p_G/k_G)},
+% \end{gather}
+% which is similar to the controller parameterization in this paper, but less convenient because its steady state behavior is not $\alpha_0$ as we might expect but rather $\frac{\alpha_0 + p_G/(k_G z_G)}{1+p_G/(k_G z_G)}$, which will always be less than \ta{or equal to} $\alpha_0$. Nor does it return to the natural system behavior at high frequencies, since the nominal value of high frequency $\alpha(s)$ does not return to unity. (In practice it will still return to unity due to $\eta(s)$).
+
+
+
+
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+	For this research in human strength amplification, Apptronik Systems Inc. provided, at no cost, access to their exoskeleton hardware called Sagit-P5. They also provided mechanical maintenance and improvements to the low level interfaces to facilitate the testing. The authors would like to thank Donghyun Kim for providing insights on contact transitions. This system was designed and built by a team including Jonas Fox, Brad Resh, Uday Savaria, Ryan Harkins, Ryan MacWilliams, Joel Cox, and Paul Fleury. The authors would also like to acknowledge Bill Helmsing and Jeff Cardenas for allocating time for our research on the Sagit-P5 exoskeleton.
+	
+	This work was supported in part by NASA grant NNX15AQ33H ``Controlling Robots with a Spring in Their Step,'' for which Gray Thomas is the fellow and Luis Sentis is the advisor and by two STTR grants from the US Department of Defense.
+
+
+\bibliographystyle{frontiersinSCNS_ENG_HUMS}
+\bibliography{bib}
+%\vspace{3in}
+%\pagebreak
+
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{gray_exo.png}}]{Gray Cortright Thomas} (S'11--M'19) received the B.S. in engineering:robotics from Olin College of Engineering in 2012, and the Ph.D. in mechanical engineering from the University of Texas at Austin in 2019. 
+	
+% Since 2019, he has been a Postdoctoral Research Fellow at the University of Michigan, Ann Arbor, MI. His research focuses on the scientific intersection of estimation, control, and wearable robotics.
+
+% Dr. Thomas was the recipient of a NASA Space Technology Research Fellowship, an Olin Full Tuition Scholarship, and a Cockrell School of Engineering Temple Foundation Fellowship. His collaborative work has received best paper awards in the International Journal of Humanoid Robotics (2016) and the IEEE International Conference on Robotics and Automation (2017).
+
+% \end{IEEEbiography}
+
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{orion.jpg}}]{Orion Campbell IV}  received the B.S. (with high honors) and M.S. degrees in mechanical engineering from the University of Texas at Austin in 2013 and 2018.	
+
+% He joined Apptronik Systems, Austin,
+% TX, USA, in 2018 and is now the director of software and controls.
+% As a Graduate Research Assistant in the Human Centered Robotics Lab, his research focused on whole-body control and trajectory planning for humanoid robots, and he worked on several projects designing and implementing real-time networked control systems for multi-DOF robotic systems. He was the recipient of the Virginia \& Ernest Cockrell, Jr., Fellowship in Engineering.
+	
+% \end{IEEEbiography}
+
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{nick_nichols_exo.png}}]{Nick B. Nichols} was a project manager at Apptronik at the time of this work. He is now self-employed in the finance industry.
+	
+% \end{IEEEbiography}
+
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{josh_james.png}}]{Joshua A. James} received the M.S. in electrical engineering from the University of Texas at Austin in 2016.	
+	
+% He joined Apptronik Systems, Austin, TX, USA, in 2018 and is now a controls engineering specialist.
+% As a Graduate Research Assistant in the Human Centered Robotics Lab, his research focused on a modular robotics architecture.
+	
+% \end{IEEEbiography}
+
+
+% \begin{IEEEbiography}
+% 	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{binghan.jpg}}]{Binghan He} (S'18--M'20) received the B.S. degree in mechanical engineering from Purdue University, West Lafayette, IN, USA, in 2014 and the M.E. degree in mechanical engineering from Cornell University, Ithaca, NY, USA, in 2015. He is currently a Ph.D. candidate in the Department of Mechanical Engineering at the University of Texas at Austin, Austin, TX, USA. His current research at the University of Texas at Austin includes control synthesis, human-robot interaction, and exoskeletons. He received the Kaiser Aluminum \& Chemical Company Scholarship, in 2012 and 2014, the Purdue Industrial Roundtable Scholarship, in 2013, and the Kenneth Scudder Scholarship, in 2013.
+% \end{IEEEbiography}
+
+% \begin{IEEEbiography}
+% 	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{nico400400.jpg}}]{Nicolas Brissonneau} received an Engineering degree in mechanical engineering from Ecole Normale Superieure d'Arts et Metiers in 2016, an M.S. degree in Robotics from Sorbonne University in 2017 and an M.S degree in mechanical engineering from the University of Texas, Austin, in 2020.
+	
+% 	Since then he has been working on mobile manipulators as a robotics engineer at LinkDyn Robotics in Austin, TX, USA.
+% \end{IEEEbiography}
+
+% \begin{IEEEbiography}
+% 	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{nick_paine.png}}]{Nicholas A. Paine} is the co-founder and CEO of Apptronik. He received his B.S., M.S. and Ph.D. degrees in Electrical and Computer Engineering from The University of Texas at Austin.  His graduate work focused on the development of the UT Series Elastic Actuator, a compact high performance actuator for robotics.  He was a member of the NASA-JSC DARPA Robotics Challenge team where he helped design SEAs and developed actuator-level controllers for the Valkyrie robot.  He worked for one year as a post-doctoral researcher at UT Austin, investigating forced-convective cooling of electric motors and embedded system design.  Since Apptronik's founding in 2016, he has worked to direct and coordinate both technical and business strategy and execution.  He has helped to lead numerous system design efforts ranging from dynamic balancing humanoids, to force-augmentative exoskeletons and novel robotic manipulators.
+% \end{IEEEbiography}
+
+% \begin{IEEEbiography}
+% 	[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{luis_sentis.png}}]{Luis Sentis} (S'04--M'07) received the B.Sc. in telecommunications and electronics engineering from the Polytechnic University of Catalonia in 1996 and the M.S. and Ph.D. in electrical engineering from Stanford University in 2000 and 2007 respectively. 
+	
+% 	He is an Associate Professor in the Department of Aerospace Engineering and Engineering Mechanics at The University of Texas at Austin and General Dynamics Endowed Faculty Fellow. Before Stanford, he worked in Silicon Valley as a Control Systems Engineer. In Austin, he leads the Human Centered Robotics Laboratory, a laboratory focusing on control and experimentation with walking robots and exoskeletons, design of high performance robotic systems, and algorithms for active sensing in human environments. He was the UT Austin's Lead for DARPA's Robotics Challenge with NASA Johnson Space Center where he helped to design and test the Valkyrie humanoid robot. He is also a founder and advisor for Apptronik Systems.
+% \end{IEEEbiography}
+
+\end{document}

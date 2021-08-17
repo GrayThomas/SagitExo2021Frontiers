@@ -1,0 +1,77 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'new_first_fig.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{468bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.53846154)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{new_first_fig.pdf}}%
+    \put(0.38415596,0.50723795){\color[rgb]{0.9372549,0.16078431,0.16078431}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A) Human\end{tabular}}}}%
+    \put(0.38415596,0.44806203){\color[rgb]{0.20392157,0.39607843,0.64313725}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}C) Load\end{tabular}}}}%
+    \put(0.38415596,0.47779153){\color[rgb]{0.18039216,0.20392157,0.21176471}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}B) Exoskeleton\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{new_first_fig.pdf}}%
+    \put(0.439487,0.27301286){\color[rgb]{0.9372549,0.16078431,0.16078431}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}}%
+    \put(0.49197256,0.17999635){\color[rgb]{0.20392157,0.39607843,0.64313725}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Load\end{tabular}}}}}%
+    \put(0.48073004,0.32753137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$M_x$\\\end{tabular}}}}%
+    \put(0.54595896,0.27301286){\color[rgb]{0.18039216,0.20392157,0.21176471}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Net Exo.\end{tabular}}}}}%
+    \put(0.65119826,0.27301286){\color[rgb]{0.9372549,0.16078431,0.16078431}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}}%
+    \put(0.70368387,0.17999635){\color[rgb]{0.20392157,0.39607843,0.64313725}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Load\end{tabular}}}}}%
+    \put(0.76130359,0.27301286){\color[rgb]{0.18039216,0.20392157,0.21176471}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Net Exo.\end{tabular}}}}}%
+    \put(0.8666239,0.27301286){\color[rgb]{0.9372549,0.16078431,0.16078431}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Human\end{tabular}}}}}%
+    \put(0.91910979,0.17999635){\color[rgb]{0.20392157,0.39607843,0.64313725}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Load\end{tabular}}}}}%
+    \put(0.97281666,0.27301286){\color[rgb]{0.18039216,0.20392157,0.21176471}\rotatebox{90}{\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Net Exo.\end{tabular}}}}}%
+    \put(0.39422399,0.3993462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D): Passive\end{tabular}}}}%
+    \put(0.59966685,0.3993462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}E): Grav. Comp.\end{tabular}}}}%
+    \put(0.81438154,0.3993462){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}F): Amplification\end{tabular}}}}%
+    \put(0.69376857,0.32753137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$M_x$\\\end{tabular}}}}%
+    \put(0.91020673,0.32753137){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$M_x$\\\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

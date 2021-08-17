@@ -1,0 +1,70 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'onpwbc.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{250.58969879bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.75882339)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{onpwbc.pdf}}%
+    \put(0.55974536,0.60882106){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Valid Region\end{tabular}}}}%
+    \put(0.60591283,0.1613305){\color[rgb]{0.1254902,0.29019608,0.52941176}\rotatebox{8.3495612}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}A contour line\end{tabular}}}}}%
+    \put(0.78896296,0.23269289){\color[rgb]{0,0.2,0.6}\rotatebox{41.999722}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}A Solution\end{tabular}}}}}%
+    \put(0.73756901,0.61514122){\color[rgb]{0,0,0}\rotatebox{-28.864124}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}Constraint Inequality\end{tabular}}}}}%
+    \put(0.87557152,0.23095739){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$x$\end{tabular}}}}%
+    \put(0.32490034,0.702007){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}$y$\end{tabular}}}}%
+    \put(0.42011717,0.33095098){\color[rgb]{0.8,0,0}\rotatebox{41.999722}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}B Solution\end{tabular}}}}}%
+    \put(0.31581241,0.54560715){\color[rgb]{0.80784314,0.36078431,0}\rotatebox{41.999722}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}C Solution\end{tabular}}}}}%
+    \put(0.4154045,0.08738073){\color[rgb]{0.8,0,0}\rotatebox{44.661012}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}B contour line\end{tabular}}}}}%
+    \put(0.22940293,0.36095597){\color[rgb]{0.80784314,0.36078431,0}\rotatebox{77.12353}{\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}C contour line\end{tabular}}}}}%
+    \put(0.58603963,0.47394229){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}Lexicographic Solutions\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{onpwbc.pdf}}%
+  \end{picture}%
+\endgroup%

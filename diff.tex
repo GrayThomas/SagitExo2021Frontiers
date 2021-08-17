@@ -1,0 +1,111 @@
+3c3
+< \usepackage{url,hyperref,lineno,microtype,subcaption}
+---
+> \usepackage{url,lineno,microtype,subcaption}
+10a11,12
+> \usepackage[hidelinks]{hyperref}
+> \usepackage[T1]{fontenc}
+59a62
+> 
+78a82
+> 
+88a93,95
+> 
+> \newcommand{\add}[1]{\textcolor[HTML]{8710b3}{#1}}
+> 
+200a208
+> \add{Singularity-prone kinematics are not necessarily reflected in the tasks. Rather, the tasks are goals that may not always be possible to satisfy given the constraints of the robot.}
+216c224
+< 		$\widebar J_t$ & dynamically consistant pseudo-inverse of $J_t$\\
+---
+> 		$\widebar J_t$ & dynamically \add{consistent} pseudo-inverse of $J_t$\\
+337c345
+< To facilitate easy tuning of our controller we reparamterize in terms of an amplificaiton bandwidth parameter $\omega_a$ (equal to $\omega_p$) and a low frequency amplification gain $\alpha_0\geq1$ (equal to $\omega_z^2/\omega_p^2$) so that
+---
+> To facilitate easy tuning of our controller we \add{reparameterize} in terms of an amplification bandwidth parameter $\omega_a$ (equal to $\omega_p$) and a low frequency amplification gain $\alpha_0\geq1$ (equal to $\omega_z^2/\omega_p^2$) so that
+356c364
+< The bode plot of $X(s)/F_l(s)$ (`System' in Fig.~\ref{fig:oneptune}) transitions from a stable low-pass filter behavior to an unstable system as $\omega_a$ is increased. We note that the critical frequency satisfies a relationship akin to zero phase margin, where both the magnitude of the human (integral) admittance, $1/(K_h+C_hj)$ (`Human' in Fig.~\ref{fig:oneptune}), is equal to that of the amplified exoskeleton admittance, $1/(\alpha(s)Ms^2)$ (`Robot' in Fig.~\ref{fig:oneptune}), and the phases of the two are offset by $180^\circ$. 
+---
+> The bode plot of $X(s)/F_l(s)$ (`System' in Fig.~\ref{fig:oneptune}) transitions from a stable low-pass filter behavior to an unstable system as $\omega_a$ is increased. We note that the critical frequency satisfies a relationship akin to zero phase margin, where both the magnitude of the human (integral) admittance, $1/(K_h+C_hj)$ (`Human' in Fig.~\ref{fig:oneptune}), is equal to that of the amplified exoskeleton admittance, $1/(\alpha(s)Ms^2)$ (`Robot' in Fig.~\ref{fig:oneptune}), and the phases of the two are offset by $180^\circ$. \add{We call the phase angle difference $\angle C_x(j\omega)-\angle C_h(j\omega)-180^\circ$ at crossover frequency $\omega$ where $|C_x(j\omega)|=|C_h(j\omega)|$ the `Human Phase Margin'. Since the human phase margin is also the phase margin for the open loop transfer function $C_x(s)C_h^{-1}(s)$ (in the unit negative feedback case), the human phase margin predicts the stability of the closed loop system resulting from the human--exoskeleton interconnection.}
+365c373,374
+< If a small value for $\alpha_0$ is selected such that the minimum phase of $1/(\widehat\alpha(s)Ms^2)$ stays above the gray line in Fig.~\ref{fig:oneptune}, the system will be stable even for very high $\omega_a$. However, this will not hold true forever, and the bandwidth limiting factors in $\eta(s)$ will cause the the realized behavior $1/(\alpha(s)Ms^2)$ itself to become unstable for high values of $\omega_a$. 
+---
+> If a small value for $\alpha_0$ is selected such that the minimum phase of $1/(\widehat\alpha(s)Ms^2)$ stays above the gray line in Fig.~\ref{fig:oneptune}, the system will be stable even for very high $\omega_a$. However, this will not hold true forever, and the bandwidth limiting factors in $\eta(s)$ will cause \add{the} realized behavior $1/(\alpha(s)Ms^2)$ itself to become unstable for high values of $\omega_a$.
+> 
+371c380
+< It is well known that humans have the ability to co-contract their antagonistic muscles and artificially raise their mechanical impedance, and this represents another changing aspect of this problem. If we assume that this scales both $k_h$ and $h_h$ together, as supported in \cite{HeHuangThomasSentis2020TNSRE}, then co-contraction will lower the human admittance and improve the human phase margin. To ensure a robust stability while tuning for performance, the operator will need to avoid co-contraction so as to explore the gain-limiting case.
+---
+> It is well known that humans have the ability to co-contract their antagonistic muscles and artificially raise their mechanical impedance, and this represents another changing aspect of this problem. If we assume that this scales both $k_h$ and $h_h$ together, as supported in \cite{HeHuangThomasSentis2020TNSRE}, then co-contraction will lower the human admittance and improve the human phase margin. \add{In fact, this effect has even been exploited to improve controller performance online, provided a co-contraction predictor can be learned from wearable sensors (\textit{e.g.} EMG and bicep circumference sensors) \cite{HuangCappelThomasHeSentis2020ACC}.} To ensure robust stability while tuning for performance, the operator will need to avoid co-contraction so as to explore the gain-limiting case. 
+474c483
+< as a rough parameterization of the deviation from the desired force distribution. This gets contorted into being perpendicular to $\widebar X$ by the pre-multiplication with an $\widebar X$ image space nullifier. Ultimately, the \emph{inter-foot force task} tries to eliminate $\|f_d\|$, and when it is completely eliminated the reaction forces minimize the previously defined quadratic cost (since $f = \widebar X f_s$). This leaves $f_s$ as the path of least resistance the optimization uses to hold up the weight of the exoskeleton.
+---
+> as a rough parameterization of the deviation from the desired force distribution. This gets contorted into being perpendicular to $\widebar X$ by the pre-multiplication with an $\widebar X$ image space nullifier. Ultimately, the \emph{inter-foot force task} tries to \add{avoid choosing an exoskeleton torque that results in a nonzero} $\|f_d\|$, and when \add{$f_d=0$}, reaction forces minimize the previously defined quadratic cost (since $f = \widebar X f_s$). This leaves $f_s$ as the path of least resistance the optimization uses to hold up the weight of the exoskeleton.
+484a494,495
+> 
+> 
+700c711,714
+< Fortunately, the approximation of the lexicographic problem is asymptotically perfect as the weight discrepancy increases, and the numerical precision of the linear program solver allowed us sufficient space to set these weights orders of magnitude apart and achieve reliable reproduction of the lexicographic problem in practice.
+---
+> Fortunately, the approximation of the lexicographic problem is asymptotically perfect as the weight discrepancy increases.
+> \add{We exploited large differences in the weights to avoid priority inversion events during our experiment.}
+> The numerical precision of the linear program solver allowed us sufficient space to set these weights orders of magnitude apart and achieve reliable reproduction of the lexicographic problem in practice.
+> \add{These numerical limits restrict the total number of priority levels that can be correctly implemented.}
+760c774
+< Our hardware platform is the Sagittarius P5 lower-body exoskeleton from Apptronik Systems, shown in Fig.~\ref{fig:parts}. This exoskeleton has 12 joints, six per leg. We name the joints in the serial kinematic chain from the torso to the foot 1) hip abduction/adduction, 2) hip flexion/extension, 3) hip internal/external rotation (hip yaw), 4) knee flexion/extension, 5) ankle flexion/extension, and 6) ankle pronation/supination (ankle roll). Of these six, four are powered joints. The two passive joints are hip internal/external rotation (also referred to as hip yaw for alignment with the local z axis) and ankle pronation/supenation (which we also call ankle roll for similar reasons). The powered hip abduction and hip flexion joints are actuated by rotary series elastic actuators, while the other two feature proprietary linkage designs connecting linear series elastic actuators with rotary joint motion. Power is provided from off-board the device via a joint power and communication tether. The actuators communicate with a realtime Linux desktop workstation through an ethercat bus.
+---
+> Our hardware platform is the Sagittarius P5 lower-body exoskeleton from Apptronik Systems, shown in Fig.~\ref{fig:parts}. This exoskeleton has 12 joints, six per leg. We name the joints in the serial kinematic chain from the torso to the foot 1) hip abduction/adduction, 2) hip flexion/extension, 3) hip internal/external rotation (hip yaw), 4) knee flexion/extension, 5) ankle flexion/extension, and 6) ankle pronation/supination (ankle roll). Of these six, four are powered joints. The two passive joints are hip internal/external rotation (also referred to as hip yaw for alignment with the local z axis) and ankle pronation/\add{supination} (which we also call ankle roll for similar reasons). The powered hip abduction and hip flexion joints are actuated by rotary series elastic actuators, while the other two feature proprietary linkage designs connecting linear series elastic actuators with rotary joint motion. Power is provided from off-board the device via a joint power and communication tether. The actuators communicate with a realtime Linux desktop workstation through an ethercat bus.
+806a821,823
+> % New paragraph on priority inversion
+> \add{We avoided priority inversion events by iterative tuning of the priority weights (Tab.~\ref{tab:priorities}). This tuning was done with squatting and stepping behaviors similar to the planned tests. High-priority tasks that were never sacrificed held large weights. To save space in the limited numerical precision, these tasks were ambiguously ranked relative to each other. The most important weights were quickly identified and set to values that reliably avoided priority inversion in the tested behaviors. The more difficult question was identifying the priorities preferred by the operator.}
+> 
+815a833,834
+> 
+> 
+844a864,865
+> 
+> 
+879c900
+< Fig.~\ref{fig:experimental_condition} and Tab.~\ref{tab:expparam} show the basic structure of our tests: the operator wears the exoskeleton in a roughly standing position and various controller features are turned on and off. Extra weight is attached to the backpack as an unknown load in tests \ref{subs:amp}.3-4, and the image shows where it hangs relative to the operator. Fig.~\ref{fig:experiment} shows the results of the three tests. 
+---
+> Fig.~\ref{fig:experimental_condition} and Tab.~\ref{tab:expparam} show the basic structure of our tests: the operator wears the exoskeleton in a roughly standing position and various controller features are turned on and off. Extra weight is attached to the backpack as an unknown load in tests \ref{subs:amp}.3-4, and the image shows where it hangs relative to the operator. Fig.~\ref{fig:experiment} shows the results of the three tests. \add{This experimental condition and posture were chosen to avoid singularity in the knees, prevent the actuators from overheating during the highest payload test, and avoid reaching the friction limits of the foot contact, which could prevent complete satisfaction of the amplification task.}
+1011c1032,1033
+< This behavior highlights the human-led foot contact transitions and demonstrates how the weight is shifting in \emph{anticipation} of the actual contact transition.
+---
+> %This behavior highlights the human-led foot contact transitions and demonstrates how the weight is shifting in \emph{anticipation} of the actual contact transition.
+> \add{Since the operator decreases the ground reaction force on a foot before lifting it, matching the human ground reaction force distribution between the feet leads the exoskeleton to reduce its own ground reaction force on that foot in anticipation of the loss of contact.} 
+1016c1038
+<  This Rviz model manages to show almost everything that is going on, as described in the legend table.
+---
+>  This Rviz model \add{visualizes many signals of interest}, as described in the legend table.
+1086a1109
+> \add{Elimination of the inter-foot force $f_d$ restricts the exoskeleton to applying a pair of ground reaction forces inside a six-dimensional space. The six-dimensional null space that is prohibited includes non-zero internal forces along the axis between the feet and canceling vertical torques perpendicular to the ground. Such internal forces and torques \cite{SentisParkKhatib2010TRO} would be possible if the inter-foot force tasks were transformed into a second amplification task. And this would enable amplified kicking and manipulation of objects on the floor with the feet.}
+1097c1120
+< This is essentially how we tuned the system manually.
+---
+> \add{Such a procedure would essentially automate our manual tuning approach.}
+1101c1124
+< Modeling the human online could draw on convex programs that automatically learn bounded-uncertainty models \cite{ThomasSentis2019TAC}. 
+---
+> Modeling the human online could \add{exploit} convex programs that automatically learn bounded-uncertainty models \cite{ThomasSentis2019TAC}. 
+1104a1128,1131
+> % on alternative cost functions
+> \add{Relating to the approximate lexicographic optimization using the 1-norm cost, other cost functions could also be considered. In particular, a 2-norm cost approach could smoothly transition through priority inversion events---improving over the hard-switching behavior of the 1-norm cost. Such a cost has been explored in \cite{Campbell2018Thesis} for this exoskeleton and in \cite{KimJorgensenSentis2020IJRR} for biped robots. However this cost obfuscates the realized task priorities, which hindered efforts to understand the required sacrifices when designing the cost. Perhaps a generalizing compromise exists in costs that are locally quadratic, but asymptotically linear.}
+> 
+> 
+1125c1152,1155
+< As for series compliance itself, however, control performance would be slightly better off with nearly-rigid springs.
+---
+> 
+> 
+> As for series compliance itself, however, control performance would be \emph{better} with nearly-rigid springs.
+> \add{In our experiment, the primary bandwidth-limiting factor that $\eta(s)$ must describe is the 10 Hz bandwidth of the exoskeleton's actuators. And this bandwidth is limited by the mechanical stiffness of the series spring, the noise level in the motor position and spring deflection sensors, and the bandwidth of the electrical current controller. The time-delay of approximately 1 ms was non-limiting, so to improve the overall performance of the exoskeleton, the most efficient strategy would be to increase the spring stiffness and spring deflection sensor resolution.}
+1142,1143c1172,1173
+< Perhaps the operator is a construction worker who uses the exoskeleton to lug a massive jackhammer up the mountainside in order to carve a  staircase.
+< Exoskeletons as platforms opens up the door to new industrial tools and potential job sites---all because they combine the flexibility of people with the strength of machines.
+---
+> \add{For example, a construction worker could use an exoskeleton to maneuver an oversize pneumatic drill to carve a staircase on un-finished mountain terrain.}
+> \add{Exoskeletons as platforms offer new possibilities for industrial tools and potential job sites by combining the flexibility of people with the strength of machines.}
+1146c1176
+< While our exoskeleton is designed to mimic the kinematics of the person wearing it, this is not the only way to go about the design. The control framework also has the potential to allow non-anthropomorphic exoskeletons to amplify human interaction. Imagine, for example, a robot connected to an operator's feet with long spindly legs that join together at a robot 'hip'. This hip also features an enormous power tool that requires the user to manipulate it with both hands. This architecture would require the same control system features as our anthropomorphic exoskeleton structure: strength amplification in the frame of the robot's hip, awareness of contact inequalities, and human-led footstep transitions.
+---
+> While our exoskeleton is designed to mimic the kinematics of the person wearing it, this is not the only way to \add{approach} the design. The control framework also has the potential to allow non-anthropomorphic exoskeletons to amplify human interaction. \add{For example, consider} a robot connected to an operator's feet with long spindly legs that join together at a robot 'hip'. \add{Where} this hip also features an enormous power tool that requires the user to manipulate it with both hands. Such an architecture would require the same control system features as our anthropomorphic exoskeleton structure: strength amplification in the frame of the robot's hip, awareness of contact inequalities, and human-led footstep transitions.
